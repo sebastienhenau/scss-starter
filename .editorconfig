@@ -1,0 +1,49 @@
+# EditorConfig helps developers define and maintain consistent coding styles
+# between different editors and IDEs.
+# http://editorconfig.org/
+# Install the plugin for your IDE: http://editorconfig.org/#download
+
+# Don't look for another .editorconfig file in parent directories
+root = true
+
+# Default all files to tab-indented
+[*]
+charset = utf-8
+indent_style = tab
+indent_size = 4
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+trim_trailing_spaces = true
+# editorconfig-tools is unable to ignore longs strings or urls
+max_line_length = off
+
+# Respect the package.json formatting - npm always inserts 2 spaces.
+# 2 space indentation for package.json, bower.json
+[{package,bower}.json]
+indent_style = space
+indent_size = 2
+
+# 4 space indentation for composer.json
+[composer.json]
+indent_style = space
+indent_size = 4
+
+# 2 space indentation for all yml files.
+[*.yml]
+indent_style = space
+indent_size = 2
+
+# trailing spaces in markdown indicate word wrap and is used to differentiate
+# line breaks and paragraphs
+[*.md]
+trim_trailing_spaces = false
+indent_size = 2
+indent_style = space
+max_line_length = 80
+
+# 4-space indentation for all PHP files
+# http://www.php-fig.org/psr/psr-2/
+[*.php]
+indent_style = space
+indent_size = 4
