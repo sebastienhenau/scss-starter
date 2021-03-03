@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/sebastienhenau/scss-starter/issues"
   },
-  "homepage": "https://github.com/sebastienhenau/scss-starter#readme"
+  "homepage": "https://github.com/sebastienhenau/scss-starter#readme",
+  "devDependencies": {
+    "@commitlint/config-conventional": "^12.0.1",
+    "commitlint": "^12.0.1",
+    "husky": "^5.1.3"
+  }
 }
