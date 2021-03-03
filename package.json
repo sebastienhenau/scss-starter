@@ -1,0 +1,24 @@
+{
+  "name": "@sebastienhenau/scss-starter",
+  "version": "1.0.0",
+  "description": "Scss starter setup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastienhenau/scss-starter.git"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "starter"
+  ],
+  "author": "Sébastien Henau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebastienhenau/scss-starter/issues"
+  },
+  "homepage": "https://github.com/sebastienhenau/scss-starter#readme"
+}
