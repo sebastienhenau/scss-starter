@@ -1,0 +1,42 @@
+{
+	"printWidth": 80,
+	"tabWidth": 4,
+	"useTabs": true,
+	"semi": true,
+	"singleQuote": false,
+	"quoteProps": "as-needed",
+	"jsxSingleQuote": false,
+	"trailingComma": "es5",
+	"bracketSpacing": true,
+	"jsxBracketSameLine": false,
+	"arrowParens": "always",
+	"htmlWhitespaceSensitivity": "css",
+	"vueIndentScriptAndStyle": false,
+	"endOfLine": "lf",
+	"overrides": [
+		{
+			"files": [
+				"package.json",
+				".composer.json",
+				"*.yml",
+				"*.md",
+				"*.php"
+			],
+			"options": {
+				"useTabs": false
+			}
+		},
+		{
+			"files": ["package.json", "*.yml", "*.md"],
+			"options": {
+				"tabWidth": 2
+			}
+		},
+		{
+			"files": ["composer.json", "*.php"],
+			"options": {
+				"tabWidth": 4
+			}
+		}
+	]
+}
