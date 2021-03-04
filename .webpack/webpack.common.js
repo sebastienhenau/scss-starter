@@ -1,19 +1,27 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WebpackBar = require("webpackbar");
 
 const globals = require("./globals");
 
 module.exports = {
-	entry: globals.scripts,
+	entry: globals.scripts.entry,
 	output: {
 		filename: "[name].[contenthash].js",
-		path: globals.dist,
+		path: globals.dist.rel,
 		assetModuleFilename: "assets/[hash][ext][query]",
+	},
+	resolve: {
+		alias: {
+			"@": globals.src.rel,
+		},
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: globals.template,
+			template: globals.template.entry,
 			minify: true,
+			inject: "body",
 		}),
+		new WebpackBar(),
 	],
 	module: {
 		rules: [
@@ -27,8 +35,12 @@ module.exports = {
 				use: ["babel-loader"],
 			},
 			{
-				test: /\.(ttf|eot|woff|woff2)$/,
+				test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 				type: "asset/resource",
+			},
+			{
+				test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+				type: "asset/inline",
 			},
 		],
 	},

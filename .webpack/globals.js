@@ -1,11 +1,22 @@
 const path = require("path");
 
-const src = path.resolve(__dirname, "../src");
+const src = {
+	rel: path.resolve(__dirname, "../src"),
+};
 
 module.exports = {
 	src,
-	dist: path.resolve(__dirname, "../dist"),
-	scripts: path.join(src, "scripts/main.js"),
-	template: path.join(src, "index.html"),
-	port: 9000,
+	dist: {
+		rel: path.resolve(__dirname, "../dist"),
+		abs: "./dist",
+	},
+	template: {
+		entry: path.join(src.rel, "index.html"),
+	},
+	scripts: {
+		entry: path.join(src.rel, "scripts/main.js"),
+	},
+	server: {
+		port: 9000,
+	},
 };
