@@ -1,0 +1,7 @@
+/**
+ * Setup sensible defaults:
+ * https://github.com/hankchizljaw/modern-css-reset/blob/master/src/reset.css
+ * https://piccalil.li/blog/a-modern-css-reset
+ * IMPORTANT: contains prefers-reduced-motion
+ */
+@use "modern-css-reset/dist/reset.min";
