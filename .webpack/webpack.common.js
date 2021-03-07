@@ -7,12 +7,12 @@ module.exports = {
 	entry: globals.scripts.entry,
 	output: {
 		filename: "[name].[contenthash].js",
-		path: globals.dist.rel,
+		path: globals.dist,
 		assetModuleFilename: "assets/[hash][ext][query]",
 	},
 	resolve: {
 		alias: {
-			"@": globals.src.rel,
+			"@": globals.src,
 		},
 	},
 	plugins: [

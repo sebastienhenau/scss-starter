@@ -1,6 +1,7 @@
 const sass = require("sass");
 const webpack = require("webpack");
 const { merge } = require("webpack-merge");
+const path = require("path");
 
 const globals = require("./globals");
 const common = require("./webpack.common");
@@ -11,7 +12,7 @@ module.exports = merge(common, {
 	devServer: {
 		host: "0.0.0.0",
 		historyApiFallback: true,
-		contentBase: globals.dist.abs,
+		watchContentBase: true,
 		port: globals.server.port,
 		open: true,
 		compress: true,
