@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "./settings" as settings;
+@use "../settings" as settings;
 @use "./em" as *;
 
 @mixin to($key) {

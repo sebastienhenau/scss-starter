@@ -1,14 +1,14 @@
 @use "sass:meta";
 @use "../settings" as settings;
 
-@mixin color-vars($suffix: null, $map: settings.$colors) {
+@mixin vars($map, $suffix: null) {
 	$name: "";
 
 	@each $key, $value in $map {
 		$name: if($suffix, "#{$suffix}-#{$key}", $key);
 
 		@if (meta.type-of($value) == "map") {
-			@include color-vars($name, $value);
+			@include vars($value, $name);
 		} @else {
 			--#{$name}: #{$value};
 		}

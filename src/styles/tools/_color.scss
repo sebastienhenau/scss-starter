@@ -2,5 +2,12 @@
 @use "../settings" as settings;
 
 @function color($keys...) {
-	@return map.get(settings.$colors, $keys...);
+	$name: null;
+	$value: map.get(settings.$colors, $keys...);
+
+	@each $key in $keys {
+		$name: if($name, "#{$name}-#{$key}", $key);
+	}
+
+	@return var(--#{$name});
 }
