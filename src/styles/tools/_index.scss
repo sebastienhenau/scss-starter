@@ -1,4 +1,5 @@
-@forward "./config" show $base-font-size, $breakpoints;
+@forward "./config" show $base-font-size, $breakpoints, $colors;
 @forward "./at" show at;
 @forward "./to" show to;
 @forward "./between" show between;
+@forward "./color" show color;

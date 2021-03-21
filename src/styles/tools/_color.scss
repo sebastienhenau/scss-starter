@@ -1,0 +1,6 @@
+@use "sass:map";
+@use "./config" as config;
+
+@function color($keys...) {
+	@return map.get(config.$colors, $keys...);
+}
