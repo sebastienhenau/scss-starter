@@ -1,9 +1,1 @@
-@use "./settings/breakpoints" as breakpoints;
-@use "./settings/colors" as colors;
-
-@use "./tools" with (
-	$breakpoints: breakpoints.$config,
-	$colors: colors.$config,
-);
-
 @use "./base" as *;
