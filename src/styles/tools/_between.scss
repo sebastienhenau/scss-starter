@@ -1,0 +1,12 @@
+@use "sass:map";
+@use "./config" as config;
+@use "./em" as *;
+
+@mixin between($from, $to) {
+	$from: map.get(config.$breakpoints, $from);
+	$to: map.get(config.$breakpoints, $to);
+
+	@media screen and (min-width: em($from)) and (max-width: em($to - 1px)) {
+		@content;
+	}
+}

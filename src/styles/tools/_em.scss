@@ -1,0 +1,6 @@
+@use "sass:math";
+@use "./config" as config;
+
+@function em($value) {
+	@return ($value / config.$base-font-size) * 1em;
+}

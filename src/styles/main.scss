@@ -1,7 +1,13 @@
-/**
- * Setup sensible defaults:
- * https://github.com/hankchizljaw/modern-css-reset/blob/master/src/reset.css
- * https://piccalil.li/blog/a-modern-css-reset
- * IMPORTANT: contains prefers-reduced-motion
- */
-@use "modern-css-reset/dist/reset.min";
+@use "./settings/breakpoints" as breakpoints;
+
+@use "./tools" with (
+	$breakpoints: breakpoints.$config,
+);
+
+@use "./base" as *;
+
+body {
+	@include tools.between("3", "7") {
+		background-color: blue;
+	}
+}

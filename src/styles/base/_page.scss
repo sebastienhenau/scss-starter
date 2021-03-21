@@ -1,0 +1,23 @@
+/**
+ * 1. Fix for 100vh issue on safari mobile browsers
+ * 2. Ensure the page always fills up the entire height of the viewport
+ * 3. Scale all fonts with the base-font-size of the browser
+ */
+:root {
+	/* stylelint-disable-next-line value-no-vendor-prefix */
+	height: -webkit-fill-available; // 1
+	min-height: 100%; // 2
+
+	font-size: 100%; // 3
+}
+
+/**
+ * 1. Fix 100vh issue on safari mobile browsers, min-height 100vh as fallback
+ * 2. Hide horizontal scroll, disable if sticky is used and micromanage overflow
+ */
+body {
+	min-height: 100vh; // 1
+	/* stylelint-disable-next-line value-no-vendor-prefix */
+	min-height: -webkit-fill-available; // 1
+	overflow-x: hidden; // 2
+}
