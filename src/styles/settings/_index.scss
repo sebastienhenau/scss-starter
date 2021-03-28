@@ -9,3 +9,15 @@ $breakpoints: (
 );
 
 $colors: ();
+
+$linear: true;
+$scale: 4px;
+
+$typography: (
+	h1: (
+		font-size: 100px,
+		"7": (
+			font-size: 200px,
+		),
+	),
+);

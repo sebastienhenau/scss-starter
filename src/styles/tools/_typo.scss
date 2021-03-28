@@ -1,0 +1,27 @@
+@use "sass:meta";
+@use "sass:math";
+@use "sass:list";
+@use "sass:map";
+@use "../settings" as settings;
+@use "./rem" as *;
+@use "./at" as *;
+
+@mixin typo($keys...) {
+	$def: map.get(settings.$typography, $keys...);
+
+	@each $prop, $value in $def {
+		$breakpoint: map.has-key(settings.$breakpoints, $prop);
+
+		@if (not($breakpoint)) {
+			@if (meta.type-of($value) == number and math.unit($value) == px) {
+				#{$prop}: rem($value);
+			} @else {
+				#{$prop}: $value;
+			}
+		} @else {
+			@include at($prop) {
+				@include typo(list.join($keys, $prop)...);
+			}
+		}
+	}
+}

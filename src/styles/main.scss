@@ -3,3 +3,7 @@
 @use "./settings";
 @use "./generators";
 @use "./tools";
+
+body {
+	@include tools.typo(h1);
+}
