@@ -1,0 +1,11 @@
+@use "sass:map";
+@use "@/styles/tools/breakpoints/config" as config;
+@use "@/styles/tools/helpers" as helpers;
+
+@mixin at($key) {
+	$value: map.get(config.$setup, $key);
+
+	@media screen and (min-width: helpers.number-convert($value, config.$unit)) {
+		@content;
+	}
+}

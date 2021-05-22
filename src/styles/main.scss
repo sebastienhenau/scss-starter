@@ -1,9 +1,5 @@
-// @use "./base" as *;
+@use "./tools" as tools;
 
-@use "./settings";
-@use "./generators";
-@use "./tools";
-
-body {
-	@include tools.typo(h1);
+h1 {
+	@include tools.typography-set(p, bold, italic);
 }

@@ -1,0 +1,60 @@
+@use "sass:math";
+@use "@/styles/settings" as settings;
+
+$_base-font-size: settings.$sizes-base-font-size;
+
+@function px-em($value) {
+	@return ($value / $_base-font-size) * 1em;
+}
+
+@function em($value) {
+	$unit: math.unit($value);
+
+	@if ($unit == px) {
+		@return px-em($value);
+	} @else {
+		@return $value;
+	}
+}
+
+@function px-rem($value) {
+	@return ($value / $_base-font-size) * 1rem;
+}
+
+@function rem($value) {
+	$unit: math.unit($value);
+
+	@if ($unit == px) {
+		@return px-rem($value);
+	} @else {
+		@return $value;
+	}
+}
+
+@function rem-px($value) {
+	$integer: ($value / ($value * 0 + 1)) * $_base-font-size;
+
+	@return math.round($integer);
+}
+
+@function px($value) {
+	$unit: math.unit($value);
+
+	@if ($unit == rem) {
+		@return rem-px($value);
+	} @else {
+		@return $value;
+	}
+}
+
+@function convert($value, $to) {
+	@if ($to == px) {
+		@return px($value);
+	} @else if ($to == rem) {
+		@return rem($value);
+	} @else if ($to == em) {
+		@return em($value);
+	} @else {
+		@return $value;
+	}
+}

@@ -1,0 +1,31 @@
+@use "sass:meta";
+@use "sass:map";
+
+@function none-destructive-merge($parent-map, $child-map) {
+	$result: $parent-map;
+
+	@each $key, $value in $child-map {
+		$has-key: map.has-key($result, $key);
+		$result-value: map.get($result, $key);
+		$result-type: meta.type-of($result-value);
+		$value-type: meta.type-of($value);
+
+		@if ((not $has-key) or ($result-type != $value-type) or (not($result-type == map and $value-type == map))) {
+			$result: map.merge(
+				$result,
+				(
+					$key: $value,
+				)
+			);
+		} @else {
+			$result: map.merge(
+				$result,
+				(
+					$key: none-destructive-merge($result-value, $value),
+				)
+			);
+		}
+	}
+
+	@return $result;
+}

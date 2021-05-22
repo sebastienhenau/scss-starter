@@ -1,0 +1,4 @@
+@use "@/styles/settings" as settings;
+
+$unit: em;
+$setup: settings.$breakpoints-setup;
