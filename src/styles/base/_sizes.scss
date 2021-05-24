@@ -1,0 +1,23 @@
+@use "@/styles/tools" as tools;
+
+:root {
+	--size-50: #{tools.sizes-scale(-7)};
+	--size-100: #{tools.sizes-scale(-6)};
+	--size-150: #{tools.sizes-scale(-5)};
+	--size-200: #{tools.sizes-scale(-4)};
+	--size-250: #{tools.sizes-scale(-3)};
+	--size-300: #{tools.sizes-scale(-2)};
+	--size-350: #{tools.sizes-scale(-1)};
+	--size-400: #{tools.sizes-scale(0)};
+	--size-450: #{tools.sizes-scale(1)};
+	--size-500: #{tools.sizes-scale(2)};
+	--size-550: #{tools.sizes-scale(3)};
+	--size-600: #{tools.sizes-scale(4)};
+	--size-650: #{tools.sizes-scale(5)};
+	--size-700: #{tools.sizes-scale(6)};
+	--size-750: #{tools.sizes-scale(7)};
+	--size-800: #{tools.sizes-scale(8)};
+	--size-850: #{tools.sizes-scale(9)};
+	--size-900: #{tools.sizes-scale(10)};
+	--size-950: #{tools.sizes-scale(11)};
+}

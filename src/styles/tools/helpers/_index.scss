@@ -1,3 +1,2 @@
-@forward "./number" as number-*;
-@forward "./string" as string-*;
-@forward "./map" as map-*;
+@forward "./config";
+@forward "./convert" show convert;

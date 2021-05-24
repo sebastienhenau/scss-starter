@@ -1,5 +1,1 @@
-@use "./tools" as tools;
-
-h1 {
-	@include tools.typography-set(p, bold, italic);
-}
+@use "./base" as *;

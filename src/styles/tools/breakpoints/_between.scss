@@ -2,11 +2,15 @@
 @use "@/styles/tools/breakpoints/config" as config;
 @use "@/styles/tools/helpers" as helpers;
 
-@mixin between($from, $to) {
-	$from: map.get(config.$setup, $from);
-	$to: map.get(config.$setup, $to);
+$_unit: config.$unit;
+$_setup: config.$setup;
 
-	@media screen and (min-width: helpers.number-convert($from, config.$unit)) and (max-width: helpers.number-convert($to - 1px, config.$unit)) {
+@mixin between($from, $to) {
+	$from: map.get($_setup, $from);
+	$to: map.get($_setup, $to);
+	$max-width: $to - 1px;
+
+	@media screen and (min-width: helpers.convert($from, $_unit)) and (max-width: helpers.convert($max-width, $_unit)) {
 		@content;
 	}
 }

@@ -1,59 +1,61 @@
 @use "sass:math";
-@use "@/styles/settings" as settings;
+@use "@/styles/tools/config" as tools-config;
+@use "@/styles/tools/helpers/config" as config;
 
-$_base-font-size: settings.$sizes-base-font-size;
+$_base-font-size: tools-config.$base-font-size;
+$_unit: config.$unit;
 
-@function px-em($value) {
+@function _px-em($value) {
 	@return ($value / $_base-font-size) * 1em;
 }
 
-@function em($value) {
+@function _em($value) {
 	$unit: math.unit($value);
 
 	@if ($unit == px) {
-		@return px-em($value);
+		@return _px-em($value);
 	} @else {
 		@return $value;
 	}
 }
 
-@function px-rem($value) {
+@function _px-rem($value) {
 	@return ($value / $_base-font-size) * 1rem;
 }
 
-@function rem($value) {
+@function _rem($value) {
 	$unit: math.unit($value);
 
 	@if ($unit == px) {
-		@return px-rem($value);
+		@return _px-rem($value);
 	} @else {
 		@return $value;
 	}
 }
 
-@function rem-px($value) {
+@function _rem-px($value) {
 	$integer: ($value / ($value * 0 + 1)) * $_base-font-size;
 
 	@return math.round($integer);
 }
 
-@function px($value) {
+@function _px($value) {
 	$unit: math.unit($value);
 
 	@if ($unit == rem) {
-		@return rem-px($value);
+		@return _rem-px($value);
 	} @else {
 		@return $value;
 	}
 }
 
-@function convert($value, $to) {
+@function convert($value, $to: $_unit) {
 	@if ($to == px) {
-		@return px($value);
+		@return _px($value);
 	} @else if ($to == rem) {
-		@return rem($value);
+		@return _rem($value);
 	} @else if ($to == em) {
-		@return em($value);
+		@return _em($value);
 	} @else {
 		@return $value;
 	}

@@ -1,0 +1,29 @@
+@use "@/styles/tools" as tools;
+
+h1 {
+	@include tools.typography-styles-h1();
+}
+
+h2 {
+	@include tools.typography-styles-h2();
+}
+
+h3 {
+	@include tools.typography-styles-h3();
+}
+
+h4 {
+	@include tools.typography-styles-h4();
+}
+
+h5 {
+	@include tools.typography-styles-h5();
+}
+
+h6 {
+	@include tools.typography-styles-h6();
+}
+
+p {
+	@include tools.typography-styles-p();
+}

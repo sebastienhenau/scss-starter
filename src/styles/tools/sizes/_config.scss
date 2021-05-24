@@ -1,0 +1,5 @@
+@use "@/styles/tools/config" as config;
+
+$unit: config.$unit;
+$linear: false;
+$scale: 1.333;

@@ -1,4 +1,8 @@
-@use "@/styles/settings" as settings;
-
 $unit: em;
-$setup: settings.$breakpoints-setup;
+$setup: (
+	"3": 360px,
+	"4": 480px,
+	"7": 720px,
+	"9": 992px,
+	"12": 1200px,
+);

@@ -1,11 +1,6 @@
 module.exports = {
 	extends: ["stylelint-config-standard", "stylelint-prettier/recommended"],
-	plugins: [
-		"stylelint-prettier",
-		"stylelint-scss",
-		"stylelint-high-performance-animation",
-		"stylelint-order",
-	],
+	plugins: ["stylelint-prettier", "stylelint-scss", "stylelint-high-performance-animation", "stylelint-order"],
 	rules: {
 		indentation: "tab",
 		"max-line-length": [
@@ -78,17 +73,13 @@ module.exports = {
 		"selector-no-qualifying-type": [
 			true,
 			{
-				ignore: ["attribute"],
+				ignore: ["attribute", "class"],
 			},
 		],
 		"selector-no-vendor-prefix": [
 			true,
 			{
-				ignoreSelectors: [
-					"::-webkit-input-placeholder",
-					"/-moz-.*/",
-					"/-ms-.*/",
-				],
+				ignoreSelectors: ["::-webkit-input-placeholder", "/-moz-.*/", "/-ms-.*/"],
 			},
 		],
 		"value-list-comma-newline-before": "never-multi-line",
@@ -106,7 +97,8 @@ module.exports = {
 		"custom-property-empty-line-before": [
 			"always",
 			{
-				except: ["after-custom-property", "first-nested"],
+				except: ["after-custom-property"],
+				ignore: ["first-nested", "after-comment"],
 			},
 		],
 		"scss/at-rule-no-unknown": true,
@@ -142,12 +134,7 @@ module.exports = {
 		 * emptyLineBefore key in order plugin.
 		 */
 		"declaration-empty-line-before": null,
-		"order/order": [
-			"custom-properties",
-			"dollar-variables",
-			"declarations",
-			"rules",
-		],
+		"order/order": ["custom-properties", "dollar-variables", "declarations", "rules"],
 		"order/properties-order": [
 			{
 				groupName: "content",
@@ -161,14 +148,7 @@ module.exports = {
 				emptyLineBefore: "always",
 				noEmptyLineBetween: true,
 				order: "strict",
-				properties: [
-					"position",
-					"top",
-					"right",
-					"bottom",
-					"left",
-					"z-index",
-				],
+				properties: ["position", "top", "right", "bottom", "left", "z-index"],
 			},
 			{
 				groupName: "box-modal",

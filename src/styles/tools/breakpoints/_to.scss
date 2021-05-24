@@ -2,10 +2,14 @@
 @use "@/styles/tools/breakpoints/config" as config;
 @use "@/styles/tools/helpers" as helpers;
 
-@mixin to($key) {
-	$value: map.get(config.$setup, $key);
+$_unit: config.$unit;
+$_setup: config.$setup;
 
-	@media screen and (max-width: helpers.number-convert($value - 1px, config.$unit)) {
+@mixin to($key) {
+	$value: map.get($_setup, $key);
+	$max-width: $value - 1px;
+
+	@media screen and (max-width: helpers.number-convert($max-width, $_unit)) {
 		@content;
 	}
 }

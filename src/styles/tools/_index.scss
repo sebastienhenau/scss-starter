@@ -1,3 +1,6 @@
+@forward "./config";
 @forward "./helpers" as helpers-*;
 @forward "./breakpoints" as breakpoints-*;
+@forward "./sizes" as sizes-*;
 @forward "./typography" as typography-*;
+@forward "./colors" as colors-*;
