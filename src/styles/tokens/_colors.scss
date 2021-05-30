@@ -1,0 +1,121 @@
+@use "@/styles/tools" as tools;
+
+:root {
+	// Primary
+	--primary-base: #{tools.$colors-purple-47-hsl};
+	--primary-base-on-high: #{tools.$colors-neutral-100-hsl};
+	--primary-base-on-medium: rgba(#{tools.$colors-neutral-100-hsl}, 0.7);
+	--primary-base-on-low: rgba(#{tools.$colors-neutral-100-hsl}, 0.4);
+	--primary-tint: #{tools.$colors-purple-77-hsl};
+	--primary-tint-on-high: #{tools.$colors-neutral-0-hsl};
+	--primary-tint-on-medium: rgba(#{tools.$colors-neutral-0-hsl}, 0.7);
+	--primary-tint-on-low: rgba(#{tools.$colors-neutral-0-hsl}, 0.4);
+	--primary-shade: #{tools.$colors-purple-44-hsl};
+	--primary-shade-on-high: #{tools.$colors-neutral-100-hsl};
+	--primary-shade-on-medium: rgba(#{tools.$colors-neutral-100-hsl}, 0.7);
+	--primary-shade-on-low: rgba(#{tools.$colors-neutral-100-hsl}, 0.4);
+
+	// Light
+	--light-base: #{tools.$colors-neutral-100-hsl};
+	--light-base-on-high: #{tools.$colors-neutral-0-hsl};
+	--light-base-on-medium: rgba(#{tools.$colors-neutral-0-hsl}, 0.7);
+	--light-base-on-low: rgba(#{tools.$colors-neutral-0-hsl}, 0.4);
+	--light-tint: #{tools.$colors-neutral-100-hsl};
+	--light-tint-on-high: #{tools.$colors-neutral-0-hsl};
+	--light-tint-on-medium: rgba(#{tools.$colors-neutral-0-hsl}, 0.7);
+	--light-tint-on-low: rgba(#{tools.$colors-neutral-0-hsl}, 0.4);
+	--light-shade: #{tools.$colors-neutral-0-hsl};
+	--light-shade-on-high: #{tools.$colors-neutral-100-hsl};
+	--light-shade-on-medium: rgba(#{tools.$colors-neutral-100-hsl}, 0.7);
+	--light-shade-on-low: rgba(#{tools.$colors-neutral-100-hsl}, 0.4);
+
+	// Default
+	--base: var(--light-base);
+	--base-on-high: var(--light-base-on-high);
+	--base-on-medium: var(--light-base-on-medium);
+	--base-on-low: var(--light-base-on-low);
+	--tint: var(--light-tint);
+	--tint-on-high: var(--light-tint-on-high);
+	--tint-on-medium: var(--light-tint-on-medium);
+	--tint-on-low: var(--light-tint-on-low);
+	--shade: var(--light-shade);
+	--shade-on-high: var(--light-shade-on-high);
+	--shade-on-medium: var(--light-shade-on-medium);
+	--shade-on-low: var(--light-shade-on-low);
+}
+
+.primary {
+	--base: var(--primary-base);
+	--base-on-high: var(--primary-base-on-high);
+	--base-on-medium: var(--primary-base-on-medium);
+	--base-on-low: var(--primary-base-on-low);
+	--tint: var(--primary-tint);
+	--tint-on-high: var(--primary-tint-on-high);
+	--tint-on-medium: var(--primary-tint-on-medium);
+	--tint-on-low: var(--primary-tint-on-low);
+	--shade: var(--primary-shade);
+	--shade-on-high: var(--primary-shade-on-high);
+	--shade-on-medium: var(--primary-shade-on-medium);
+	--shade-on-low: var(--primary-shade-on-low);
+}
+
+.light {
+	--base: var(--light-base);
+	--base-on-high: var(--light-base-on-high);
+	--base-on-medium: var(--light-base-on-medium);
+	--base-on-low: var(--light-base-on-low);
+	--tint: var(--light-tint);
+	--tint-on-high: var(--light-tint-on-high);
+	--tint-on-medium: var(--light-tint-on-medium);
+	--tint-on-low: var(--light-tint-on-low);
+	--shade: var(--light-shade);
+	--shade-on-high: var(--light-shade-on-high);
+	--shade-on-medium: var(--light-shade-on-medium);
+	--shade-on-low: var(--light-shade-on-low);
+}
+
+:root {
+	--primary: "";
+	--primary-contrast: "";
+	--primary-tint: "";
+	--primary-shade: "";
+	--secondary: "";
+	--secondary-contrast: "";
+	--secondary-tint: "";
+	--secondary-shade: "";
+	--background: "";
+	--contrast-high: "";
+	--contrast-medium: "";
+	--contrast-low: "";
+	--disabled: "";
+	--disabled-contrast: "";
+	--success: "";
+	--success-contrast: "";
+	--success-tint: "";
+	--success-shade: "";
+	--warning: "";
+	--warning-contrast: "";
+	--warning-tint: "";
+	--warning-shade: "";
+	--danger: "";
+	--danger-contrast: "";
+	--danger-tint: "";
+	--danger-shade: "";
+}
+
+.ctx-medium {
+	--background: "";
+}
+
+.ctx-primary {
+	--background: "";
+	--contrast-high: "";
+	--contrast-medium: "";
+	--contrast-low: "";
+}
+
+.ctx-visual {
+	--contrast-high: "";
+	--contrast-medium: "";
+	--contrast-low: "";
+}
