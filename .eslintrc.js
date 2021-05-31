@@ -84,22 +84,13 @@ module.exports = {
 		"no-label-var": "error",
 		"no-shadow": "error",
 		"no-undef-init": "error",
-		"no-unused-vars": [
-			"warn",
-			{ vars: "all", args: "after-used", ignoreRestSiblings: true },
-		],
-		"no-use-before-define": [
-			"error",
-			{ functions: true, classes: true, variables: true },
-		],
+		"no-unused-vars": ["warn", { vars: "all", args: "after-used", ignoreRestSiblings: true }],
+		"no-use-before-define": ["error", { functions: true, classes: true, variables: true }],
 		"array-bracket-newline": ["error", "consistent"],
 		"array-bracket-spacing": ["error", "never"],
 		"block-spacing": ["error", "always"],
 		"brace-style": ["error", "1tbs"],
-		camelcase: [
-			"error",
-			{ properties: "never", ignoreDestructuring: false },
-		],
+		camelcase: ["error", { properties: "never", ignoreDestructuring: false }],
 		"comma-dangle": [
 			"error",
 			{
@@ -148,11 +139,7 @@ module.exports = {
 			},
 		],
 		"linebreak-style": ["error", "unix"],
-		"lines-between-class-members": [
-			"error",
-			"always",
-			{ exceptAfterSingleLine: false },
-		],
+		"lines-between-class-members": ["error", "always", { exceptAfterSingleLine: false }],
 		"max-len": [
 			"warn",
 			{
@@ -181,13 +168,7 @@ module.exports = {
 		"no-nested-ternary": "error",
 		"no-new-object": "error",
 		"no-plusplus": "error",
-		"no-restricted-syntax": [
-			"error",
-			"ForInStatement",
-			"ForOfStatement",
-			"LabeledStatement",
-			"WithStatement",
-		],
+		"no-restricted-syntax": ["error", "ForInStatement", "ForOfStatement", "LabeledStatement", "WithStatement"],
 		"no-trailing-spaces": [
 			"error",
 			{
@@ -227,11 +208,7 @@ module.exports = {
 			},
 		],
 		"prefer-object-spread": "error",
-		"quote-props": [
-			"error",
-			"as-needed",
-			{ keywords: false, unnecessary: true, numbers: false },
-		],
+		"quote-props": ["error", "as-needed", { keywords: false, unnecessary: true, numbers: false }],
 		quotes: [
 			"error",
 			"double",
