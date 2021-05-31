@@ -1,0 +1,17 @@
+@use "@/styles/tools" as tools;
+
+h1 {
+	@include tools.typo-h1();
+}
+
+h2 {
+	@include tools.typo-h2();
+}
+
+h3 {
+	@include tools.typo-h3();
+}
+
+p {
+	@include tools.typo-p();
+}

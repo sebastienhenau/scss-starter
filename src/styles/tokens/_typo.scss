@@ -1,0 +1,41 @@
+@use "@/styles/tools" as tools;
+
+// @include tools.typo-load();
+
+:root {
+	// h1
+	--h1-font-family: tools.$typo-font-family-primary;
+	--h1-font-weight: tools.$typo-font-weight-bold;
+	--h1-font-size: var(--size-600);
+	--h1-line-height: 1.5;
+
+	@include tools.breakpoints-at("700") {
+		--h1-font-size: var(--size-700);
+	}
+
+	// h2
+	--h2-font-family: tools.$typo-font-family-primary;
+	--h2-font-weight: tools.$typo-font-weight-bold;
+	--h2-font-size: var(--size-500);
+	--h2-line-height: 1.5;
+
+	@include tools.breakpoints-at("700") {
+		--h2-font-size: var(--size-600);
+	}
+
+	// h3
+	--h3-font-family: tools.$typo-font-family-primary;
+	--h3-font-weight: tools.$typo-font-weight-bold;
+	--h3-font-size: var(--size-400);
+	--h3-line-height: 1.5;
+
+	@include tools.breakpoints-at("700") {
+		--h3-font-size: var(--size-500);
+	}
+
+	// p
+	--p-font-family: tools.$typo-font-family-secondary;
+	--p-font-weight: tools.$typo-font-weight-bold;
+	--p-font-size: var(--size-400);
+	--p-line-height: 1.5;
+}

@@ -2,120 +2,67 @@
 
 :root {
 	// Primary
-	--primary-base: #{tools.$colors-purple-47-hsl};
-	--primary-base-on-high: #{tools.$colors-neutral-100-hsl};
-	--primary-base-on-medium: rgba(#{tools.$colors-neutral-100-hsl}, 0.7);
-	--primary-base-on-low: rgba(#{tools.$colors-neutral-100-hsl}, 0.4);
-	--primary-tint: #{tools.$colors-purple-77-hsl};
-	--primary-tint-on-high: #{tools.$colors-neutral-0-hsl};
-	--primary-tint-on-medium: rgba(#{tools.$colors-neutral-0-hsl}, 0.7);
-	--primary-tint-on-low: rgba(#{tools.$colors-neutral-0-hsl}, 0.4);
-	--primary-shade: #{tools.$colors-purple-44-hsl};
-	--primary-shade-on-high: #{tools.$colors-neutral-100-hsl};
-	--primary-shade-on-medium: rgba(#{tools.$colors-neutral-100-hsl}, 0.7);
-	--primary-shade-on-low: rgba(#{tools.$colors-neutral-100-hsl}, 0.4);
+	--primary-base-color: #{tools.$colors-purple-47-hsl};
+	--primary-contrast-color: #{tools.$colors-neutral-100-hsl};
+	--primary-tint-color: #{tools.$colors-purple-77-hsl};
+	--primary-shade-color: #{tools.$colors-purple-44-hsl};
 
-	// Light
-	--light-base: #{tools.$colors-neutral-100-hsl};
-	--light-base-on-high: #{tools.$colors-neutral-0-hsl};
-	--light-base-on-medium: rgba(#{tools.$colors-neutral-0-hsl}, 0.7);
-	--light-base-on-low: rgba(#{tools.$colors-neutral-0-hsl}, 0.4);
-	--light-tint: #{tools.$colors-neutral-100-hsl};
-	--light-tint-on-high: #{tools.$colors-neutral-0-hsl};
-	--light-tint-on-medium: rgba(#{tools.$colors-neutral-0-hsl}, 0.7);
-	--light-tint-on-low: rgba(#{tools.$colors-neutral-0-hsl}, 0.4);
-	--light-shade: #{tools.$colors-neutral-0-hsl};
-	--light-shade-on-high: #{tools.$colors-neutral-100-hsl};
-	--light-shade-on-medium: rgba(#{tools.$colors-neutral-100-hsl}, 0.7);
-	--light-shade-on-low: rgba(#{tools.$colors-neutral-100-hsl}, 0.4);
+	// Secondary
+	--secondary-base-color: #{tools.$colors-cyan-43-hsl};
+	--secondary-contrast-color: #{tools.$colors-neutral-100-hsl};
+	--secondary-tint-color: #{tools.$colors-cyan-74-hsl};
+	--secondary-shade-color: #{tools.$colors-cyan-36-hsl};
 
-	// Default
-	--base: var(--light-base);
-	--base-on-high: var(--light-base-on-high);
-	--base-on-medium: var(--light-base-on-medium);
-	--base-on-low: var(--light-base-on-low);
-	--tint: var(--light-tint);
-	--tint-on-high: var(--light-tint-on-high);
-	--tint-on-medium: var(--light-tint-on-medium);
-	--tint-on-low: var(--light-tint-on-low);
-	--shade: var(--light-shade);
-	--shade-on-high: var(--light-shade-on-high);
-	--shade-on-medium: var(--light-shade-on-medium);
-	--shade-on-low: var(--light-shade-on-low);
+	// Disabled
+	--disabled-base-color: #{tools.$colors-neutral-50-hsl};
+	--disabled-contrast-color: #{tools.$colors-neutral-0-hsl};
+	--disabled-tint-color: #{tools.$colors-neutral-60-hsl};
+	--disabled-shade-color: #{tools.$colors-neutral-40-hsl};
+
+	// Success
+	--success-base-color: #{tools.$colors-green-38-hsl};
+	--success-contrast-color: #{tools.$colors-neutral-100-hsl};
+	--success-tint-color: #{tools.$colors-green-47-hsl};
+	--success-shade-color: #{tools.$colors-green-29-hsl};
+
+	// Warning
+	--warning-base-color: #{tools.$colors-orange-47-hsl};
+	--warning-contrast-color: #{tools.$colors-neutral-100-hsl};
+	--warning-tint-color: #{tools.$colors-orange-62-hsl};
+	--warning-shade-color: #{tools.$colors-orange-40-hsl};
+
+	// Danger
+	--danger-base-color: #{tools.$colors-red-47-hsl};
+	--danger-contrast-color: #{tools.$colors-neutral-100-hsl};
+	--danger-tint-color: #{tools.$colors-red-62-hsl};
+	--danger-shade-color: #{tools.$colors-red-40-hsl};
+
+	// Base
+	--background-color: #{tools.$colors-neutral-100-hsl};
+	--contrast-high-color: #{tools.$colors-neutral-0-hsl};
+	--contrast-medium-color: #{tools.$colors-neutral-30-hsl};
+	--contrast-low-color: #{tools.$colors-neutral-60-hsl};
 }
 
-.primary {
-	--base: var(--primary-base);
-	--base-on-high: var(--primary-base-on-high);
-	--base-on-medium: var(--primary-base-on-medium);
-	--base-on-low: var(--primary-base-on-low);
-	--tint: var(--primary-tint);
-	--tint-on-high: var(--primary-tint-on-high);
-	--tint-on-medium: var(--primary-tint-on-medium);
-	--tint-on-low: var(--primary-tint-on-low);
-	--shade: var(--primary-shade);
-	--shade-on-high: var(--primary-shade-on-high);
-	--shade-on-medium: var(--primary-shade-on-medium);
-	--shade-on-low: var(--primary-shade-on-low);
+.medium {
+	// Base
+	--background-color: #{tools.$colors-neutral-90-hsl};
+	--contrast-medium-color: #{tools.$colors-neutral-20-hsl};
+	--contrast-low-color: #{tools.$colors-neutral-40-hsl};
 }
 
-.light {
-	--base: var(--light-base);
-	--base-on-high: var(--light-base-on-high);
-	--base-on-medium: var(--light-base-on-medium);
-	--base-on-low: var(--light-base-on-low);
-	--tint: var(--light-tint);
-	--tint-on-high: var(--light-tint-on-high);
-	--tint-on-medium: var(--light-tint-on-medium);
-	--tint-on-low: var(--light-tint-on-low);
-	--shade: var(--light-shade);
-	--shade-on-high: var(--light-shade-on-high);
-	--shade-on-medium: var(--light-shade-on-medium);
-	--shade-on-low: var(--light-shade-on-low);
+.dark {
+	// Base
+	--background-color: #{tools.$colors-neutral-0-hsl};
+	--contrast-high-color: #{tools.$colors-neutral-100-hsl};
+	--contrast-medium-color: #{tools.$colors-neutral-80-hsl};
+	--contrast-low-color: #{tools.$colors-neutral-60-hsl};
 }
 
-:root {
-	--primary: "";
-	--primary-contrast: "";
-	--primary-tint: "";
-	--primary-shade: "";
-	--secondary: "";
-	--secondary-contrast: "";
-	--secondary-tint: "";
-	--secondary-shade: "";
-	--background: "";
-	--contrast-high: "";
-	--contrast-medium: "";
-	--contrast-low: "";
-	--disabled: "";
-	--disabled-contrast: "";
-	--success: "";
-	--success-contrast: "";
-	--success-tint: "";
-	--success-shade: "";
-	--warning: "";
-	--warning-contrast: "";
-	--warning-tint: "";
-	--warning-shade: "";
-	--danger: "";
-	--danger-contrast: "";
-	--danger-tint: "";
-	--danger-shade: "";
-}
+@media (prefers-color-scheme: dark) {
+	// :root {}
 
-.ctx-medium {
-	--background: "";
-}
+	// .medium {}
 
-.ctx-primary {
-	--background: "";
-	--contrast-high: "";
-	--contrast-medium: "";
-	--contrast-low: "";
-}
-
-.ctx-visual {
-	--contrast-high: "";
-	--contrast-medium: "";
-	--contrast-low: "";
+	// .dark {}
 }
