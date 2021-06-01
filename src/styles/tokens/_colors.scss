@@ -42,6 +42,7 @@
 	--contrast-high-color: #{tools.$colors-neutral-0-hsl};
 	--contrast-medium-color: #{tools.$colors-neutral-30-hsl};
 	--contrast-low-color: #{tools.$colors-neutral-60-hsl};
+	--focus-color: #{tools.$colors-neutral-0-hsl};
 }
 
 .medium {
@@ -57,6 +58,7 @@
 	--contrast-high-color: #{tools.$colors-neutral-100-hsl};
 	--contrast-medium-color: #{tools.$colors-neutral-80-hsl};
 	--contrast-low-color: #{tools.$colors-neutral-60-hsl};
+	--focus-color: #{tools.$colors-neutral-100-hsl};
 }
 
 @media (prefers-color-scheme: dark) {

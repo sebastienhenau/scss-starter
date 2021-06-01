@@ -1,3 +1,5 @@
+@use "@/styles/tools" as tools;
+
 /**
  * 1. Fix for 100vh issue on safari mobile browsers
  * 2. Ensure the page always fills up the entire height of the viewport.
@@ -21,7 +23,12 @@
  *    fallback
  */
 body {
+	@include tools.typo-p();
+
 	min-height: 100vh; // 1
 	// stylelint-disable-next-line value-no-vendor-prefix
 	min-height: -webkit-fill-available;
+
+	color: var(--contrast-high-color);
+	background-color: var(--background-color);
 }

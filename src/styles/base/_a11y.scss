@@ -1,0 +1,5 @@
+@use "@/styles/tools" as tools;
+
+*:focus-visible {
+	outline: tools.helpers-convert(3px) dotted var(--focus-color);
+}
