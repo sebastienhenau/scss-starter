@@ -166,16 +166,6 @@ a {
 	}
 }
 
-/**
- * 1. Remove whitespace below
- * 2. Limit image to go out of bounds
- */
-img,
-picture {
-	display: block; // 1
-	max-width: 100%; // 2
-}
-
 blockquote,
 q {
 	quotes: none;
@@ -185,18 +175,6 @@ q {
 		content: "";
 		content: none;
 	}
-}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-input,
-button,
-textarea,
-select {
-	font: inherit;
 }
 
 /**
@@ -224,6 +202,313 @@ sup {
 	vertical-align: baseline; // 1
 
 	line-height: 0; // 1
+}
+
+/**
+ * 1. Correct the odd `em` font sizing in all browsers.
+ */
+pre,
+code,
+kbd,
+samp {
+	font-size: 1em; // 1
+}
+
+/**
+ * 1. Don't allow content to break outside
+ * 2. Reset default margin
+ * 3. Account for some code outputs that place code tags in pre tags
+ */
+pre {
+	display: block;
+	overflow: auto; // 1
+	margin: 0; // 2
+
+	code {
+		font-size: inherit; // 3
+		word-break: normal; // 3
+
+		color: inherit; // 3
+	}
+}
+
+/**
+ * 1. Streamline the style when inside anchors to avoid broken underline and
+ *    more
+ */
+code {
+	word-wrap: break-word;
+
+	a > & {
+		color: inherit; // 1
+	}
+}
+
+kbd {
+	kbd {
+		padding: 0;
+
+		font-size: 1em;
+	}
+}
+
+img,
+svg {
+	vertical-align: middle;
+}
+
+/**
+ * 1. Remove whitespace below
+ * 2. Limit image to go out of bounds
+ */
+img,
+picture {
+	display: block; // 1
+	max-width: 100%; // 2
+}
+
+table {
+	caption-side: bottom;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+caption {
+	text-align: left;
+}
+
+/**
+ * 1. Matches default `<td>` alignment by inheriting `text-align`.
+ * 2. Fix alignment for Safari
+ */
+th {
+	text-align: inherit; // 1
+	text-align: -webkit-match-parent; // 2
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+	border-color: inherit;
+	border-style: solid;
+	border-width: 0;
+}
+
+// 1. Allow labels to use margin for spacing
+label {
+	display: inline-block; // 1
+}
+
+// 1. Remove default border-radius that macOS Chrome adds
+button {
+	border-radius: 0; // 1
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+// 1. Remove the margin in Firefox and Safari
+input,
+button,
+select,
+optgroup,
+textarea {
+	margin: 0; // 1.
+
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+/**
+ * 1. Explicitly remove focus outline in Chromium when it shouldn't be visible
+ *    (e.g. as result of mouse click or touch tap). It already should be doing
+ *    this automatically, but seems to currently be confused and applies its
+ *    very visible two-tone outline anyway.
+ */
+button:focus:not(:focus-visible) {
+	outline: 0;
+}
+
+// 1/ Remove the inheritance of text transform in Firefox
+button,
+select {
+	text-transform: none; // 1
+}
+
+// 1. Set the cursor for non-`<button>` buttons
+[role="button"] {
+	cursor: pointer; // 1
+}
+
+/**
+ * 1. Remove the inheritance of word-wrap in Safari.
+ * 2. Undo the opacity change from Chrome
+ */
+select {
+	word-wrap: normal; // 1
+
+	&:disabled {
+		opacity: 1; // 2
+	}
+}
+
+/**
+ * 1. Remove the dropdown arrow in Chrome from inputs built with datalists.
+ *    https://stackoverflow.com/a/54997118
+ */
+[list]::-webkit-calendar-picker-indicator {
+	display: none; // 1
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	// stylelint-disable-next-line property-no-vendor-prefix
+	-webkit-appearance: button; // 1
+}
+
+/**
+ * 1. Remove inner border and padding from Firefox, but don't restore the
+ *    outline
+ */
+::-moz-focus-inner {
+	padding: 0;
+
+	border-style: none;
+}
+
+/**
+ * 1. Textareas should really only resize vertically so they don't break their
+ *    (horizontal) containers.
+ */
+textarea {
+	resize: vertical; // 1
+}
+
+/**
+ * 1. Reset default min-width on fieldsets to behave more like a standard block
+ *    element
+ * 2. Reset the default behavior of fieldsets
+ */
+
+fieldset {
+	min-width: 0; // 1
+	margin: 0; // 2
+	padding: 0; // 2
+
+	border: 0; // 2
+}
+
+/**
+ * 1. By using `float: left`, the legend will behave like a block element. This
+ *    way the border of a fieldset wraps around the legend if present.
+ * 2. Fix wrapping bug.
+ */
+
+legend {
+	float: left; // 1
+	width: 100%;
+	padding: 0;
+
+	line-height: inherit;
+
+	& + * {
+		clear: left; // 2
+	}
+}
+
+/**
+ * 1. Fix height of inputs with a type of datetime-local, date, month, week, or
+ *    time
+ */
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-year-field {
+	padding: 0; // 1
+}
+
+::-webkit-inner-spin-button {
+	height: auto;
+}
+
+/**
+ * 1. Correct the outline style in Safari.
+ * 2. This overrides the extra rounded corners on search inputs in iOS
+ */
+[type="search"] {
+	outline-offset: -2px; // 1
+	// stylelint-disable-next-line property-no-vendor-prefix
+	-webkit-appearance: textfield; // 2
+}
+
+// 1. Remove the inner padding in Chrome and Safari on macOS.
+::-webkit-search-decoration {
+	// stylelint-disable-next-line property-no-vendor-prefix
+	-webkit-appearance: none; // 1
+}
+
+// 1. Remove padding around color pickers in webkit browsers
+::-webkit-color-swatch-wrapper {
+	padding: 0; // 1
+}
+
+// 1. Inherit font family and line height for file input buttons
+::file-selector-button {
+	font: inherit; // 1
+}
+
+/**
+ * 1. Change font properties to `inherit`
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+::-webkit-file-upload-button {
+	font: inherit; // 1
+	// stylelint-disable-next-line property-no-vendor-prefix
+	-webkit-appearance: button; // 2
+}
+
+output {
+	display: inline-block;
+}
+
+// 1. Remove default border from iframe
+iframe {
+	border: 0; // 1
+}
+
+// 1. Add the correct display in all browsers
+
+summary {
+	display: list-item; // 1
+
+	cursor: pointer;
+}
+
+// 1. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+progress {
+	vertical-align: baseline; // 1
+}
+
+// 1. Always hide an element with the `hidden` HTML attribute.
+[hidden] {
+	// stylelint-disable-next-line declaration-no-important
+	display: none !important;
 }
 
 // Remove all animations and transitions for people that prefer not to see them
