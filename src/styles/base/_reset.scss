@@ -1,5 +1,245 @@
+/**
+ * Extended from:
+ * - https://github.com/andy-piccalilli/modern-css-reset/blob/master/src/reset.css
+ * - https://meyerweb.com/eric/tools/css/reset/
+ * - https://github.com/twbs/bootstrap/blob/main/scss/_reboot.scss
+ */
+
+// 1. Default box sizing rules
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+	box-sizing: border-box; // 1
+}
+
+// 1. Scale all fonts correctly when using rem
+:root {
+	font-size: 100%; // 1
+}
+
+// 1. Set default scroll behavior
+html:focus-within {
+	scroll-behavior: smooth; // 1
+}
+
+/**
+ * 1. Set body default
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+body {
+	min-height: 100vh; // 1
+	text-rendering: optimizeSpeed; // 1
+
+	// stylelint-disable-next-line property-no-vendor-prefix
+	-webkit-text-size-adjust: 100%; // 2
+}
+
+// Default resets
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+
+	font: inherit;
+	font-size: 100%;
+
+	border: 0;
+}
+
+// 1. HTML5 display-role reset for older browsers
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block; // 1
+}
+
+// 1. Define a custom list when a role is added
+ul[role="list"],
+ol[role="list"] {
+	list-style: none; // 1
+}
+
+/**
+ * 1. A element default styling that don't have custom classes
+ * 2. Undo styles for placeholder links/named anchors
+ */
+a {
+	&:not([class]) {
+		text-decoration-skip-ink: auto; // 1
+	}
+
+	&:not([href]) {
+		&,
+		&:hover {
+			text-decoration: none; // 2
+
+			color: inherit; // 2
+		}
+	}
+}
+
+/**
+ * 1. Remove whitespace below
+ * 2. Limit image to go out of bounds
+ */
+img,
+picture {
+	display: block; // 1
+	max-width: 100%; // 2
+}
+
+blockquote,
+q {
+	quotes: none;
+
+	&::before,
+	&::after {
+		content: "";
+		content: none;
+	}
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/**
+ * 1. Add the correct text decoration in Chrome, Edge, Opera, and Safari.
+ * 2. Add explicit cursor to indicate changed behavior.
+ * 3. Prevent the text-decoration to be skipped.
+ */
+abbr[title] {
+	text-decoration: underline dotted; // 1
+
+	cursor: help; // 2
+	text-decoration-skip-ink: none; // 3
+}
+
+address {
+	font-style: normal;
+	line-height: inherit;
+}
+
+// 1. Prevent `sub` and `sup` elements from affecting the line height
+sub,
+sup {
+	position: relative;
+
+	vertical-align: baseline; // 1
+
+	line-height: 0; // 1
+}
+
+// Remove all animations and transitions for people that prefer not to see them
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		// stylelint-disable declaration-no-important
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+		// stylelint-enable declaration-no-important
+	}
 }

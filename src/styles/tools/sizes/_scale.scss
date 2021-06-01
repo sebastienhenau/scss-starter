@@ -23,7 +23,7 @@ $_base-font-size: tools-config.$base-font-size;
 		}
 	} @else if ($value < 0) {
 		@for $i from 1 through math.abs($value) {
-			$result: $result / $_scale;
+			$result: math.div($result, $_scale);
 		}
 	}
 

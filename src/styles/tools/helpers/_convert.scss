@@ -6,7 +6,7 @@ $_base-font-size: tools-config.$base-font-size;
 $_unit: config.$unit;
 
 @function _px-em($value) {
-	@return ($value / $_base-font-size) * 1em;
+	@return math.div($value, $_base-font-size) * 1em;
 }
 
 @function _em($value) {
@@ -20,7 +20,7 @@ $_unit: config.$unit;
 }
 
 @function _px-rem($value) {
-	@return ($value / $_base-font-size) * 1rem;
+	@return math.div($value, $_base-font-size) * 1rem;
 }
 
 @function _rem($value) {
@@ -34,7 +34,7 @@ $_unit: config.$unit;
 }
 
 @function _rem-px($value) {
-	$integer: ($value / ($value * 0 + 1)) * $_base-font-size;
+	$integer: math.div($value, ($value * 0 + 1)) * $_base-font-size;
 
 	@return math.round($integer);
 }
