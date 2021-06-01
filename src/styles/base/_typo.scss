@@ -2,6 +2,16 @@
 
 h1 {
 	@include tools.typo-h1();
+
+	max-width: 15ch;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+	max-width: 25ch;
 }
 
 h2 {
@@ -12,6 +22,20 @@ h3 {
 	@include tools.typo-h3();
 }
 
+h4 {
+	@include tools.typo-h4();
+}
+
+h5 {
+	@include tools.typo-h5();
+}
+
+h6 {
+	@include tools.typo-h6();
+}
+
 p {
 	@include tools.typo-p();
+
+	max-width: 60ch;
 }

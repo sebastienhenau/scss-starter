@@ -33,6 +33,36 @@
 		--h3-font-size: var(--size-500);
 	}
 
+	// h4
+	--h4-font-family: tools.$typo-font-family-primary;
+	--h4-font-weight: tools.$typo-font-weight-bold;
+	--h4-font-size: var(--size-400);
+	--h4-line-height: 1.5;
+
+	@include tools.breakpoints-at("700") {
+		--h4-font-size: var(--size-500);
+	}
+
+	// h5
+	--h5-font-family: tools.$typo-font-family-primary;
+	--h5-font-weight: tools.$typo-font-weight-bold;
+	--h5-font-size: var(--size-400);
+	--h5-line-height: 1.5;
+
+	@include tools.breakpoints-at("700") {
+		--h5-font-size: var(--size-500);
+	}
+
+	// h6
+	--h6-font-family: tools.$typo-font-family-primary;
+	--h6-font-weight: tools.$typo-font-weight-bold;
+	--h6-font-size: var(--size-400);
+	--h6-line-height: 1.5;
+
+	@include tools.breakpoints-at("700") {
+		--h6-font-size: var(--size-500);
+	}
+
 	// p
 	--p-font-family: tools.$typo-font-family-secondary;
 	--p-font-weight: tools.$typo-font-weight-bold;
