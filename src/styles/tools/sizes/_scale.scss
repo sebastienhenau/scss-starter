@@ -5,7 +5,7 @@
 
 $_linear: config.$linear;
 $_scale: config.$scale;
-$_unit: config.$unit;
+$_unit: tools-config.$unit;
 $_base-font-size: tools-config.$base-font-size;
 
 @function _linear($value) {

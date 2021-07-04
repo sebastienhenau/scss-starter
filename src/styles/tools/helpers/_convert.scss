@@ -1,9 +1,8 @@
 @use "sass:math";
 @use "@/styles/tools/config" as tools-config;
-@use "@/styles/tools/helpers/config" as config;
 
 $_base-font-size: tools-config.$base-font-size;
-$_unit: config.$unit;
+$_unit: tools-config.$unit;
 
 @function _px-em($value) {
 	@return math.div($value, $_base-font-size) * 1em;
