@@ -1,4 +1,4 @@
-@use "@/styles/tools" as tools;
+@use "@/styles/tools/typo" as typo;
 
 /**
  * 1. Fix for 100vh issue on safari mobile browsers
@@ -23,7 +23,7 @@
  *    fallback
  */
 body {
-	@include tools.typo-p();
+	@include typo.p();
 
 	min-height: 100vh; // 1
 	// stylelint-disable-next-line value-no-vendor-prefix

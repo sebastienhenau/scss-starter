@@ -1,64 +1,64 @@
-@use "@/styles/tools" as tools;
+@use "@/styles/tools/colors" as colors;
 
 :root {
 	// Primary
-	--primary-base-color: #{tools.$colors-purple-47-hsl};
-	--primary-contrast-color: #{tools.$colors-neutral-100-hsl};
-	--primary-tint-color: #{tools.$colors-purple-77-hsl};
-	--primary-shade-color: #{tools.$colors-purple-44-hsl};
+	--primary-base-color: #{colors.$purple-47-hsl};
+	--primary-contrast-color: #{colors.$neutral-100-hsl};
+	--primary-tint-color: #{colors.$purple-77-hsl};
+	--primary-shade-color: #{colors.$purple-44-hsl};
 
 	// Secondary
-	--secondary-base-color: #{tools.$colors-cyan-43-hsl};
-	--secondary-contrast-color: #{tools.$colors-neutral-100-hsl};
-	--secondary-tint-color: #{tools.$colors-cyan-74-hsl};
-	--secondary-shade-color: #{tools.$colors-cyan-36-hsl};
+	--secondary-base-color: #{colors.$cyan-43-hsl};
+	--secondary-contrast-color: #{colors.$neutral-100-hsl};
+	--secondary-tint-color: #{colors.$cyan-74-hsl};
+	--secondary-shade-color: #{colors.$cyan-36-hsl};
 
 	// Disabled
-	--disabled-base-color: #{tools.$colors-neutral-50-hsl};
-	--disabled-contrast-color: #{tools.$colors-neutral-0-hsl};
-	--disabled-tint-color: #{tools.$colors-neutral-60-hsl};
-	--disabled-shade-color: #{tools.$colors-neutral-40-hsl};
+	--disabled-base-color: #{colors.$neutral-50-hsl};
+	--disabled-contrast-color: #{colors.$neutral-0-hsl};
+	--disabled-tint-color: #{colors.$neutral-60-hsl};
+	--disabled-shade-color: #{colors.$neutral-40-hsl};
 
 	// Success
-	--success-base-color: #{tools.$colors-green-38-hsl};
-	--success-contrast-color: #{tools.$colors-neutral-100-hsl};
-	--success-tint-color: #{tools.$colors-green-47-hsl};
-	--success-shade-color: #{tools.$colors-green-29-hsl};
+	--success-base-color: #{colors.$green-38-hsl};
+	--success-contrast-color: #{colors.$neutral-100-hsl};
+	--success-tint-color: #{colors.$green-47-hsl};
+	--success-shade-color: #{colors.$green-29-hsl};
 
 	// Warning
-	--warning-base-color: #{tools.$colors-orange-47-hsl};
-	--warning-contrast-color: #{tools.$colors-neutral-100-hsl};
-	--warning-tint-color: #{tools.$colors-orange-62-hsl};
-	--warning-shade-color: #{tools.$colors-orange-40-hsl};
+	--warning-base-color: #{colors.$orange-47-hsl};
+	--warning-contrast-color: #{colors.$neutral-100-hsl};
+	--warning-tint-color: #{colors.$orange-62-hsl};
+	--warning-shade-color: #{colors.$orange-40-hsl};
 
 	// Danger
-	--danger-base-color: #{tools.$colors-red-47-hsl};
-	--danger-contrast-color: #{tools.$colors-neutral-100-hsl};
-	--danger-tint-color: #{tools.$colors-red-62-hsl};
-	--danger-shade-color: #{tools.$colors-red-40-hsl};
+	--danger-base-color: #{colors.$red-47-hsl};
+	--danger-contrast-color: #{colors.$neutral-100-hsl};
+	--danger-tint-color: #{colors.$red-62-hsl};
+	--danger-shade-color: #{colors.$red-40-hsl};
 
 	// Base
-	--background-color: #{tools.$colors-neutral-100-hsl};
-	--contrast-high-color: #{tools.$colors-neutral-0-hsl};
-	--contrast-medium-color: #{tools.$colors-neutral-30-hsl};
-	--contrast-low-color: #{tools.$colors-neutral-60-hsl};
-	--focus-color: #{tools.$colors-neutral-0-hsl};
+	--background-color: #{colors.$neutral-100-hsl};
+	--contrast-high-color: #{colors.$neutral-0-hsl};
+	--contrast-medium-color: #{colors.$neutral-30-hsl};
+	--contrast-low-color: #{colors.$neutral-60-hsl};
+	--focus-color: #{colors.$neutral-0-hsl};
 }
 
 .medium {
 	// Base
-	--background-color: #{tools.$colors-neutral-90-hsl};
-	--contrast-medium-color: #{tools.$colors-neutral-20-hsl};
-	--contrast-low-color: #{tools.$colors-neutral-40-hsl};
+	--background-color: #{colors.$neutral-90-hsl};
+	--contrast-medium-color: #{colors.$neutral-20-hsl};
+	--contrast-low-color: #{colors.$neutral-40-hsl};
 }
 
 .dark {
 	// Base
-	--background-color: #{tools.$colors-neutral-0-hsl};
-	--contrast-high-color: #{tools.$colors-neutral-100-hsl};
-	--contrast-medium-color: #{tools.$colors-neutral-80-hsl};
-	--contrast-low-color: #{tools.$colors-neutral-60-hsl};
-	--focus-color: #{tools.$colors-neutral-100-hsl};
+	--background-color: #{colors.$neutral-0-hsl};
+	--contrast-high-color: #{colors.$neutral-100-hsl};
+	--contrast-medium-color: #{colors.$neutral-80-hsl};
+	--contrast-low-color: #{colors.$neutral-60-hsl};
+	--focus-color: #{colors.$neutral-100-hsl};
 }
 
 @media (prefers-color-scheme: dark) {
