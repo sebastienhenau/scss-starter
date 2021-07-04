@@ -1,0 +1,19 @@
+@use "sass:map";
+@use "sass:list";
+
+@function reverse-map($map) {
+	$result: null;
+	$keys: map.keys($map);
+	$reversed: ();
+
+	@for $i from length($keys) through 1 {
+		$reversed: map.merge(
+			$reversed,
+			(
+				list.nth($keys, $i): map.get($map, list.nth($keys, $i)),
+			)
+		);
+	}
+
+	@return $reversed;
+}

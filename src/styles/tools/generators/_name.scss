@@ -1,0 +1,31 @@
+@use "sass:meta";
+@use "sass:list";
+@use "@/styles/tools/helpers" as helpers;
+@use "./config" as config;
+
+@function string($value) {
+	@return helpers.replace($value, " ", config.$separator);
+}
+
+@function list($items) {
+	$result: "";
+
+	@each $item in $items {
+		$is-first: list.index($list, $item) == 1;
+		$result: if($is-first, $item, "#{$result}#{config.$separator}#{$item}");
+	}
+
+	@return $result;
+}
+
+@function set($value) {
+	$type: meta.type-of($value);
+
+	@if ($type == "string") {
+		@return string($value);
+	} @else if ($type == "list") {
+		@return list($value);
+	} @else {
+		@return $value;
+	}
+}
