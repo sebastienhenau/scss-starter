@@ -1,0 +1,19 @@
+@use "sass:math";
+@use "@/styles/settings/core" as core;
+@use "@/styles/tools/units/em" as em;
+@use "@/styles/tools/units/px" as px;
+@use "@/styles/tools/units/rem" as rem;
+
+$_unit: core.$unit;
+
+@function convert($value, $to: $_unit) {
+	@if ($to == px) {
+		@return px.px($value);
+	} @else if ($to == rem) {
+		@return rem.rem($value);
+	} @else if ($to == em) {
+		@return em.em($value);
+	} @else {
+		@return $value;
+	}
+}

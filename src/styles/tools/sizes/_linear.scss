@@ -1,0 +1,12 @@
+@use "@/styles/settings/core" as core;
+@use "@/styles/settings/sizes" as sizes;
+@use "@/styles/tools/units" as units;
+
+$_unit: core.$unit;
+$_scale: sizes.$scale;
+
+@function linear($value) {
+	$result: $_scale * $value;
+
+	@return units.convert($result, $_unit);
+}

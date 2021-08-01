@@ -1,3 +1,4 @@
-@forward "./config";
-@forward "./default" as default-*;
-@forward "./value" as value-*;
+@forward "@/styles/tools/generators/name" show name;
+@forward "@/styles/tools/generators/default" show default;
+@forward "@/styles/tools/generators/value" show value;
+@forward "@/styles/tools/generators/default-breakpoints" show default-breakpoints;

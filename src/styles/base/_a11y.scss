@@ -1,5 +1,0 @@
-@use "@/styles/tools/helpers" as helpers;
-
-*:focus-visible {
-	outline: helpers.convert(3px) dotted var(--focus-color);
-}

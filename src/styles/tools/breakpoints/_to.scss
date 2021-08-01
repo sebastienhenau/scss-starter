@@ -1,15 +1,15 @@
 @use "sass:map";
-@use "@/styles/tools/breakpoints/config" as config;
-@use "@/styles/tools/helpers" as helpers;
+@use "@/styles/settings/breakpoints" as breakpoints;
+@use "@/styles/tools/units" as units;
 
-$_unit: config.$unit;
-$_setup: config.$setup;
+$_unit: breakpoints.$unit;
+$_setup: breakpoints.$setup;
 
 @mixin to($key) {
 	$value: map.get($_setup, $key);
 	$max-width: $value - 1px;
 
-	@media screen and (max-width: helpers.number-convert($max-width, $_unit)) {
+	@media screen and (max-width: units.convert($max-width, $_unit)) {
 		@content;
 	}
 }

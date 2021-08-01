@@ -1,0 +1,19 @@
+@use "sass:math";
+@use "@/styles/settings/core" as core;
+
+$_base-font-size: core.$base-font-size;
+$_unit: core.$unit;
+
+@function _px-em($value) {
+	@return math.div($value, $_base-font-size) * 1em;
+}
+
+@function em($value) {
+	$unit: math.unit($value);
+
+	@if ($unit == px) {
+		@return _px-em($value);
+	} @else {
+		@return $value;
+	}
+}

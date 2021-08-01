@@ -1,39 +1,14 @@
 @use "sass:math";
-@use "@/styles/tools/config" as tools-config;
-@use "@/styles/tools/sizes/config" as config;
-@use "@/styles/tools/helpers" as helpers;
+@use "@/styles/tools/sizes/linear" as linear;
+@use "@/styles/tools/sizes/modular" as modular;
+@use "@/styles/settings/sizes" as sizes;
 
-$_linear: config.$linear;
-$_scale: config.$scale;
-$_unit: tools-config.$unit;
-$_base-font-size: tools-config.$base-font-size;
-
-@function _linear($value) {
-	$result: $_scale * $value;
-
-	@return helpers.convert($result, $_unit);
-}
-
-@function _modular($value) {
-	$result: $_base-font-size;
-
-	@if ($value > 0) {
-		@for $i from 1 through $value {
-			$result: $result * $_scale;
-		}
-	} @else if ($value < 0) {
-		@for $i from 1 through math.abs($value) {
-			$result: math.div($result, $_scale);
-		}
-	}
-
-	@return helpers.convert($result, $_unit);
-}
+$_linear: sizes.$linear;
 
 @function scale($value) {
 	@if ($_linear) {
-		@return _linear($value);
+		@return linear.linear($value);
 	} @else {
-		@return _modular($value);
+		@return modular.modular($value);
 	}
 }

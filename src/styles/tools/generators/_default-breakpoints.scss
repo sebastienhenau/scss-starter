@@ -1,0 +1,43 @@
+@use "sass:meta";
+@use "sass:map";
+@use "sass:list";
+@use "@/styles/tools/breakpoints" as breakpoints;
+@use "@/styles/tools/helpers" as helpers;
+@use "@/styles/settings/core" as core;
+@use "@/styles/tools/generators/name" as name;
+
+@mixin _base($data) {
+	// TODO
+}
+
+@mixin _at($data) {
+	// TODO
+}
+
+@mixin _to($data) {
+	// TODO
+}
+
+@mixin _between($data) {
+	// TODO
+}
+
+@mixin value($data) {
+	& {
+		@include _base($data) using ($item) {
+			@content ($item);
+		}
+
+		@include _at($data) using ($item) {
+			@content ($item);
+		}
+
+		@include _to($data) using ($item) {
+			@content ($item);
+		}
+
+		@include _between($data) using ($item) {
+			@content ($item);
+		}
+	}
+}

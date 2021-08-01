@@ -1,4 +1,3 @@
-@forward "./convert" show convert;
-@forward "./reverse-list" show reverse-list;
-@forward "./replace-str" show replace-str;
-@forward "./reverse-map" show reverse-map;
+@forward "@/styles/tools/helpers/reverse-list" show reverse-list;
+@forward "@/styles/tools/helpers/replace-str" show replace-str;
+@forward "@/styles/tools/helpers/reverse-map" show reverse-map;

@@ -1,4 +1,4 @@
-@use "@/styles/tools/colors" as colors;
+@use "@/styles/settings/colors" as colors;
 
 :root {
 	// Primary
@@ -38,7 +38,7 @@
 	--danger-shade-color: #{colors.$red-40-hsl};
 
 	// Base
-	--background-color: #{colors.$neutral-100-hsl};
+	--base-color: #{colors.$neutral-100-hsl};
 	--contrast-high-color: #{colors.$neutral-0-hsl};
 	--contrast-medium-color: #{colors.$neutral-30-hsl};
 	--contrast-low-color: #{colors.$neutral-60-hsl};
@@ -47,14 +47,14 @@
 
 .medium {
 	// Base
-	--background-color: #{colors.$neutral-90-hsl};
+	--base-color: #{colors.$neutral-90-hsl};
 	--contrast-medium-color: #{colors.$neutral-20-hsl};
 	--contrast-low-color: #{colors.$neutral-40-hsl};
 }
 
 .dark {
 	// Base
-	--background-color: #{colors.$neutral-0-hsl};
+	--base-color: #{colors.$neutral-0-hsl};
 	--contrast-high-color: #{colors.$neutral-100-hsl};
 	--contrast-medium-color: #{colors.$neutral-80-hsl};
 	--contrast-low-color: #{colors.$neutral-60-hsl};

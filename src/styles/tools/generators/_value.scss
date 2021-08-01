@@ -3,28 +3,28 @@
 @use "sass:list";
 @use "@/styles/tools/breakpoints" as breakpoints;
 @use "@/styles/tools/helpers" as helpers;
-@use "./config" as config;
-@use "./name" as name;
+@use "@/styles/settings/core" as core;
+@use "@/styles/tools/generators/name" as name;
 
-@mixin base($data) {
+@mixin _base($data) {
 	$value: map.get($data, "value");
 
 	@if ($value and list.length($value) > 0) {
 		@each $item in $value {
-			&#{config.$separator}#{name($item)} {
+			&#{core.$separator}#{name.name($item)} {
 				@content ($item);
 			}
 		}
 	}
 }
 
-@mixin at($data) {
+@mixin _at($data) {
 	$at: map.get($data, "at");
 
 	@if ($at and list.length($at) > 0) {
 		@each $viewport, $items in $at {
 			@each $item in $items {
-				&#{config.$separator}#{name($item)}#{config.$at-indicator}#{$viewport} {
+				&#{core.$separator}#{name.name($item)}#{core.$at-indicator}#{$viewport} {
 					@include breakpoints.at($viewport) {
 						@content ($item);
 					}
@@ -34,13 +34,13 @@
 	}
 }
 
-@mixin to($data) {
+@mixin _to($data) {
 	$to: map.get($data, "to");
 
 	@if ($to and list.length($to) > 0) {
 		@each $viewport, $items in map.reverse($to) {
 			@each $item in $items {
-				&#{config.$separator}#{name($item)}#{config.$to-indicator}#{$viewport} {
+				&#{core.$separator}#{name.name($item)}#{core.$to-indicator}#{$viewport} {
 					@include breakpoints.to($viewport) {
 						@content ($item);
 					}
@@ -50,7 +50,7 @@
 	}
 }
 
-@mixin between($data) {
+@mixin _between($data) {
 	$between: map.get($data, "between");
 
 	@if ($between and list.length($between) > 0) {
@@ -59,7 +59,7 @@
 			$to: list.nth($viewports, 2);
 
 			@each $item in $items {
-				&#{config.$separator}#{name($item)}#{config.$between-indicator}#{$at}#{config.$between-separator}#{$to} {
+				&#{core.$separator}#{name($item)}#{core.$between-indicator}#{$at}#{core.$between-separator}#{$to} {
 					@include breakpoints.between($viewport) {
 						@content ($item);
 					}
@@ -69,21 +69,21 @@
 	}
 }
 
-@mixin all($data) {
+@mixin value($data) {
 	& {
-		@include base($data) using ($item) {
+		@include _base($data) using ($item) {
 			@content ($item);
 		}
 
-		@include at($data) using ($item) {
+		@include _at($data) using ($item) {
 			@content ($item);
 		}
 
-		@include to($data) using ($item) {
+		@include _to($data) using ($item) {
 			@content ($item);
 		}
 
-		@include between($data) using ($item) {
+		@include _between($data) using ($item) {
 			@content ($item);
 		}
 	}

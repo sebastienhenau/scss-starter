@@ -2,9 +2,9 @@
 @use "sass:list";
 @use "@/styles/tools/breakpoints" as breakpoints;
 @use "@/styles/tools/helpers" as helpers;
-@use "./config" as config;
+@use "@/styles/settings/core" as core;
 
-@mixin base($data) {
+@mixin _base($data) {
 	$default: map.get($data, "default");
 
 	@if ($default) {
@@ -14,12 +14,12 @@
 	}
 }
 
-@mixin at($data) {
+@mixin _at($data) {
 	$at: map.get($data, "at");
 
 	@if ($at and list.length($at) > 0) {
 		@each $viewport in $at {
-			&#{config.$at-indicator}#{$viewport} {
+			&#{core.$at-indicator}#{$viewport} {
 				@include breakpoints.at($viewport) {
 					@content;
 				}
@@ -28,12 +28,12 @@
 	}
 }
 
-@mixin to($data) {
+@mixin _to($data) {
 	$to: map.get($data, "to");
 
 	@if ($to and list.length($to) > 0) {
 		@each $viewport in helpers.reverse-list($to) {
-			&#{config.$to-indicator}#{$viewport} {
+			&#{core.$to-indicator}#{$viewport} {
 				@include breakpoints.to($viewport) {
 					@content;
 				}
@@ -42,7 +42,7 @@
 	}
 }
 
-@mixin between($data) {
+@mixin _between($data) {
 	$between: map.get($data, "between");
 
 	@if ($between and list.length($between) > 0) {
@@ -50,7 +50,7 @@
 			$at: list.nth($viewports, 1);
 			$to: list.nth($viewports, 2);
 
-			&#{config.$between-indicator}#{$at}#{config.$between-separator}#{$to} {
+			&#{core.$between-indicator}#{$at}#{core.$between-separator}#{$to} {
 				@include breakpoints.between($at, $to) {
 					@content;
 				}
@@ -59,21 +59,21 @@
 	}
 }
 
-@mixin all($data) {
+@mixin default($data) {
 	& {
-		@include base($data) {
+		@include _base($data) {
 			@content;
 		}
 
-		@include at($data) {
+		@include _at($data) {
 			@content;
 		}
 
-		@include to($data) {
+		@include _to($data) {
 			@content;
 		}
 
-		@include between($data) {
+		@include _between($data) {
 			@content;
 		}
 	}
