@@ -2,41 +2,132 @@
 @use "sass:map";
 @use "sass:list";
 @use "@/styles/tools/breakpoints" as breakpoints;
+@use "@/styles/settings" as settings;
 @use "@/styles/tools/helpers" as helpers;
 @use "@/styles/settings/core" as core;
-@use "@/styles/tools/generators/name" as name;
 
-@mixin _base($data) {
-	// TODO
+$_viewports: settings.$breakpoints-viewports;
+
+@function _is-default-key($value) {
+	@return $value == "default" and not(map.has-key($_viewports, $value));
 }
 
-@mixin _at($data) {
-	// TODO
+@mixin _base($data, $breakpoints) {
+	$default: map.get($data, "default");
+
+	@if ($default) {
+		& {
+			@each $breakpoint, $value in $breakpoints {
+				@if (_is-default-key($breakpoint)) {
+					@content ($value);
+				} @else {
+					@include breakpoints.at($breakpoint) {
+						@content ($value);
+					}
+				}
+			}
+		}
+	}
 }
 
-@mixin _to($data) {
-	// TODO
+@mixin _at($data, $breakpoints) {
+	$at: map.get($data, "at");
+
+	@if ($at and list.length($at) > 0) {
+		@each $target-breakpoint in $at {
+			&#{core.$class-at-indicator}#{$target-breakpoint} {
+				$target-reached: false;
+				$prev-value: null;
+
+				@each $breakpoint, $value in $breakpoints {
+					$target-width: map.get($_viewports, $target-breakpoint);
+					$width: if(not(_is-default-key($breakpoint)), map.get($_viewports, $breakpoint), 0);
+
+					@if ($width > $target-width and $target-reached == false) {
+						@include breakpoints.at($target-breakpoint) {
+							@content ($prev-value);
+						}
+
+						$target-reached: true;
+					}
+
+					@if ($width == $target-width and $target-reached == false) {
+						@include breakpoints.at($target-breakpoint) {
+							@content ($value);
+						}
+
+						$target-reached: true;
+					}
+
+					@if ($width > $target-width and $target-reached == true) {
+						@include breakpoints.at($breakpoint) {
+							@content ($value);
+						}
+					}
+
+					$prev-value: $value;
+				}
+			}
+		}
+	}
 }
 
-@mixin _between($data) {
-	// TODO
+@mixin _to($data, $breakpoints) {
+	$to: map.get($data, "to");
+
+	@if ($to and list.length($to) > 0) {
+		@each $target-breakpoint in helpers.reverse-list($to) {
+			&#{core.$class-to-indicator}#{$target-breakpoint} {
+				$next-value: null;
+				$reversed-to: helpers.reverse-map($breakpoints);
+				$keys: map.keys($reversed-to);
+				$length: list.length($keys);
+				$target-reached: false;
+
+				@each $breakpoint, $value in $reversed-to {
+					$is-default-key: _is-default-key($breakpoint);
+					$index: list.index($keys, $breakpoint);
+					$next-index: if($index != $length, list.index($keys, $breakpoint) + 1, null);
+					$next-breakpoint: if($next-index != null, list.nth($keys, $next-index), null);
+					$next-value: if($next-index != null, map.get($breakpoints, $next-breakpoint), null);
+					$next-value: if($next-index != null, $next-value, null);
+					$target-width: map.get($_viewports, $target-breakpoint);
+					$width: if(not($is-default-key), map.get($_viewports, $breakpoint), 0);
+
+					@if ($width < $target-width and not($target-reached)) {
+						@if ($value) {
+							@include breakpoints.to($target-breakpoint) {
+								@content ($value);
+							}
+						}
+
+						$target-reached: true;
+					}
+
+					@if ($width <= $target-width and not($is-default-key)) {
+						@if ($next-value) {
+							@include breakpoints.to($breakpoint) {
+								@content ($next-value);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
-@mixin value($data) {
+@mixin default-breakpoints($data, $breakpoints) {
 	& {
-		@include _base($data) using ($item) {
+		@include _base($data, $breakpoints) using ($item) {
 			@content ($item);
 		}
 
-		@include _at($data) using ($item) {
+		@include _at($data, $breakpoints) using ($item) {
 			@content ($item);
 		}
 
-		@include _to($data) using ($item) {
-			@content ($item);
-		}
-
-		@include _between($data) using ($item) {
+		@include _to($data, $breakpoints) using ($item) {
 			@content ($item);
 		}
 	}

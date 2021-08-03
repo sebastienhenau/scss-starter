@@ -19,7 +19,7 @@
 
 	@if ($at and list.length($at) > 0) {
 		@each $viewport in $at {
-			&#{core.$at-indicator}#{$viewport} {
+			&#{core.$class-at-indicator}#{$viewport} {
 				@include breakpoints.at($viewport) {
 					@content;
 				}
@@ -33,7 +33,7 @@
 
 	@if ($to and list.length($to) > 0) {
 		@each $viewport in helpers.reverse-list($to) {
-			&#{core.$to-indicator}#{$viewport} {
+			&#{core.$class-to-indicator}#{$viewport} {
 				@include breakpoints.to($viewport) {
 					@content;
 				}
@@ -50,7 +50,7 @@
 			$at: list.nth($viewports, 1);
 			$to: list.nth($viewports, 2);
 
-			&#{core.$between-indicator}#{$at}#{core.$between-separator}#{$to} {
+			&#{core.$class-between-indicator}#{$at}#{core.$class-between-separator}#{$to} {
 				@include breakpoints.between($at, $to) {
 					@content;
 				}

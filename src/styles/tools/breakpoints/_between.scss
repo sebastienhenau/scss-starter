@@ -3,11 +3,11 @@
 @use "@/styles/tools/units" as units;
 
 $_unit: breakpoints.$unit;
-$_setup: breakpoints.$setup;
+$_viewports: breakpoints.$viewports;
 
 @mixin between($from, $to) {
-	$from: map.get($_setup, $from);
-	$to: map.get($_setup, $to);
+	$from: map.get($_viewports, $from);
+	$to: map.get($_viewports, $to);
 	$max-width: $to - 1px;
 
 	@media screen and (min-width: units.convert($from, $_unit)) and (max-width: units.convert($max-width, $_unit)) {

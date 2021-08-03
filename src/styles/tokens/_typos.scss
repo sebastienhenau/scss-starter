@@ -1,10 +1,10 @@
-@use "@/styles/tools/typos" as typos;
+@use "@/styles/settings/typos" as typos;
 @use "@/styles/tools/breakpoints" as breakpoints;
 
 :root {
 	// h1
-	--h1-font-family: typo.$font-family-primary;
-	--h1-font-weight: typo.$font-weight-bold;
+	--h1-font-family: #{typos.$font-family-primary};
+	--h1-font-weight: #{typos.$font-weight-bold};
 	--h1-font-size: var(--size-600);
 	--h1-line-height: 1.5;
 
@@ -13,8 +13,8 @@
 	}
 
 	// h2
-	--h2-font-family: typo.$font-family-primary;
-	--h2-font-weight: typo.$font-weight-bold;
+	--h2-font-family: #{typos.$font-family-primary};
+	--h2-font-weight: #{typos.$font-weight-bold};
 	--h2-font-size: var(--size-500);
 	--h2-line-height: 1.5;
 
@@ -23,8 +23,8 @@
 	}
 
 	// h3
-	--h3-font-family: typo.$font-family-primary;
-	--h3-font-weight: typo.$font-weight-bold;
+	--h3-font-family: #{typos.$font-family-primary};
+	--h3-font-weight: #{typos.$font-weight-bold};
 	--h3-font-size: var(--size-400);
 	--h3-line-height: 1.5;
 
@@ -33,8 +33,8 @@
 	}
 
 	// h4
-	--h4-font-family: typo.$font-family-primary;
-	--h4-font-weight: typo.$font-weight-bold;
+	--h4-font-family: #{typos.$font-family-primary};
+	--h4-font-weight: #{typos.$font-weight-bold};
 	--h4-font-size: var(--size-400);
 	--h4-line-height: 1.5;
 
@@ -43,8 +43,8 @@
 	}
 
 	// h5
-	--h5-font-family: typo.$font-family-primary;
-	--h5-font-weight: typo.$font-weight-bold;
+	--h5-font-family: #{typos.$font-family-primary};
+	--h5-font-weight: #{typos.$font-weight-bold};
 	--h5-font-size: var(--size-400);
 	--h5-line-height: 1.5;
 
@@ -53,8 +53,8 @@
 	}
 
 	// h6
-	--h6-font-family: typo.$font-family-primary;
-	--h6-font-weight: typo.$font-weight-bold;
+	--h6-font-family: #{typos.$font-family-primary};
+	--h6-font-weight: #{typos.$font-weight-bold};
 	--h6-font-size: var(--size-400);
 	--h6-line-height: 1.5;
 
@@ -63,8 +63,8 @@
 	}
 
 	// p
-	--p-font-family: typo.$font-family-secondary;
-	--p-font-weight: typo.$font-weight-bold;
+	--p-font-family: #{typos.$font-family-secondary};
+	--p-font-weight: #{typos.$font-weight-bold};
 	--p-font-size: var(--size-400);
 	--p-line-height: 1.5;
 }

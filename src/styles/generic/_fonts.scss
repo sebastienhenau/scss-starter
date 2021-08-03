@@ -1,7 +1,7 @@
-@use "@/styles/tools" as tools;
+@use "@/styles/tools/typos" as typos;
 @use "@/styles/settings" as settings;
 
-// @include tools.typos-load-font(
+// @include typos.load-font(
 // 	(
 // 		font-family: "Roboto",
 // 		font-weight: settings.$typos-font-weight-normal,
