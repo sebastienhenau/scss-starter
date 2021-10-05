@@ -4,7 +4,7 @@
 
 [class*="o-grid"] > {
 	[class*="o-as-"] {
-		align-self: var(--grid-align-self);
+		align-self: var(--grid-align-self, unset);
 	}
 
 	.o-as-start {

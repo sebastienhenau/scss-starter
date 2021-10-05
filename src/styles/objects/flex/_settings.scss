@@ -1,17 +1,118 @@
-$flex: ();
-$gap: ();
-$flex-inline: ();
-$dir-row: ();
-$dir-row-reverse: ();
-$dir-col: ();
-$dir-col-reverse: ();
-$wrap: ();
-$wrap-reverse: ();
-$wrap-none: ();
-$item: ();
-$item-fill: ();
-$item-auto: ();
-$item-initial: ();
-$item-none: ();
-$item-grow: ();
-$item-shrink: ();
+// prettier-ignore
+$flex: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$flex-inline: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$gap: (
+	value: (),
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$dir-row: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$dir-row-reverse: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$dir-col: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$dir-col-reverse: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$wrap: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$wrap-reverse: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$wrap-none: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$item: (
+	value: (),
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$item-fill: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$item-auto: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$item-initial: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$item-none: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$item-grow: (
+	value: (),
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$item-shrink: (
+	value: (),
+	at: (),
+	to: (),
+);

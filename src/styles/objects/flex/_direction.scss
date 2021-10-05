@@ -4,134 +4,124 @@
 
 [class*="o-flex"] {
 	&[class*="o-dir"] {
-		flex-direction: var(--flex-direction);
-	}
-
-	&[class*="o-dir-row"] {
-		--flex-direction-margin-left: unset;
-
-		& > * + * {
-			margin-left: var(--flex-direction-margin-left);
-		}
+		flex-direction: var(--flex-direction, unset);
 	}
 
 	&[class*="o-dir-col"] {
-		--flex-direction-margin-top: unset;
-
 		& > * + * {
-			margin-top: var(--flex-direction-margin-top);
+			margin-top: var(--flex-direction-margin-top, unset);
 		}
 	}
 
-	.o-dir-row {
+	&.o-dir-row {
 		@include default.base(map.get(settings.$dir-row, default)) {
 			--flex-direction: row;
-			--flex-direction-margin-left: var(--flex-gap);
 		}
 	}
 
-	.o-dir-row-reverse {
+	&.o-dir-row-reverse {
 		@include default.base(map.get(settings.$dir-row-reverse, default)) {
 			--flex-direction: row-reverse;
-			--flex-direction-margin-left: var(--flex-gap);
 		}
 	}
 
-	.o-dir-col {
+	&.o-dir-col {
 		@include default.base(map.get(settings.$dir-col, default)) {
 			--flex-direction: column;
 			--flex-direction-margin-top: var(--flex-gap);
+			--flex-margin-left: unset;
 		}
 	}
 
-	.o-dir-col-reverse {
+	&.o-dir-col-reverse {
 		@include default.base(map.get(settings.$dir-col-reverse, default)) {
 			--flex-direction: column-reverse;
 			--flex-direction-margin-top: var(--flex-gap);
+			--flex-margin-left: unset;
 		}
 	}
 
-	.o-dir-row {
+	&.o-dir-row {
 		@include default.at(map.get(settings.$dir-row, at)) {
 			--flex-direction: row;
-			--flex-direction-margin-left: var(--flex-gap);
 		}
 	}
 
-	.o-dir-row-reverse {
+	&.o-dir-row-reverse {
 		@include default.at(map.get(settings.$dir-row-reverse, at)) {
 			--flex-direction: row-reverse;
-			--flex-direction-margin-left: var(--flex-gap);
 		}
 	}
 
-	.o-dir-col {
+	&.o-dir-col {
 		@include default.at(map.get(settings.$dir-col, at)) {
 			--flex-direction: column;
 			--flex-direction-margin-top: var(--flex-gap);
+			--flex-margin-left: unset;
 		}
 	}
 
-	.o-dir-col-reverse {
+	&.o-dir-col-reverse {
 		@include default.at(map.get(settings.$dir-col-reverse, at)) {
 			--flex-direction: column-reverse;
 			--flex-direction-margin-top: var(--flex-gap);
+			--flex-margin-left: unset;
 		}
 	}
 
-	.o-dir-row {
+	&.o-dir-row {
 		@include default.to(map.get(settings.$dir-row, to)) {
 			--flex-direction: row;
-			--flex-direction-margin-left: var(--flex-gap);
 		}
 	}
 
-	.o-dir-row-reverse {
+	&.o-dir-row-reverse {
 		@include default.to(map.get(settings.$dir-row-reverse, to)) {
 			--flex-direction: row-reverse;
-			--flex-direction-margin-left: var(--flex-gap);
 		}
 	}
 
-	.o-dir-col {
+	&.o-dir-col {
 		@include default.to(map.get(settings.$dir-col, to)) {
 			--flex-direction: column;
 			--flex-direction-margin-top: var(--flex-gap);
+			--flex-margin-left: unset;
 		}
 	}
 
-	.o-dir-col-reverse {
+	&.o-dir-col-reverse {
 		@include default.to(map.get(settings.$dir-col-reverse, to)) {
 			--flex-direction: column-reverse;
 			--flex-direction-margin-top: var(--flex-gap);
+			--flex-margin-left: unset;
 		}
 	}
 
-	.o-dir-row {
+	&.o-dir-row {
 		@include default.between(map.get(settings.$dir-row, between)) {
 			--flex-direction: row;
-			--flex-direction-margin-left: var(--flex-gap);
 		}
 	}
 
-	.o-dir-row-reverse {
+	&.o-dir-row-reverse {
 		@include default.between(map.get(settings.$dir-row-reverse, between)) {
 			--flex-direction: row-reverse;
-			--flex-direction-margin-left: var(--flex-gap);
 		}
 	}
 
-	.o-dir-col {
+	&.o-dir-col {
 		@include default.between(map.get(settings.$dir-col, between)) {
 			--flex-direction: column;
 			--flex-direction-margin-top: var(--flex-gap);
+			--flex-margin-left: unset;
 		}
 	}
 
-	.o-dir-col-reverse {
+	&.o-dir-col-reverse {
 		@include default.between(map.get(settings.$dir-col-reverse, between)) {
 			--flex-direction: column-reverse;
 			--flex-direction-margin-top: var(--flex-gap);
+			--flex-margin-left: unset;
 		}
 	}
 }

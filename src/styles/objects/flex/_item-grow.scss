@@ -2,7 +2,7 @@
 @use "@/styles/tools/generators/value" as value;
 @use "./settings" as settings;
 
-[class*="o-flex"] & > {
+[class*="o-flex"] > {
 	[class*="o-item-grow"] {
 		flex-grow: var(--flex-item-grow);
 	}

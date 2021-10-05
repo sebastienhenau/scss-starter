@@ -1,14 +1,24 @@
 @use "@/styles/tools/generators/default" as default;
 
 .u-hide\! {
-	@include default.generate() {
+	// prettier-ignore
+	@include default.generate((
+		default: false,
+		at: (),
+		to: (),
+	)) {
 		// stylelint-disable-next-line declaration-no-important
 		display: none !important;
 	}
 }
 
 .u-visually-hidden {
-	@include default.generate() {
+	// prettier-ignore
+	@include default.generate((
+		default: false,
+		at: (),
+		to: (),
+	)) {
 		position: absolute;
 
 		width: _system.convert(1px);

@@ -1,25 +1,174 @@
-$justify-content-start: ();
-$justify-content-end: ();
-$justify-content-center: ();
-$justify-content-between: ();
-$justify-content-around: ();
-$justify-content-evenly: ();
-$align-content-start: ();
-$align-content-end: ();
-$align-content-center: ();
-$align-content-between: ();
-$align-content-around: ();
-$align-content-stretch: ();
-$align-items-start: ();
-$align-items-end: ();
-$align-items-center: ();
-$align-items-baseline: ();
-$align-items-stretch: ();
-$align-self-start: ();
-$align-self-end: ();
-$align-self-center: ();
-$align-self-baseline: ();
-$align-self-stretch: ();
-$order-first: ();
-$order-last: ();
-$order: ();
+// prettier-ignore
+$justify-content-start: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$justify-content-end: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$justify-content-center: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$justify-content-between: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$justify-content-around: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$justify-content-evenly: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-content-start: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-content-end: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-content-center: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-content-between: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-content-around: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-content-stretch: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-items-start: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-items-end: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-items-center: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-items-baseline: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-items-stretch: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-self-start: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-self-end: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-self-center: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-self-baseline: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$align-self-stretch: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$order-first: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$order-last: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$order: (
+	value: (),
+	at: (),
+	to: (),
+);

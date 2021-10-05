@@ -6,15 +6,15 @@
 
 [class*="o-grid"] {
 	&[class*="o-gap"] {
-		gap: var(--grid-gap);
+		gap: var(--grid-gap, unset);
 	}
 
 	&[class*="o-col-gap"] {
-		column-gap: var(--grid-col-gap);
+		column-gap: var(--grid-col-gap, unset);
 	}
 
 	&[class*="o-row-gap"] {
-		row-gap: var(--grid-row-gap);
+		row-gap: var(--grid-row-gap, unset);
 	}
 
 	&.o-gap {

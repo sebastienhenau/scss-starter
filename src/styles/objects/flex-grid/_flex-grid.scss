@@ -4,6 +4,8 @@
 
 .o-flex-grid {
 	@include default.generate(settings.$flex-grid) {
+		--flex-grid-columns: #{settings.$columns};
+
 		display: flex;
 		flex-wrap: wrap;
 	}

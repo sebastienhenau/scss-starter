@@ -6,7 +6,7 @@
 @use "@/styles/tools/generators/name" as name;
 
 $_class-separator: core.$class-separator;
-$_class-to-separator: core.$class-to-indicator;
+$_class-to-indicator: core.$class-to-indicator;
 
 @mixin to($data) {
 	@if ($data and list.length($data) > 0) {

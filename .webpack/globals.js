@@ -12,6 +12,6 @@ module.exports = {
 		entry: path.join(src, "scripts/main.js"),
 	},
 	server: {
-		port: 9001,
+		port: 9000,
 	},
 };

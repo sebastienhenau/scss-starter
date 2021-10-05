@@ -1,2 +1,9 @@
-$spacing: ();
-$flow: ();
+$spacing: (
+	default: 2,
+);
+
+$flow: (
+	default: true,
+	at: (),
+	to: (),
+);

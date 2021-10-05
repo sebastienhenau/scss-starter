@@ -1,7 +1,12 @@
-@use "@/styles/tools/generators/default" as default;
+@use "@/styles/tools/generators/value" as value;
 
-.u-color-primary-base {
-	@include default.generate() {
-		color: var(--primary-base);
+.u-color {
+	// prettier-ignore
+	@include value.generate((
+		value: (),
+		at: (),
+		to: (),
+	)) using ($item) {
+		color: var(--color-#{$item});
 	}
 }

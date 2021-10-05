@@ -3,8 +3,8 @@
 @use "@/styles/tools/generators/value" as value;
 @use "./settings" as settings;
 
-[class*="o-flex"] {
-	&[class*="o-item"] {
+[class*="o-flex"] > {
+	[class*="o-item"] {
 		flex: var(--flex-item);
 	}
 

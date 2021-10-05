@@ -4,7 +4,7 @@
 
 [class*="o-grid"] {
 	&[class*="o-auto-rows"] {
-		grid-auto-rows: var(--grid-auto-rows);
+		grid-auto-rows: var(--grid-auto-rows, unset);
 	}
 
 	&.o-auto-rows-auto {

@@ -4,7 +4,7 @@
 
 [class*="o-flex"] {
 	&[class*="o-jc-"] {
-		justify-content: var(--flex-justify-content);
+		justify-content: var(--flex-justify-content, unset);
 	}
 
 	&.o-jc-start {

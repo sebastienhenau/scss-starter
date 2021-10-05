@@ -8,21 +8,31 @@
 }
 
 [class*="u-inline-wrap"] {
-	margin: calc(var(--inline-wrap-margin) * -1);
+	margin: calc(var(--inline-wrap-margin) * -0.5);
 
 	& > * {
-		margin: var(--inline-wrap-margin);
+		margin: calc(var(--inline-wrap-margin) * 0.5);
 	}
 }
 
 .u-inline {
-	@include value.generate() using ($item) {
+	// prettier-ignore
+	@include value.generate((
+		value: (),
+		at: (),
+		to: (),
+	)) using ($item) {
 		--inline-margin-left: #{sizes.scale($item)};
 	}
 }
 
 .u-inline-wrap {
-	@include value.generate() using ($item) {
+	// prettier-ignore
+	@include value.generate((
+		value: (),
+		at: (),
+		to: (),
+	)) using ($item) {
 		--inline-wrap-margin: #{sizes.scale($item)};
 	}
 }

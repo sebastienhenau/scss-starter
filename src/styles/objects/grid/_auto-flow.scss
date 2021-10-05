@@ -4,7 +4,7 @@
 
 [class*="o-grid"] {
 	&[class*="o-flow"] {
-		grid-auto-flow: var(--grid-auto-flow);
+		grid-auto-flow: var(--grid-auto-flow, unset);
 	}
 
 	&.o-flow-row {

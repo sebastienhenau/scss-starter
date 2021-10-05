@@ -5,7 +5,7 @@
 
 [class*="o-grid"] > {
 	[class*="o-row-start"] {
-		grid-row-start: var(--grid-row-start);
+		grid-row-start: var(--grid-row-start, unset);
 	}
 
 	.o-row-start {
@@ -16,7 +16,7 @@
 
 	.o-row-start-auto {
 		@include default.base(map.get(settings.$row-start-auto, default)) {
-			--grid-row-start: #{$item};
+			--grid-row-start: auto;
 		}
 	}
 
@@ -28,7 +28,7 @@
 
 	.o-row-start-auto {
 		@include default.at(map.get(settings.$row-start-auto, at)) {
-			--grid-row-start: #{$item};
+			--grid-row-start: auto;
 		}
 	}
 
@@ -40,7 +40,7 @@
 
 	.o-row-start-auto {
 		@include default.to(map.get(settings.$row-start-auto, to)) {
-			--grid-row-start: #{$item};
+			--grid-row-start: auto;
 		}
 	}
 
@@ -52,7 +52,7 @@
 
 	.o-row-start-auto {
 		@include default.between(map.get(settings.$row-start-auto, between)) {
-			--grid-row-start: #{$item};
+			--grid-row-start: auto;
 		}
 	}
 }

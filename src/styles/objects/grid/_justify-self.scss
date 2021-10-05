@@ -4,7 +4,7 @@
 
 [class*="o-grid"] > {
 	[class*="o-js-"] {
-		justify-self: var(--grid-justify-self);
+		justify-self: var(--grid-justify-self, unset);
 	}
 
 	.o-js-start {

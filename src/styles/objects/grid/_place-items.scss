@@ -4,7 +4,7 @@
 
 [class*="o-grid"] {
 	&[class*="o-pi-"] {
-		place-items: var(--grid-place-items);
+		place-items: var(--grid-place-items, unset);
 	}
 
 	&.o-pi-start {

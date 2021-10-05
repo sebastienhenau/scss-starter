@@ -1,35 +1,23 @@
 @use "@/styles/tools/generators/default" as default;
 
-.u-fill-width {
+.u-overflow-hidden {
 	// prettier-ignore
 	@include default.generate((
 		default: false,
 		at: (),
 		to: (),
 	)) {
-		width: 100%;
+		overflow: hidden;
 	}
 }
 
-.u-fill-height {
+.u-overflow-auto {
 	// prettier-ignore
 	@include default.generate((
 		default: false,
 		at: (),
 		to: (),
 	)) {
-		height: 100%;
-	}
-}
-
-.u-fill-space {
-	// prettier-ignore
-	@include default.generate((
-		default: false,
-		at: (),
-		to: (),
-	)) {
-		width: 100%;
-		height: 100%;
+		overflow: auto;
 	}
 }

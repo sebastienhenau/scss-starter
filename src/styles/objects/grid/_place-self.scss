@@ -4,7 +4,7 @@
 
 [class*="o-grid"] > {
 	[class*="o-ps-"] {
-		place-self: var(--grid-place-self);
+		place-self: var(--grid-place-self, unset);
 	}
 
 	.o-ps-start {

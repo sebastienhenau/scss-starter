@@ -1,11 +1,67 @@
 $columns: 12;
-$spacing: ();
-$flex-grid: ();
-$cols: ();
-$col: ();
-$gap: ();
-$col-gap: ();
-$row-gap: ();
-$gap-item: ();
-$col-gap-item: ();
-$row-gap-item: ();
+$spacing: (
+	default: 2,
+);
+
+// prettier-ignore
+$flex-grid: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$cols: (
+	value: (),
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$col: (
+	value: (),
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$gap: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$col-gap: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$row-gap: (
+	default: false,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$gap-item: (
+	value: (),
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$col-gap-item: (
+	value: (),
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$row-gap-item: (
+	value: (),
+	at: (),
+	to: (),
+);

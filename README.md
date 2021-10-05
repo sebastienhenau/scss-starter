@@ -1,17 +1,11 @@
 # scss-starter
 
-TODO:
+## TODO
 
-- container object
-- move settings to corresponding folder
-- components template
-- scopes template
-- utilities
-- section object
-- flow object
-- stack object/utility
-- inline object/utility
-- automise colors, background-colors, typography
-- more utilities
-- inline-wrap en inline in flex
-- more objects
+- container testing
+- automise typography utility
+- o-container-space-r@>700 als default enige setting is in spacing
+- o-container variants
+- border utilities, tokens, settings
+- shadows utilities, tokens, settings
+- radius utilities, tokens, settings

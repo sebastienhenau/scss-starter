@@ -1,21 +1,20 @@
 @use "sass:map";
+@use "sass:math";
 @use "@/styles/tools/generators/value" as value;
 @use "./settings" as settings;
 
 [class*="o-flex-grid"] > {
 	[class*="o-col"] {
-		& > * {
-			--flex-grid-col-space: 0;
-			--flex-grid-col-width: 100%;
-			--flex-grid-col: 0 0 calc(var(--flex-grid-col-width) - var(--flex-grid-col-space));
+		--flex-grid-col-space: 0%;
+		--flex-grid-col: 0 0
+			calc(((var(--flex-grid-col-value) / var(--flex-grid-columns)) * 100%) - var(--flex-grid-col-space));
 
-			flex: var(--flex-grid-col);
-		}
+		flex: var(--flex-grid-col);
 	}
 
 	.o-col {
 		@include value.generate(settings.$col) using ($item) {
-			--flex-grid-col-width: #{($item / settings.$columns) * 100%};
+			--flex-grid-col-value: #{$item};
 		}
 	}
 }

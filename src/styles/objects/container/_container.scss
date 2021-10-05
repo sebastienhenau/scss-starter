@@ -36,8 +36,8 @@ $_max-width: units.convert(settings.$max-width);
 		calc((100% - var(--container-max-width-value)) * 0.5 + var(--container-padding-value)),
 		var(--container-padding-value)
 	);
-	--padding-right: var(--container-padding);
-	--padding-left: var(--container-padding);
+	--container-padding-right: var(--container-padding);
+	--container-padding-left: var(--container-padding);
 }
 
 [class*="o-container-inset-width"] {
@@ -48,6 +48,8 @@ $_max-width: units.convert(settings.$max-width);
 	@include default.generate(settings.$container-max-width) {
 		--container-width: 100%;
 		--container-max-width: #{$_max-width};
+		--container-margin-left: auto;
+		--container-margin-right: auto;
 	}
 }
 
@@ -142,14 +144,14 @@ $_max-width: units.convert(settings.$max-width);
 .o-container-inset-l {
 	@include default.generate(settings.$container-inset-l, settings.$spacing) using ($item) {
 		--container-padding-value: #{sizes.scale($item)};
-		--padding-right: unset;
+		--container-padding-right: unset;
 	}
 }
 
 .o-container-inset-r {
 	@include default.generate(settings.$container-inset-l, settings.$spacing) using ($item) {
 		--container-padding-value: #{sizes.scale($item)};
-		--padding-left: unset;
+		--container-padding-left: unset;
 	}
 }
 
@@ -162,13 +164,13 @@ $_max-width: units.convert(settings.$max-width);
 .o-container-inset-width-l {
 	@include default.generate(settings.$container-inset-width) {
 		--container-max-width-value: #{$_max-width};
-		--padding-right: unset;
+		--container-padding-right: unset;
 	}
 }
 
 .o-container-inset-width-r {
 	@include default.generate(settings.$container-inset-width) {
 		--container-max-width-value: #{$_max-width};
-		--padding-left: unset;
+		--container-padding-left: unset;
 	}
 }

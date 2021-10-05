@@ -1,8 +1,14 @@
+@use "sass:meta";
 @use "@/styles/tools/generators/default" as default;
 @use "@/styles/settings/font-styles" as font-styles;
 
 .u-fs-h1 {
-	@include default.generate() {
+	// prettier-ignore
+	@include default.generate((
+		default: false,
+		at: (),
+		to: (),
+	)) {
 		@include font-styles.h1();
 	}
 }

@@ -20,7 +20,7 @@ $_viewports: settings-breakpoints.$viewports;
 	}
 }
 
-@mixin _to($data, $breakpoints) {
+@mixin to-breakpoints($data, $breakpoints) {
 	@if ($data and list.length($data) > 0) {
 		@each $target-breakpoint in helpers.reverse-list($data) {
 			&#{$_class-to-indicator}#{$target-breakpoint} {

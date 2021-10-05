@@ -4,7 +4,7 @@
 
 [class*="o-grid"] {
 	&[class*="o-ji-"] {
-		justify-items: var(--grid-justify-items);
+		justify-items: var(--grid-justify-items, unset);
 	}
 
 	&.o-ji-start {

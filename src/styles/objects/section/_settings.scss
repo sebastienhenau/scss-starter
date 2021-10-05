@@ -1,4 +1,24 @@
-$spacing: ();
-$section: ();
-$section-top: ();
-$section-bottom: ();
+$spacing: (
+	default: 2,
+);
+
+// prettier-ignore
+$section: (
+	default: true,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$section-top: (
+	default: true,
+	at: (),
+	to: (),
+);
+
+// prettier-ignore
+$section-bottom: (
+	default: true,
+	at: (),
+	to: (),
+);

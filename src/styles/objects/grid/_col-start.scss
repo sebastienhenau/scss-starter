@@ -5,7 +5,7 @@
 
 [class*="o-grid"] > {
 	[class*="o-col-start"] {
-		grid-column-start: var(--grid-col-start);
+		grid-column-start: var(--grid-col-start, unset);
 	}
 
 	.o-col-start {
@@ -16,7 +16,7 @@
 
 	.o-col-start-auto {
 		@include default.base(map.get(settings.$col-start-auto, default)) {
-			--grid-col-start: #{$item};
+			--grid-col-start: auto;
 		}
 	}
 
@@ -28,7 +28,7 @@
 
 	.o-col-start-auto {
 		@include default.at(map.get(settings.$col-start-auto, at)) {
-			--grid-col-start: #{$item};
+			--grid-col-start: auto;
 		}
 	}
 
@@ -40,7 +40,7 @@
 
 	.o-col-start-auto {
 		@include default.to(map.get(settings.$col-start-auto, to)) {
-			--grid-col-start: #{$item};
+			--grid-col-start: auto;
 		}
 	}
 
@@ -52,7 +52,7 @@
 
 	.o-col-start-auto {
 		@include default.between(map.get(settings.$col-start-auto, between)) {
-			--grid-col-start: #{$item};
+			--grid-col-start: auto;
 		}
 	}
 }

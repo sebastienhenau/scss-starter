@@ -4,7 +4,7 @@
 
 [class*="o-flex"] > {
 	[class*="o-as-"] {
-		align-self: var(--flex-align-self);
+		align-self: var(--flex-align-self, unset);
 	}
 
 	.o-as-start {

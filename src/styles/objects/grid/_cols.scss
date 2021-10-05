@@ -18,7 +18,7 @@
 	}
 
 	&.o-cols-none {
-		@include default.base(map.get(settings.$cols-none, default)) using ($item) {
+		@include default.base(map.get(settings.$cols-none, default)) {
 			--grid-cols: none;
 		}
 	}
@@ -30,7 +30,7 @@
 	}
 
 	&.o-cols-none {
-		@include default.at(map.get(settings.$cols-none, at)) using ($item) {
+		@include default.at(map.get(settings.$cols-none, at)) {
 			--grid-cols: none;
 		}
 	}
@@ -42,7 +42,7 @@
 	}
 
 	&.o-cols-none {
-		@include default.to(map.get(settings.$cols-none, to)) using ($item) {
+		@include default.to(map.get(settings.$cols-none, to)) {
 			--grid-cols: none;
 		}
 	}
@@ -54,7 +54,7 @@
 	}
 
 	&.o-cols-none {
-		@include default.between(map.get(settings.$cols-none, between)) using ($item) {
+		@include default.between(map.get(settings.$cols-none, between)) {
 			--grid-cols: none;
 		}
 	}

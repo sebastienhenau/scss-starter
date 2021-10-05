@@ -14,7 +14,7 @@ module.exports = merge(common, {
 		historyApiFallback: true,
 		watchContentBase: true,
 		port: globals.server.port,
-		open: true,
+		open: false,
 		compress: true,
 		hot: true,
 		useLocalIp: true,

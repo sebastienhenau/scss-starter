@@ -18,7 +18,7 @@
 	}
 
 	&.o-rows-none {
-		@include default.base(map.get(settings.$rows-none, default)) using ($item) {
+		@include default.base(map.get(settings.$rows-none, default)) {
 			--grid-rows: none;
 		}
 	}
@@ -30,7 +30,7 @@
 	}
 
 	&.o-rows-none {
-		@include default.at(map.get(settings.$rows-none, at)) using ($item) {
+		@include default.at(map.get(settings.$rows-none, at)) {
 			--grid-rows: none;
 		}
 	}
@@ -42,7 +42,7 @@
 	}
 
 	&.o-rows-none {
-		@include default.to(map.get(settings.$rows-none, to)) using ($item) {
+		@include default.to(map.get(settings.$rows-none, to)) {
 			--grid-rows: none;
 		}
 	}
@@ -54,7 +54,7 @@
 	}
 
 	&.o-rows-none {
-		@include default.between(map.get(settings.$rows-none, between)) using ($item) {
+		@include default.between(map.get(settings.$rows-none, between)) {
 			--grid-rows: none;
 		}
 	}

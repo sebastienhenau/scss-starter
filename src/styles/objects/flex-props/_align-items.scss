@@ -4,7 +4,7 @@
 
 [class*="o-flex"] {
 	&[class*="o-ai-"] {
-		align-items: var(--flex-align-items);
+		align-items: var(--flex-align-items, unset);
 	}
 
 	&.o-ai-start {

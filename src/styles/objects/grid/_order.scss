@@ -5,7 +5,7 @@
 
 [class*="o-grid"] > {
 	[class*="o-order"] {
-		order: var(--grid-order);
+		order: var(--grid-order, unset);
 	}
 
 	.o-order-first {
@@ -16,7 +16,7 @@
 
 	.o-order-last {
 		@include default.base(map.get(settings.$order-last, default)) {
-			--grid-order: -999;
+			--grid-order: 999;
 		}
 	}
 
@@ -34,7 +34,7 @@
 
 	.o-order-last {
 		@include default.at(map.get(settings.$order-last, at)) {
-			--grid-order: -999;
+			--grid-order: 999;
 		}
 	}
 
@@ -52,7 +52,7 @@
 
 	.o-order-last {
 		@include default.to(map.get(settings.$order-last, to)) {
-			--grid-order: -999;
+			--grid-order: 999;
 		}
 	}
 
@@ -70,7 +70,7 @@
 
 	.o-order-last {
 		@include default.between(map.get(settings.$order-last, between)) {
-			--grid-order: -999;
+			--grid-order: 999;
 		}
 	}
 

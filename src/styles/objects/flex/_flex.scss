@@ -2,50 +2,66 @@
 @use "@/styles/tools/generators/default" as default;
 @use "./settings" as settings;
 
+[class*="o-flex"] {
+	display: var(--flex-display, unset);
+
+	& > * + * {
+		margin-left: var(--flex-margin-left, unset);
+	}
+}
+
 .o-flex {
 	@include default.base(map.get(settings.$flex, default)) {
-		display: flex;
+		--flex-display: flex;
+		--flex-margin-left: var(--flex-gap);
 	}
 }
 
 .o-flex-inline {
 	@include default.base(map.get(settings.$flex-inline, default)) {
-		display: inline-flex;
+		--flex-display: inline-flex;
+		--flex-margin-left: var(--flex-gap);
 	}
 }
 
 .o-flex {
 	@include default.at(map.get(settings.$flex, at)) {
-		display: flex;
+		--flex-display: flex;
+		--flex-margin-left: var(--flex-gap);
 	}
 }
 
 .o-flex-inline {
 	@include default.at(map.get(settings.$flex-inline, at)) {
-		display: inline-flex;
+		--flex-display: inline-flex;
+		--flex-margin-left: var(--flex-gap);
 	}
 }
 
 .o-flex {
 	@include default.to(map.get(settings.$flex, to)) {
-		display: flex;
+		--flex-display: flex;
+		--flex-margin-left: var(--flex-gap);
 	}
 }
 
 .o-flex-inline {
 	@include default.to(map.get(settings.$flex-inline, to)) {
-		display: inline-flex;
+		--flex-display: inline-flex;
+		--flex-margin-left: var(--flex-gap);
 	}
 }
 
 .o-flex {
 	@include default.between(map.get(settings.$flex, between)) {
-		display: flex;
+		--flex-display: flex;
+		--flex-margin-left: var(--flex-gap);
 	}
 }
 
 .o-flex-inline {
 	@include default.between(map.get(settings.$flex-inline, between)) {
-		display: inline-flex;
+		--flex-display: inline-flex;
+		--flex-margin-left: var(--flex-gap);
 	}
 }

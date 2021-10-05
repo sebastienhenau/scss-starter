@@ -4,7 +4,7 @@
 
 [class*="o-grid"] {
 	&[class*="o-pc-"] {
-		place-content: var(--grid-place-content);
+		place-content: var(--grid-place-content, unset);
 	}
 
 	&.o-pc-start {

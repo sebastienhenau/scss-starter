@@ -5,9 +5,11 @@
 @use "@/styles/tools/sizes" as sizes;
 
 [class*="o-flex-grid"] {
-	&[class*="o-gap"] {
+	&[class*="o-gap"],
+	&[class*="o-col-gap"],
+	&[class*="o-row-gap"] {
 		--flex-grid-gap-bottom: unset;
-		--flex-grid-gap-left: unset;
+		--flex-grid-gap-left: 0%;
 
 		margin-bottom: calc(var(--flex-grid-gap-bottom) * -1);
 		margin-left: calc(var(--flex-grid-gap-left) * -1);

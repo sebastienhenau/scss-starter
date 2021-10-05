@@ -1,35 +1,23 @@
 @use "@/styles/tools/generators/default" as default;
 
-.u-fill-width {
+.u-idle {
 	// prettier-ignore
 	@include default.generate((
 		default: false,
 		at: (),
-		to: (),
+		to: ()
 	)) {
-		width: 100%;
+		pointer-events: none;
 	}
 }
 
-.u-fill-height {
+.u-interactive {
 	// prettier-ignore
 	@include default.generate((
 		default: false,
 		at: (),
-		to: (),
+		to: ()
 	)) {
-		height: 100%;
-	}
-}
-
-.u-fill-space {
-	// prettier-ignore
-	@include default.generate((
-		default: false,
-		at: (),
-		to: (),
-	)) {
-		width: 100%;
-		height: 100%;
+		pointer-events: auto;
 	}
 }

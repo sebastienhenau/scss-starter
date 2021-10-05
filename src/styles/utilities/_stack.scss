@@ -8,7 +8,12 @@
 }
 
 .u-stack {
-	@include value.generate() using ($item) {
+	// prettier-ignore
+	@include value.generate((
+		value: (),
+		at: (),
+		to: (),
+	)) using ($item) {
 		--stack-margin-top: #{sizes.scale($item)};
 	}
 }

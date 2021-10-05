@@ -4,7 +4,7 @@
 
 [class*="o-grid"] {
 	&[class*="o-ai-"] {
-		align-items: var(--grid-align-items);
+		align-items: var(--grid-align-items, unset);
 	}
 
 	&.o-ai-start {

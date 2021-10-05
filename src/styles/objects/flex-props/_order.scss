@@ -5,7 +5,7 @@
 
 [class*="o-flex"] > {
 	[class*="o-order"] {
-		order: var(--flex-order);
+		order: var(--flex-order, unset);
 	}
 
 	.o-order-first {

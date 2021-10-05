@@ -4,7 +4,7 @@
 
 [class*="o-flex"] {
 	&[class*="o-ac-"] {
-		align-content: var(--flex-align-content);
+		align-content: var(--flex-align-content, unset);
 	}
 
 	&.o-ac-start {

@@ -5,7 +5,7 @@
 
 [class*="o-grid"] > {
 	[class*="o-col-end"] {
-		grid-column-end: var(--grid-col-end);
+		grid-column-end: var(--grid-col-end, unset);
 	}
 
 	.o-col-end {
@@ -16,7 +16,7 @@
 
 	.o-col-end-auto {
 		@include default.base(map.get(settings.$col-end-auto, default)) {
-			--grid-col-end: #{$item};
+			--grid-col-end: auto;
 		}
 	}
 
@@ -28,7 +28,7 @@
 
 	.o-col-end-auto {
 		@include default.at(map.get(settings.$col-end-auto, at)) {
-			--grid-col-end: #{$item};
+			--grid-col-end: auto;
 		}
 	}
 
@@ -40,7 +40,7 @@
 
 	.o-col-end-auto {
 		@include default.to(map.get(settings.$col-end-auto, to)) {
-			--grid-col-end: #{$item};
+			--grid-col-end: auto;
 		}
 	}
 
@@ -52,7 +52,7 @@
 
 	.o-col-end-auto {
 		@include default.between(map.get(settings.$col-end-auto, between)) {
-			--grid-col-end: #{$item};
+			--grid-col-end: auto;
 		}
 	}
 }
