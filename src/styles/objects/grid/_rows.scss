@@ -1,0 +1,61 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "@/styles/tools/generators/value" as value;
+@use "./settings" as settings;
+
+[class*="o-grid"] {
+	&[class*="o-rows"] {
+		--grid-rows-amount: 1;
+		--grid-rows: repeat(var(--grid-rows-amount), minmax(0, 1fr));
+
+		grid-template-rows: var(--grid-rows);
+	}
+
+	&.o-rows {
+		@include value.base(map.get(settings.$rows, value)) using ($item) {
+			--grid-rows-amount: #{$item};
+		}
+	}
+
+	&.o-rows-none {
+		@include default.base(map.get(settings.$rows-none, default)) using ($item) {
+			--grid-rows: none;
+		}
+	}
+
+	&.o-rows {
+		@include value.at(map.get(settings.$rows, at)) using ($item) {
+			--grid-rows-amount: #{$item};
+		}
+	}
+
+	&.o-rows-none {
+		@include default.at(map.get(settings.$rows-none, at)) using ($item) {
+			--grid-rows: none;
+		}
+	}
+
+	&.o-rows {
+		@include value.to(map.get(settings.$rows, to)) using ($item) {
+			--grid-rows-amount: #{$item};
+		}
+	}
+
+	&.o-rows-none {
+		@include default.to(map.get(settings.$rows-none, to)) using ($item) {
+			--grid-rows: none;
+		}
+	}
+
+	&.o-rows {
+		@include value.between(map.get(settings.$rows, between)) using ($item) {
+			--grid-rows-amount: #{$item};
+		}
+	}
+
+	&.o-rows-none {
+		@include default.between(map.get(settings.$rows-none, between)) using ($item) {
+			--grid-rows: none;
+		}
+	}
+}

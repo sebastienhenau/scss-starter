@@ -1,0 +1,9 @@
+a {
+	color: var(--color-primary-base);
+
+	transition: color 0.2s ease-in-out;
+
+	&:hover {
+		color: var(--color-primary-shade);
+	}
+}

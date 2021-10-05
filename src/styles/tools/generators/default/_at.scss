@@ -1,0 +1,61 @@
+@use "sass:map";
+@use "sass:list";
+@use "@/styles/tools/breakpoints" as breakpoints;
+@use "@/styles/settings/core" as core;
+@use "@/styles/settings/breakpoints" as settings-breakpoints;
+
+$_class-at-indicator: core.$class-at-indicator;
+$_viewports: settings-breakpoints.$viewports;
+
+@mixin at($data) {
+	@if ($data and list.length($data) > 0) {
+		@each $viewport in $data {
+			&#{$_class-at-indicator}#{$viewport} {
+				@include breakpoints.at($viewport) {
+					@content;
+				}
+			}
+		}
+	}
+}
+
+@mixin at-breakpoints($data, $breakpoints) {
+	@if ($data and list.length($data) > 0) {
+		@each $target-breakpoint in $data {
+			&#{$_class-at-indicator}#{$target-breakpoint} {
+				$target-reached: false;
+				$prev-value: null;
+
+				@each $breakpoint, $value in $breakpoints {
+					$target-width: map.get($_viewports, $target-breakpoint);
+					$is-default-key: $breakpoint == "default" and not(map.has-key($_viewports, $breakpoint));
+					$width: if(not($is-default-key), map.get($_viewports, $breakpoint), 0);
+
+					@if ($width > $target-width and $target-reached == false) {
+						@include breakpoints.at($target-breakpoint) {
+							@content ($prev-value);
+						}
+
+						$target-reached: true;
+					}
+
+					@if ($width == $target-width and $target-reached == false) {
+						@include breakpoints.at($target-breakpoint) {
+							@content ($value);
+						}
+
+						$target-reached: true;
+					}
+
+					@if ($width > $target-width and $target-reached == true) {
+						@include breakpoints.at($breakpoint) {
+							@content ($value);
+						}
+					}
+
+					$prev-value: $value;
+				}
+			}
+		}
+	}
+}

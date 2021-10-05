@@ -1,0 +1,51 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "./settings" as settings;
+
+.o-flex {
+	@include default.base(map.get(settings.$flex, default)) {
+		display: flex;
+	}
+}
+
+.o-flex-inline {
+	@include default.base(map.get(settings.$flex-inline, default)) {
+		display: inline-flex;
+	}
+}
+
+.o-flex {
+	@include default.at(map.get(settings.$flex, at)) {
+		display: flex;
+	}
+}
+
+.o-flex-inline {
+	@include default.at(map.get(settings.$flex-inline, at)) {
+		display: inline-flex;
+	}
+}
+
+.o-flex {
+	@include default.to(map.get(settings.$flex, to)) {
+		display: flex;
+	}
+}
+
+.o-flex-inline {
+	@include default.to(map.get(settings.$flex-inline, to)) {
+		display: inline-flex;
+	}
+}
+
+.o-flex {
+	@include default.between(map.get(settings.$flex, between)) {
+		display: flex;
+	}
+}
+
+.o-flex-inline {
+	@include default.between(map.get(settings.$flex-inline, between)) {
+		display: inline-flex;
+	}
+}

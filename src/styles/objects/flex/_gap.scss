@@ -1,0 +1,12 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "@/styles/tools/sizes" as sizes;
+@use "./settings" as settings;
+
+[class*="o-flex"] {
+	&.o-gap {
+		@include value.generate(settings.$gap) using ($item) {
+			--flex-gap: #{sizes.scale($item)};
+		}
+	}
+}

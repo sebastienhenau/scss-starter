@@ -1,0 +1,105 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "./settings" as settings;
+
+[class*="o-grid"] {
+	&[class*="o-flow"] {
+		grid-auto-flow: var(--grid-auto-flow);
+	}
+
+	&.o-flow-row {
+		@include default.base(map.get(settings.$flow-row, default)) {
+			--grid-auto-flow: row;
+		}
+	}
+
+	&.o-flow-col {
+		@include default.base(map.get(settings.$flow-col, default)) {
+			--grid-auto-flow: column;
+		}
+	}
+
+	&.o-flow-row-dense {
+		@include default.base(map.get(settings.$flow-row-dense, default)) {
+			--grid-auto-flow: row dense;
+		}
+	}
+
+	&.o-flow-col-dense {
+		@include default.base(map.get(settings.$flow-col-dense, default)) {
+			--grid-auto-flow: column dense;
+		}
+	}
+
+	&.o-flow-row {
+		@include default.at(map.get(settings.$flow-row, at)) {
+			--grid-auto-flow: row;
+		}
+	}
+
+	&.o-flow-col {
+		@include default.at(map.get(settings.$flow-col, at)) {
+			--grid-auto-flow: column;
+		}
+	}
+
+	&.o-flow-row-dense {
+		@include default.at(map.get(settings.$flow-row-dense, at)) {
+			--grid-auto-flow: row dense;
+		}
+	}
+
+	&.o-flow-col-dense {
+		@include default.at(map.get(settings.$flow-col-dense, at)) {
+			--grid-auto-flow: column dense;
+		}
+	}
+
+	&.o-flow-row {
+		@include default.to(map.get(settings.$flow-row, to)) {
+			--grid-auto-flow: row;
+		}
+	}
+
+	&.o-flow-col {
+		@include default.to(map.get(settings.$flow-col, to)) {
+			--grid-auto-flow: column;
+		}
+	}
+
+	&.o-flow-row-dense {
+		@include default.to(map.get(settings.$flow-row-dense, to)) {
+			--grid-auto-flow: row dense;
+		}
+	}
+
+	&.o-flow-col-dense {
+		@include default.to(map.get(settings.$flow-col-dense, to)) {
+			--grid-auto-flow: column dense;
+		}
+	}
+
+	&.o-flow-row {
+		@include default.between(map.get(settings.$flow-row, between)) {
+			--grid-auto-flow: row;
+		}
+	}
+
+	&.o-flow-col {
+		@include default.between(map.get(settings.$flow-col, between)) {
+			--grid-auto-flow: column;
+		}
+	}
+
+	&.o-flow-row-dense {
+		@include default.between(map.get(settings.$flow-row-dense, between)) {
+			--grid-auto-flow: row dense;
+		}
+	}
+
+	&.o-flow-col-dense {
+		@include default.between(map.get(settings.$flow-col-dense, between)) {
+			--grid-auto-flow: column dense;
+		}
+	}
+}

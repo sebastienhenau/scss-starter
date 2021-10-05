@@ -1,0 +1,15 @@
+@use "sass:map";
+@use "@/styles/tools/generators/value" as value;
+@use "./settings" as settings;
+
+[class*="o-flex"] & > {
+	[class*="o-item-shrink"] {
+		flex-shrink: var(--flex-item-shrink);
+	}
+
+	.o-item-shrink {
+		@include value.generate(settings.$item-shrink) using ($item) {
+			--flex-item-shrink: #{$item};
+		}
+	}
+}

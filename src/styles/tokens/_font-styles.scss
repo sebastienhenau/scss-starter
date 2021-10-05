@@ -1,0 +1,71 @@
+@use "@/styles/settings/font-weights" as font-weights;
+@use "@/styles/tools/breakpoints" as breakpoints;
+@use "@/styles/tools/sizes" as sizes;
+
+:root {
+	// h1
+	--h1-font-family: var(--font-family-primary);
+	--h1-font-weight: #{font-weights.$bold};
+	--h1-font-size: #{sizes.scale(9)};
+	--h1-line-height: 1.5;
+
+	@include breakpoints.at("700") {
+		--h1-font-size: #{sizes.scale(10)};
+	}
+
+	// h2
+	--h2-font-family: var(--font-family-primary);
+	--h2-font-weight: #{font-weights.$bold};
+	--h2-font-size: #{sizes.scale(8)};
+	--h2-line-height: 1.5;
+
+	@include breakpoints.at("700") {
+		--h2-font-size: #{sizes.scale(9)};
+	}
+
+	// h3
+	--h3-font-family: var(--font-family-primary);
+	--h3-font-weight: #{font-weights.$bold};
+	--h3-font-size: #{sizes.scale(7)};
+	--h3-line-height: 1.5;
+
+	@include breakpoints.at("700") {
+		--h3-font-size: #{sizes.scale(8)};
+	}
+
+	// h4
+	--h4-font-family: var(--font-family-primary);
+	--h4-font-weight: #{font-weights.$bold};
+	--h4-font-size: #{sizes.scale(6)};
+	--h4-line-height: 1.5;
+
+	@include breakpoints.at("700") {
+		--h4-font-size: #{sizes.scale(7)};
+	}
+
+	// h5
+	--h5-font-family: var(--font-family-primary);
+	--h5-font-weight: #{font-weights.$bold};
+	--h5-font-size: #{sizes.scale(5)};
+	--h5-line-height: 1.5;
+
+	@include breakpoints.at("700") {
+		--h5-font-size: #{sizes.scale(6)};
+	}
+
+	// h6
+	--h6-font-family: var(--font-family-primary);
+	--h6-font-weight: #{font-weights.$bold};
+	--h6-font-size: #{sizes.scale(4)};
+	--h6-line-height: 1.5;
+
+	@include breakpoints.at("700") {
+		--h6-font-size: #{sizes.scale(5)};
+	}
+
+	// p
+	--p-font-family: var(--font-family-secondary);
+	--p-font-weight: #{font-weights.$normal};
+	--p-font-size: #{sizes.scale(4)};
+	--p-line-height: 1.5;
+}

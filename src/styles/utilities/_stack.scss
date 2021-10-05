@@ -1,0 +1,14 @@
+@use "@/styles/tools/generators/value" as value;
+@use "@/styles/tools/sizes" as sizes;
+
+[class*="u-stack"] {
+	& > * + * {
+		margin-top: var(--stack-margin-top);
+	}
+}
+
+.u-stack {
+	@include value.generate() using ($item) {
+		--stack-margin-top: #{sizes.scale($item)};
+	}
+}

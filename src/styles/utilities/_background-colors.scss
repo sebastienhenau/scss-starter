@@ -1,0 +1,7 @@
+@use "@/styles/tools/generators/default" as default;
+
+.u-bg-primary-base {
+	@include default.generate() {
+		background-color: var(--primary-base);
+	}
+}

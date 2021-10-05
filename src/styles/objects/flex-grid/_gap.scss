@@ -1,0 +1,161 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "@/styles/tools/generators/value" as value;
+@use "./settings" as settings;
+@use "@/styles/tools/sizes" as sizes;
+
+[class*="o-flex-grid"] {
+	&[class*="o-gap"] {
+		--flex-grid-gap-bottom: unset;
+		--flex-grid-gap-left: unset;
+
+		margin-bottom: calc(var(--flex-grid-gap-bottom) * -1);
+		margin-left: calc(var(--flex-grid-gap-left) * -1);
+
+		& > * {
+			margin-bottom: var(--flex-grid-gap-bottom);
+			margin-left: var(--flex-grid-gap-left);
+		}
+
+		&[class*="o-cols"] {
+			--flex-grid-cols-space: var(--flex-grid-gap-left);
+		}
+
+		& > [class*="o-col"] {
+			--flex-grid-col-space: var(--flex-grid-gap-left);
+		}
+	}
+
+	&.o-gap {
+		@include default.base-breakpoints(map.get(settings.$gap, default), settings.$spacing) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-gap {
+		@include value.base(map.get(settings.$gap-item, value)) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-col-gap {
+		@include default.base-breakpoints(map.get(settings.$col-gap, default), settings.$spacing) using ($item) {
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-col-gap {
+		@include value.base(map.get(settings.$col-gap-item, value)) using ($item) {
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-row-gap {
+		@include default.base-breakpoints(map.get(settings.$row-gap, default), settings.$spacing) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-row-gap {
+		@include value.base(map.get(settings.$row-gap-item, value)) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-gap {
+		@include default.at-breakpoints(map.get(settings.$gap, at), settings.$spacing) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-gap {
+		@include value.at(map.get(settings.$gap-item, at)) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-col-gap {
+		@include default.at-breakpoints(map.get(settings.$col-gap, at), settings.$spacing) using ($item) {
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-col-gap {
+		@include value.at(map.get(settings.$col-gap-item, at)) using ($item) {
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-row-gap {
+		@include default.at-breakpoints(map.get(settings.$row-gap, at), settings.$spacing) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-row-gap {
+		@include value.at(map.get(settings.$row-gap-item, at)) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-gap {
+		@include default.to-breakpoints(map.get(settings.$gap, to), settings.$spacing) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-gap {
+		@include value.to(map.get(settings.$gap-item, to)) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-col-gap {
+		@include default.to-breakpoints(map.get(settings.$col-gap, to), settings.$spacing) using ($item) {
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-col-gap {
+		@include value.to(map.get(settings.$col-gap-item, to)) using ($item) {
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-row-gap {
+		@include default.to-breakpoints(map.get(settings.$row-gap, to), settings.$spacing) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-row-gap {
+		@include value.to(map.get(settings.$row-gap-item, to)) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-gap {
+		@include value.between(map.get(settings.$gap-item, between)) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-col-gap {
+		@include value.between(map.get(settings.$col-gap-item, between)) using ($item) {
+			--flex-grid-gap-left: #{sizes.scale($item)};
+		}
+	}
+
+	&.o-row-gap {
+		@include value.between(map.get(settings.$row-gap-item, between)) using ($item) {
+			--flex-grid-gap-bottom: #{sizes.scale($item)};
+		}
+	}
+}

@@ -1,0 +1,23 @@
+@use "sass:map";
+@use "sass:list";
+@use "@/styles/tools/breakpoints" as breakpoints;
+@use "@/styles/settings/core" as core;
+@use "@/styles/tools/helpers" as helpers;
+@use "@/styles/tools/generators/name" as name;
+
+$_class-separator: core.$class-separator;
+$_class-to-separator: core.$class-to-indicator;
+
+@mixin to($data) {
+	@if ($data and list.length($data) > 0) {
+		@each $viewport, $items in helpers.reverse-map($data) {
+			@each $item in $items {
+				&#{$_class-separator}#{name.generate($item)}#{$_class-to-indicator}#{$viewport} {
+					@include breakpoints.to($viewport) {
+						@content ($item);
+					}
+				}
+			}
+		}
+	}
+}

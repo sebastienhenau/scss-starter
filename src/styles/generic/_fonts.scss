@@ -1,11 +1,95 @@
-@use "@/styles/tools/typos" as typos;
-@use "@/styles/settings" as settings;
+@use "@/styles/tools/typography" as typography;
+@use "@/styles/settings/font-families" as font-families;
+@use "@/styles/settings/font-weights" as font-weights;
 
-// @include typos.load-font(
-// 	(
-// 		font-family: "Roboto",
-// 		font-weight: settings.$typos-font-weight-normal,
-// 		font-style: italic,
-// 		url: "@/assets/fonts/roboto",
-// 	)
-// );
+// TODO: comment
+@include typography.load(
+	(
+		font-family: "Roboto",
+		font-weight: font-weights.$black,
+		url: "@/assets/fonts/Roboto-Black",
+	)
+);
+@include typography.load(
+	(
+		font-family: "Roboto",
+		font-weight: font-weights.$black,
+		font-style: italic,
+		url: "@/assets/fonts/Roboto-BlackItalic",
+	)
+);
+@include typography.load(
+	(
+		font-family: "Roboto",
+		font-weight: font-weights.$bold,
+		url: "@/assets/fonts/Roboto-Bold",
+	)
+);
+@include typography.load(
+	(
+		font-family: "Roboto",
+		font-weight: font-weights.$bold,
+		font-style: italic,
+		url: "@/assets/fonts/Roboto-BoldItalic",
+	)
+);
+@include typography.load(
+	(
+		font-family: "Roboto",
+		font-weight: font-weights.$medium,
+		url: "@/assets/fonts/Roboto-Medium",
+	)
+);
+@include typography.load(
+	(
+		font-family: "Roboto",
+		font-weight: font-weights.$medium,
+		font-style: italic,
+		url: "@/assets/fonts/Roboto-MediumItalic",
+	)
+);
+@include typography.load(
+	(
+		font-family: "Roboto",
+		font-weight: font-weights.$normal,
+		url: "@/assets/fonts/Roboto-Regular",
+	)
+);
+@include typography.load(
+	(
+		font-family: "Roboto",
+		font-weight: font-weights.$normal,
+		font-style: italic,
+		url: "@/assets/fonts/Roboto-Italic",
+	)
+);
+@include typography.load(
+	(
+		font-family: "Roboto",
+		font-weight: font-weights.$light,
+		url: "@/assets/fonts/Roboto-Light",
+	)
+);
+@include typography.load(
+	(
+		font-family: "Roboto",
+		font-weight: font-weights.$light,
+		font-style: italic,
+		url: "@/assets/fonts/Roboto-LightItalic",
+	)
+);
+@include typography.load(
+	(
+		font-family: "Roboto",
+		font-weight: font-weights.$thin,
+		url: "@/assets/fonts/Roboto-Thin",
+	)
+);
+@include typography.load(
+	(
+		font-family: "Roboto",
+		font-weight: font-weights.$thin,
+		font-style: italic,
+		url: "@/assets/fonts/Roboto-ThinItalic",
+	)
+);

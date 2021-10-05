@@ -1,0 +1,82 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "@/styles/tools/generators/value" as value;
+@use "./settings" as settings;
+
+[class*="o-flex"] > {
+	[class*="o-order"] {
+		order: var(--flex-order);
+	}
+
+	.o-order-first {
+		@include default.base(map.get(settings.$order-first, default)) {
+			--flex-order: -1;
+		}
+	}
+
+	.o-order-last {
+		@include default.base(map.get(settings.$order-last, default)) {
+			--flex-order: -999;
+		}
+	}
+
+	.o-order {
+		@include value.base(map.get(settings.$order, value)) using ($item) {
+			--flex-order: #{$item};
+		}
+	}
+
+	.o-order-first {
+		@include default.at(map.get(settings.$order-first, at)) {
+			--flex-order: -1;
+		}
+	}
+
+	.o-order-last {
+		@include default.at(map.get(settings.$order-last, at)) {
+			--flex-order: -999;
+		}
+	}
+
+	.o-order {
+		@include value.at(map.get(settings.$order, at)) using ($item) {
+			--flex-order: #{$item};
+		}
+	}
+
+	.o-order-first {
+		@include default.to(map.get(settings.$order-first, to)) {
+			--flex-order: -1;
+		}
+	}
+
+	.o-order-last {
+		@include default.to(map.get(settings.$order-last, to)) {
+			--flex-order: -999;
+		}
+	}
+
+	.o-order {
+		@include value.to(map.get(settings.$order, to)) using ($item) {
+			--flex-order: #{$item};
+		}
+	}
+
+	.o-order-first {
+		@include default.between(map.get(settings.$order-first, between)) {
+			--flex-order: -1;
+		}
+	}
+
+	.o-order-last {
+		@include default.between(map.get(settings.$order-last, between)) {
+			--flex-order: -999;
+		}
+	}
+
+	.o-order {
+		@include value.between(map.get(settings.$order, between)) using ($item) {
+			--flex-order: #{$item};
+		}
+	}
+}

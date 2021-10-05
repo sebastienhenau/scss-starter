@@ -2,69 +2,45 @@
 
 :root {
 	// Primary
-	--primary-base-color: #{colors.$purple-47-hsl};
-	--primary-contrast-color: #{colors.$neutral-100-hsl};
-	--primary-tint-color: #{colors.$purple-77-hsl};
-	--primary-shade-color: #{colors.$purple-44-hsl};
+	--color-primary-base: #{colors.$purple-47-hsl};
+	--color-primary-contrast: #{colors.$neutral-100-hsl};
+	--color-primary-tint: #{colors.$purple-77-hsl};
+	--color-primary-shade: #{colors.$purple-44-hsl};
 
 	// Secondary
-	--secondary-base-color: #{colors.$cyan-43-hsl};
-	--secondary-contrast-color: #{colors.$neutral-100-hsl};
-	--secondary-tint-color: #{colors.$cyan-74-hsl};
-	--secondary-shade-color: #{colors.$cyan-36-hsl};
+	--color-secondary-base: #{colors.$cyan-43-hsl};
+	--color-secondary-contrast: #{colors.$neutral-100-hsl};
+	--color-secondary-tint: #{colors.$cyan-74-hsl};
+	--color-secondary-shade: #{colors.$cyan-36-hsl};
 
 	// Disabled
-	--disabled-base-color: #{colors.$neutral-50-hsl};
-	--disabled-contrast-color: #{colors.$neutral-0-hsl};
-	--disabled-tint-color: #{colors.$neutral-60-hsl};
-	--disabled-shade-color: #{colors.$neutral-40-hsl};
+	--color-disabled-base: #{colors.$neutral-50-hsl};
+	--color-disabled-contrast: #{colors.$neutral-0-hsl};
+	--color-disabled-tint: #{colors.$neutral-60-hsl};
+	--color-disabled-shade: #{colors.$neutral-40-hsl};
 
 	// Success
-	--success-base-color: #{colors.$green-38-hsl};
-	--success-contrast-color: #{colors.$neutral-100-hsl};
-	--success-tint-color: #{colors.$green-47-hsl};
-	--success-shade-color: #{colors.$green-29-hsl};
+	--color-success-base: #{colors.$green-38-hsl};
+	--color-success-contrast: #{colors.$neutral-100-hsl};
+	--color-success-tint: #{colors.$green-47-hsl};
+	--color-success-shade: #{colors.$green-29-hsl};
 
 	// Warning
-	--warning-base-color: #{colors.$orange-47-hsl};
-	--warning-contrast-color: #{colors.$neutral-100-hsl};
-	--warning-tint-color: #{colors.$orange-62-hsl};
-	--warning-shade-color: #{colors.$orange-40-hsl};
+	--color-warning-base: #{colors.$orange-47-hsl};
+	--color-warning-contrast: #{colors.$neutral-100-hsl};
+	--color-warning-tint: #{colors.$orange-62-hsl};
+	--color-warning-shade: #{colors.$orange-40-hsl};
 
 	// Danger
-	--danger-base-color: #{colors.$red-47-hsl};
-	--danger-contrast-color: #{colors.$neutral-100-hsl};
-	--danger-tint-color: #{colors.$red-62-hsl};
-	--danger-shade-color: #{colors.$red-40-hsl};
+	--color-danger-base: #{colors.$red-47-hsl};
+	--color-danger-contrast: #{colors.$neutral-100-hsl};
+	--color-danger-tint: #{colors.$red-62-hsl};
+	--color-danger-shade: #{colors.$red-40-hsl};
 
 	// Base
-	--base-color: #{colors.$neutral-100-hsl};
-	--contrast-high-color: #{colors.$neutral-0-hsl};
-	--contrast-medium-color: #{colors.$neutral-30-hsl};
-	--contrast-low-color: #{colors.$neutral-60-hsl};
-	--focus-color: #{colors.$neutral-0-hsl};
-}
-
-.medium {
-	// Base
-	--base-color: #{colors.$neutral-90-hsl};
-	--contrast-medium-color: #{colors.$neutral-20-hsl};
-	--contrast-low-color: #{colors.$neutral-40-hsl};
-}
-
-.dark {
-	// Base
-	--base-color: #{colors.$neutral-0-hsl};
-	--contrast-high-color: #{colors.$neutral-100-hsl};
-	--contrast-medium-color: #{colors.$neutral-80-hsl};
-	--contrast-low-color: #{colors.$neutral-60-hsl};
-	--focus-color: #{colors.$neutral-100-hsl};
-}
-
-@media (prefers-color-scheme: dark) {
-	// :root {}
-
-	// .medium {}
-
-	// .dark {}
+	--color-base: #{colors.$neutral-100-hsl};
+	--color-contrast-high: #{colors.$neutral-0-hsl};
+	--color-contrast-medium: #{colors.$neutral-30-hsl};
+	--color-contrast-low: #{colors.$neutral-60-hsl};
+	--color-focus: #{colors.$neutral-0-hsl};
 }

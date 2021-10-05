@@ -1,0 +1,15 @@
+@use "sass:meta";
+@use "./string" as *;
+@use "./list" as *;
+
+@function generate($value) {
+	$type: meta.type-of($value);
+
+	@if ($type == "string") {
+		@return string($value);
+	} @else if ($type == "list") {
+		@return list($value);
+	} @else {
+		@return $value;
+	}
+}

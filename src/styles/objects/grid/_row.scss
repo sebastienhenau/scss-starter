@@ -1,0 +1,85 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "@/styles/tools/generators/value" as value;
+@use "./settings" as settings;
+
+[class*="o-grid"] > {
+	[class*="o-row"] {
+		--grid-row-amount: 1;
+		--grid-row: span var(--grid-row-amount) / span var(--grid-row-amount);
+
+		grid-row: var(--grid-row);
+	}
+
+	.o-row {
+		@include value.base(map.get(settings.$row, value)) using ($item) {
+			--grid-row-amount: #{$item};
+		}
+	}
+
+	.o-row-auto {
+		@include default.base(map.get(settings.$row-auto, default)) {
+			--grid-row: auto;
+		}
+	}
+
+	.o-row-full {
+		@include default.base(map.get(settings.$row-full, default)) {
+			--grid-row: 1 / -1;
+		}
+	}
+
+	.o-row {
+		@include value.at(map.get(settings.$row, at)) using ($item) {
+			--grid-row-amount: #{$item};
+		}
+	}
+
+	.o-row-auto {
+		@include default.at(map.get(settings.$row-auto, at)) {
+			--grid-row: auto;
+		}
+	}
+
+	.o-row-full {
+		@include default.at(map.get(settings.$row-full, at)) {
+			--grid-row: 1 / -1;
+		}
+	}
+
+	.o-row {
+		@include value.to(map.get(settings.$row, to)) using ($item) {
+			--grid-row-amount: #{$item};
+		}
+	}
+
+	.o-row-auto {
+		@include default.to(map.get(settings.$row-auto, to)) {
+			--grid-row: auto;
+		}
+	}
+
+	.o-row-full {
+		@include default.to(map.get(settings.$row-full, to)) {
+			--grid-row: 1 / -1;
+		}
+	}
+
+	.o-row {
+		@include value.between(map.get(settings.$row, between)) using ($item) {
+			--grid-row-amount: #{$item};
+		}
+	}
+
+	.o-row-auto {
+		@include default.between(map.get(settings.$row-auto, between)) {
+			--grid-row: auto;
+		}
+	}
+
+	.o-row-full {
+		@include default.between(map.get(settings.$row-full, between)) {
+			--grid-row: 1 / -1;
+		}
+	}
+}

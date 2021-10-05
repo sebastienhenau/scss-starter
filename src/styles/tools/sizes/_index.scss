@@ -1,3 +1,1 @@
-@forward "@/styles/tools/sizes/linear" show linear;
-@forward "@/styles/tools/sizes/modular" show modular;
-@forward "@/styles/tools/sizes/scale" show scale;
+@forward "./scale" show scale;

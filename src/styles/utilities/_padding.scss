@@ -1,0 +1,46 @@
+@use "@/styles/tools/generators/value" as value;
+@use "@/styles/tools/sizes" as sizes;
+
+.u-p {
+	@include value.generate() using ($item) {
+		padding: sizes.scale($item);
+	}
+}
+
+.u-px {
+	@include value.generate() using ($item) {
+		padding-right: sizes.scale($item);
+		padding-left: sizes.scale($item);
+	}
+}
+
+.u-py {
+	@include value.generate() using ($item) {
+		padding-top: sizes.scale($item);
+		padding-bottom: sizes.scale($item);
+	}
+}
+
+.u-pt {
+	@include value.generate() using ($item) {
+		padding-top: sizes.scale($item);
+	}
+}
+
+.u-pr {
+	@include value.generate() using ($item) {
+		padding-right: sizes.scale($item);
+	}
+}
+
+.u-pb {
+	@include value.generate() using ($item) {
+		padding-bottom: sizes.scale($item);
+	}
+}
+
+.u-pl {
+	@include value.generate() using ($item) {
+		padding-left: sizes.scale($item);
+	}
+}

@@ -1,0 +1,18 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "@/styles/tools/sizes" as sizes;
+@use "./settings" as settings;
+
+[class*="o-flow"] {
+	--flow-margin-top: unset;
+
+	& > * + * {
+		margin-top: var(--flow-margin-top);
+	}
+}
+
+.o-flow {
+	@include default.generate(settings.$flow, settings.$spacing) using ($item) {
+		--flow-margin-top: #{sizes.scale($item)};
+	}
+}

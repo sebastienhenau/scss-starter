@@ -1,0 +1,105 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "./settings" as settings;
+
+[class*="o-grid"] {
+	&[class*="o-pi-"] {
+		place-items: var(--grid-place-items);
+	}
+
+	&.o-pi-start {
+		@include default.base(map.get(settings.$place-items-start, default)) {
+			--grid-place-items: start;
+		}
+	}
+
+	&.o-pi-end {
+		@include default.base(map.get(settings.$place-items-end, default)) {
+			--grid-place-items: end;
+		}
+	}
+
+	&.o-pi-center {
+		@include default.base(map.get(settings.$place-items-center, default)) {
+			--grid-place-items: center;
+		}
+	}
+
+	&.o-pi-stretch {
+		@include default.base(map.get(settings.$place-items-stretch, default)) {
+			--grid-place-items: stretch;
+		}
+	}
+
+	&.o-pi-start {
+		@include default.at(map.get(settings.$place-items-start, at)) {
+			--grid-place-items: start;
+		}
+	}
+
+	&.o-pi-end {
+		@include default.at(map.get(settings.$place-items-end, at)) {
+			--grid-place-items: end;
+		}
+	}
+
+	&.o-pi-center {
+		@include default.at(map.get(settings.$place-items-center, at)) {
+			--grid-place-items: center;
+		}
+	}
+
+	&.o-pi-stretch {
+		@include default.at(map.get(settings.$place-items-stretch, at)) {
+			--grid-place-items: stretch;
+		}
+	}
+
+	&.o-pi-start {
+		@include default.to(map.get(settings.$place-items-start, to)) {
+			--grid-place-items: start;
+		}
+	}
+
+	&.o-pi-end {
+		@include default.to(map.get(settings.$place-items-end, to)) {
+			--grid-place-items: end;
+		}
+	}
+
+	&.o-pi-center {
+		@include default.to(map.get(settings.$place-items-center, to)) {
+			--grid-place-items: center;
+		}
+	}
+
+	&.o-pi-stretch {
+		@include default.to(map.get(settings.$place-items-stretch, to)) {
+			--grid-place-items: stretch;
+		}
+	}
+
+	&.o-pi-start {
+		@include default.between(map.get(settings.$place-items-start, between)) {
+			--grid-place-items: start;
+		}
+	}
+
+	&.o-pi-end {
+		@include default.between(map.get(settings.$place-items-end, between)) {
+			--grid-place-items: end;
+		}
+	}
+
+	&.o-pi-center {
+		@include default.between(map.get(settings.$place-items-center, between)) {
+			--grid-place-items: center;
+		}
+	}
+
+	&.o-pi-stretch {
+		@include default.between(map.get(settings.$place-items-stretch, between)) {
+			--grid-place-items: stretch;
+		}
+	}
+}

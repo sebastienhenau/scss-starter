@@ -1,0 +1,177 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "./settings" as settings;
+
+[class*="o-grid"] {
+	&[class*="o-pc-"] {
+		place-content: var(--grid-place-content);
+	}
+
+	&.o-pc-start {
+		@include default.base(map.get(settings.$place-content-start, default)) {
+			--grid-place-content: start;
+		}
+	}
+
+	&.o-pc-center {
+		@include default.base(map.get(settings.$place-content-center, default)) {
+			--grid-place-content: center;
+		}
+	}
+
+	&.o-pc-end {
+		@include default.base(map.get(settings.$place-content-end, default)) {
+			--grid-place-content: end;
+		}
+	}
+
+	&.o-pc-stretch {
+		@include default.base(map.get(settings.$place-content-stretch, default)) {
+			--grid-place-content: stretch;
+		}
+	}
+
+	&.o-pc-between {
+		@include default.base(map.get(settings.$place-content-between, default)) {
+			--grid-place-content: sppce-between;
+		}
+	}
+
+	&.o-pc-around {
+		@include default.base(map.get(settings.$place-content-around, default)) {
+			--grid-place-content: sppce-around;
+		}
+	}
+
+	&.o-pc-evenly {
+		@include default.base(map.get(settings.$place-content-evenly, default)) {
+			--grid-place-content: sppce-evenly;
+		}
+	}
+
+	&.o-pc-start {
+		@include default.at(map.get(settings.$place-content-start, at)) {
+			--grid-place-content: start;
+		}
+	}
+
+	&.o-pc-center {
+		@include default.at(map.get(settings.$place-content-center, at)) {
+			--grid-place-content: center;
+		}
+	}
+
+	&.o-pc-end {
+		@include default.at(map.get(settings.$place-content-end, at)) {
+			--grid-place-content: end;
+		}
+	}
+
+	&.o-pc-stretch {
+		@include default.at(map.get(settings.$place-content-stretch, at)) {
+			--grid-place-content: stretch;
+		}
+	}
+
+	&.o-pc-between {
+		@include default.at(map.get(settings.$place-content-between, at)) {
+			--grid-place-content: sppce-between;
+		}
+	}
+
+	&.o-pc-around {
+		@include default.at(map.get(settings.$place-content-around, at)) {
+			--grid-place-content: sppce-around;
+		}
+	}
+
+	&.o-pc-evenly {
+		@include default.at(map.get(settings.$place-content-evenly, at)) {
+			--grid-place-content: sppce-evenly;
+		}
+	}
+
+	&.o-pc-start {
+		@include default.to(map.get(settings.$place-content-start, to)) {
+			--grid-place-content: start;
+		}
+	}
+
+	&.o-pc-center {
+		@include default.to(map.get(settings.$place-content-center, to)) {
+			--grid-place-content: center;
+		}
+	}
+
+	&.o-pc-end {
+		@include default.to(map.get(settings.$place-content-end, to)) {
+			--grid-place-content: end;
+		}
+	}
+
+	&.o-pc-stretch {
+		@include default.to(map.get(settings.$place-content-stretch, to)) {
+			--grid-place-content: stretch;
+		}
+	}
+
+	&.o-pc-between {
+		@include default.to(map.get(settings.$place-content-between, to)) {
+			--grid-place-content: sppce-between;
+		}
+	}
+
+	&.o-pc-around {
+		@include default.to(map.get(settings.$place-content-around, to)) {
+			--grid-place-content: sppce-around;
+		}
+	}
+
+	&.o-pc-evenly {
+		@include default.to(map.get(settings.$place-content-evenly, to)) {
+			--grid-place-content: sppce-evenly;
+		}
+	}
+
+	&.o-pc-start {
+		@include default.between(map.get(settings.$place-content-start, between)) {
+			--grid-place-content: start;
+		}
+	}
+
+	&.o-pc-center {
+		@include default.between(map.get(settings.$place-content-center, between)) {
+			--grid-place-content: center;
+		}
+	}
+
+	&.o-pc-end {
+		@include default.between(map.get(settings.$place-content-end, between)) {
+			--grid-place-content: end;
+		}
+	}
+
+	&.o-pc-stretch {
+		@include default.between(map.get(settings.$place-content-stretch, between)) {
+			--grid-place-content: stretch;
+		}
+	}
+
+	&.o-pc-between {
+		@include default.between(map.get(settings.$place-content-between, between)) {
+			--grid-place-content: sppce-between;
+		}
+	}
+
+	&.o-pc-around {
+		@include default.between(map.get(settings.$place-content-around, between)) {
+			--grid-place-content: sppce-around;
+		}
+	}
+
+	&.o-pc-evenly {
+		@include default.between(map.get(settings.$place-content-evenly, between)) {
+			--grid-place-content: sppce-evenly;
+		}
+	}
+}

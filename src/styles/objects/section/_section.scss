@@ -1,0 +1,88 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "@/styles/tools/sizes" as sizes;
+@use "./settings" as settings;
+
+[class*="o-section"] {
+	--section-padding-top: unset;
+	--section-padding-bottom: unset;
+
+	padding-top: var(--section-padding-top);
+	padding-bottom: var(--section-padding-bottom);
+}
+
+.o-section {
+	@include default.base-breakpoints(map.get(settings.$section, default), settings.$spacing) using ($item) {
+		--section-padding-top: #{sizes.scale($item)};
+		--section-padding-bottom: #{sizes.scale($item)};
+	}
+}
+
+.o-section-top {
+	@include default.base-breakpoints(map.get(settings.$section-top, default), settings.$spacing) using ($item) {
+		--section-padding-top: #{sizes.scale($item)};
+	}
+}
+
+.o-section-bottom {
+	@include default.base-breakpoints(map.get(settings.$section-bottom, default), settings.$spacing) using ($item) {
+		--section-padding-bottom: #{sizes.scale($item)};
+	}
+}
+
+.o-section {
+	@include default.at-breakpoints(map.get(settings.$section, at), settings.$spacing) using ($item) {
+		--section-padding-top: #{sizes.scale($item)};
+		--section-padding-bottom: #{sizes.scale($item)};
+	}
+}
+
+.o-section-top {
+	@include default.at-breakpoints(map.get(settings.$section-top, at), settings.$spacing) using ($item) {
+		--section-padding-top: #{sizes.scale($item)};
+	}
+}
+
+.o-section-bottom {
+	@include default.at-breakpoints(map.get(settings.$section-bottom, at), settings.$spacing) using ($item) {
+		--section-padding-bottom: #{sizes.scale($item)};
+	}
+}
+
+.o-section {
+	@include default.to-breakpoints(map.get(settings.$section, to), settings.$spacing) using ($item) {
+		--section-padding-top: #{sizes.scale($item)};
+		--section-padding-bottom: #{sizes.scale($item)};
+	}
+}
+
+.o-section-top {
+	@include default.to-breakpoints(map.get(settings.$section-top, to), settings.$spacing) using ($item) {
+		--section-padding-top: #{sizes.scale($item)};
+	}
+}
+
+.o-section-bottom {
+	@include default.to-breakpoints(map.get(settings.$section-bottom, to), settings.$spacing) using ($item) {
+		--section-padding-bottom: #{sizes.scale($item)};
+	}
+}
+
+.o-section {
+	@include default.between-breakpoints(map.get(settings.$section, between), settings.$spacing) using ($item) {
+		--section-padding-top: #{sizes.scale($item)};
+		--section-padding-bottom: #{sizes.scale($item)};
+	}
+}
+
+.o-section-top {
+	@include default.between-breakpoints(map.get(settings.$section-top, between), settings.$spacing) using ($item) {
+		--section-padding-top: #{sizes.scale($item)};
+	}
+}
+
+.o-section-bottom {
+	@include default.between-breakpoints(map.get(settings.$section-bottom, between), settings.$spacing) using ($item) {
+		--section-padding-bottom: #{sizes.scale($item)};
+	}
+}

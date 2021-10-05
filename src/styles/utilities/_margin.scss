@@ -1,0 +1,46 @@
+@use "@/styles/tools/generators/value" as value;
+@use "@/styles/tools/sizes" as sizes;
+
+.u-m {
+	@include value.generate() using ($item) {
+		margin: sizes.scale($item);
+	}
+}
+
+.u-mx {
+	@include value.generate() using ($item) {
+		margin-right: sizes.scale($item);
+		margin-left: sizes.scale($item);
+	}
+}
+
+.u-my {
+	@include value.generate() using ($item) {
+		margin-top: sizes.scale($item);
+		margin-bottom: sizes.scale($item);
+	}
+}
+
+.u-mt {
+	@include value.generate() using ($item) {
+		margin-top: sizes.scale($item);
+	}
+}
+
+.u-mr {
+	@include value.generate() using ($item) {
+		margin-right: sizes.scale($item);
+	}
+}
+
+.u-mb {
+	@include value.generate() using ($item) {
+		margin-bottom: sizes.scale($item);
+	}
+}
+
+.u-ml {
+	@include value.generate() using ($item) {
+		margin-left: sizes.scale($item);
+	}
+}

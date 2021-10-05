@@ -1,0 +1,105 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "./settings" as settings;
+
+[class*="o-grid"] > {
+	[class*="o-as-"] {
+		align-self: var(--grid-align-self);
+	}
+
+	.o-as-start {
+		@include default.base(map.get(settings.$align-self-start, default)) {
+			--grid-align-self: start;
+		}
+	}
+
+	.o-as-center {
+		@include default.base(map.get(settings.$align-self-center, default)) {
+			--grid-align-self: center;
+		}
+	}
+
+	.o-as-end {
+		@include default.base(map.get(settings.$align-self-end, default)) {
+			--grid-align-self: end;
+		}
+	}
+
+	.o-as-stretch {
+		@include default.base(map.get(settings.$align-self-stretch, default)) {
+			--grid-align-self: stretch;
+		}
+	}
+
+	.o-as-start {
+		@include default.at(map.get(settings.$align-self-start, at)) {
+			--grid-align-self: start;
+		}
+	}
+
+	.o-as-center {
+		@include default.at(map.get(settings.$align-self-center, at)) {
+			--grid-align-self: center;
+		}
+	}
+
+	.o-as-end {
+		@include default.at(map.get(settings.$align-self-end, at)) {
+			--grid-align-self: end;
+		}
+	}
+
+	.o-as-stretch {
+		@include default.at(map.get(settings.$align-self-stretch, at)) {
+			--grid-align-self: stretch;
+		}
+	}
+
+	.o-as-start {
+		@include default.to(map.get(settings.$align-self-start, to)) {
+			--grid-align-self: start;
+		}
+	}
+
+	.o-as-center {
+		@include default.to(map.get(settings.$align-self-center, to)) {
+			--grid-align-self: center;
+		}
+	}
+
+	.o-as-end {
+		@include default.to(map.get(settings.$align-self-end, to)) {
+			--grid-align-self: end;
+		}
+	}
+
+	.o-as-stretch {
+		@include default.to(map.get(settings.$align-self-stretch, to)) {
+			--grid-align-self: stretch;
+		}
+	}
+
+	.o-as-start {
+		@include default.between(map.get(settings.$align-self-start, between)) {
+			--grid-align-self: start;
+		}
+	}
+
+	.o-as-center {
+		@include default.between(map.get(settings.$align-self-center, between)) {
+			--grid-align-self: center;
+		}
+	}
+
+	.o-as-end {
+		@include default.between(map.get(settings.$align-self-end, between)) {
+			--grid-align-self: end;
+		}
+	}
+
+	.o-as-stretch {
+		@include default.between(map.get(settings.$align-self-stretch, between)) {
+			--grid-align-self: stretch;
+		}
+	}
+}

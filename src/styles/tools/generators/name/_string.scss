@@ -1,0 +1,8 @@
+@use "@/styles/tools/helpers" as helpers;
+@use "@/styles/settings/core" as core;
+
+$_class-separator: core.$class-separator;
+
+@function string($value) {
+	@return helpers.replace-str($value, " ", $_class-separator);
+}

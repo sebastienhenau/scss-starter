@@ -1,0 +1,153 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "./settings" as settings;
+
+[class*="o-flex"] {
+	&[class*="o-jc-"] {
+		justify-content: var(--flex-justify-content);
+	}
+
+	&.o-jc-start {
+		@include default.base(map.get(settings.$justify-content-start, default)) {
+			--flex-justify-content: flex-start;
+		}
+	}
+
+	&.o-jc-end {
+		@include default.base(map.get(settings.$justify-content-end, default)) {
+			--flex-justify-content: flex-end;
+		}
+	}
+
+	&.o-jc-center {
+		@include default.base(map.get(settings.$justify-content-center, default)) {
+			--flex-justify-content: center;
+		}
+	}
+
+	&.o-jc-between {
+		@include default.base(map.get(settings.$justify-content-between, default)) {
+			--flex-justify-content: space-between;
+		}
+	}
+
+	&.o-jc-around {
+		@include default.base(map.get(settings.$justify-content-around, default)) {
+			--flex-justify-content: space-around;
+		}
+	}
+
+	&.o-jc-evenly {
+		@include default.base(map.get(settings.$justify-content-evenly, default)) {
+			--flex-justify-content: space-evenly;
+		}
+	}
+
+	&.o-jc-start {
+		@include default.at(map.get(settings.$justify-content-start, at)) {
+			--flex-justify-content: flex-start;
+		}
+	}
+
+	&.o-jc-end {
+		@include default.at(map.get(settings.$justify-content-end, at)) {
+			--flex-justify-content: flex-end;
+		}
+	}
+
+	&.o-jc-center {
+		@include default.at(map.get(settings.$justify-content-center, at)) {
+			--flex-justify-content: center;
+		}
+	}
+
+	&.o-jc-between {
+		@include default.at(map.get(settings.$justify-content-between, at)) {
+			--flex-justify-content: space-between;
+		}
+	}
+
+	&.o-jc-around {
+		@include default.at(map.get(settings.$justify-content-around, at)) {
+			--flex-justify-content: space-around;
+		}
+	}
+
+	&.o-jc-evenly {
+		@include default.at(map.get(settings.$justify-content-evenly, at)) {
+			--flex-justify-content: space-evenly;
+		}
+	}
+
+	&.o-jc-start {
+		@include default.to(map.get(settings.$justify-content-start, to)) {
+			--flex-justify-content: flex-start;
+		}
+	}
+
+	&.o-jc-end {
+		@include default.to(map.get(settings.$justify-content-end, to)) {
+			--flex-justify-content: flex-end;
+		}
+	}
+
+	&.o-jc-center {
+		@include default.to(map.get(settings.$justify-content-center, to)) {
+			--flex-justify-content: center;
+		}
+	}
+
+	&.o-jc-between {
+		@include default.to(map.get(settings.$justify-content-between, to)) {
+			--flex-justify-content: space-between;
+		}
+	}
+
+	&.o-jc-around {
+		@include default.to(map.get(settings.$justify-content-around, to)) {
+			--flex-justify-content: space-around;
+		}
+	}
+
+	&.o-jc-evenly {
+		@include default.to(map.get(settings.$justify-content-evenly, to)) {
+			--flex-justify-content: space-evenly;
+		}
+	}
+
+	&.o-jc-start {
+		@include default.between(map.get(settings.$justify-content-start, between)) {
+			--flex-justify-content: flex-start;
+		}
+	}
+
+	&.o-jc-end {
+		@include default.between(map.get(settings.$justify-content-end, between)) {
+			--flex-justify-content: flex-end;
+		}
+	}
+
+	&.o-jc-center {
+		@include default.between(map.get(settings.$justify-content-center, between)) {
+			--flex-justify-content: center;
+		}
+	}
+
+	&.o-jc-between {
+		@include default.between(map.get(settings.$justify-content-between, between)) {
+			--flex-justify-content: space-between;
+		}
+	}
+
+	&.o-jc-around {
+		@include default.between(map.get(settings.$justify-content-around, between)) {
+			--flex-justify-content: space-around;
+		}
+	}
+
+	&.o-jc-evenly {
+		@include default.between(map.get(settings.$justify-content-evenly, between)) {
+			--flex-justify-content: space-evenly;
+		}
+	}
+}

@@ -1,0 +1,6 @@
+@use "@/styles/settings/font-families" as font-families;
+
+:root {
+	--font-family-primary: #{font-families.$primary};
+	--font-family-secondary: #{font-families.$secondary};
+}

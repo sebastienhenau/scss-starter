@@ -1,0 +1,28 @@
+@use "@/styles/tools/generators/value" as value;
+@use "@/styles/tools/sizes" as sizes;
+
+[class*="u-inline"] {
+	& > * + * {
+		margin-left: var(--inline-margin-left);
+	}
+}
+
+[class*="u-inline-wrap"] {
+	margin: calc(var(--inline-wrap-margin) * -1);
+
+	& > * {
+		margin: var(--inline-wrap-margin);
+	}
+}
+
+.u-inline {
+	@include value.generate() using ($item) {
+		--inline-margin-left: #{sizes.scale($item)};
+	}
+}
+
+.u-inline-wrap {
+	@include value.generate() using ($item) {
+		--inline-wrap-margin: #{sizes.scale($item)};
+	}
+}

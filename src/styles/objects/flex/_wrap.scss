@@ -1,0 +1,94 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "./settings" as settings;
+
+[class*="o-flex"] {
+	&[class*="o-wrap"] {
+		flex-wrap: var(--flex-wrap);
+		margin: calc(var(--flex-wrap-margin) * -1);
+
+		& > * {
+			margin: var(--flex-wrap-margin);
+		}
+	}
+
+	.o-wrap {
+		@include default.base(map.get(settings.$wrap, default)) {
+			--flex-wrap: wrap;
+			--flex-wrap-margin: var(--flex-gap);
+		}
+	}
+
+	.o-wrap-reverse {
+		@include default.base(map.get(settings.$wrap-reverse, default)) {
+			--flex-wrap: wrap-reverse;
+			--flex-wrap-margin: var(--flex-gap);
+		}
+	}
+
+	.o-wrap-none {
+		@include default.base(map.get(settings.$wrap-none, default)) {
+			--flex-wrap: nowrap;
+		}
+	}
+
+	.o-wrap {
+		@include default.at(map.get(settings.$wrap, at)) {
+			--flex-wrap: wrap;
+			--flex-wrap-margin: var(--flex-gap);
+		}
+	}
+
+	.o-wrap-reverse {
+		@include default.at(map.get(settings.$wrap-reverse, at)) {
+			--flex-wrap: wrap-reverse;
+			--flex-wrap-margin: var(--flex-gap);
+		}
+	}
+
+	.o-wrap-none {
+		@include default.at(map.get(settings.$wrap-none, at)) {
+			--flex-wrap: nowrap;
+		}
+	}
+
+	.o-wrap {
+		@include default.to(map.get(settings.$wrap, to)) {
+			--flex-wrap: wrap;
+			--flex-wrap-margin: var(--flex-gap);
+		}
+	}
+
+	.o-wrap-reverse {
+		@include default.to(map.get(settings.$wrap-reverse, to)) {
+			--flex-wrap: wrap-reverse;
+			--flex-wrap-margin: var(--flex-gap);
+		}
+	}
+
+	.o-wrap-none {
+		@include default.to(map.get(settings.$wrap-none, to)) {
+			--flex-wrap: nowrap;
+		}
+	}
+
+	.o-wrap {
+		@include default.between(map.get(settings.$wrap, between)) {
+			--flex-wrap: wrap;
+			--flex-wrap-margin: var(--flex-gap);
+		}
+	}
+
+	.o-wrap-reverse {
+		@include default.between(map.get(settings.$wrap-reverse, between)) {
+			--flex-wrap: wrap-reverse;
+			--flex-wrap-margin: var(--flex-gap);
+		}
+	}
+
+	.o-wrap-none {
+		@include default.between(map.get(settings.$wrap-none, between)) {
+			--flex-wrap: nowrap;
+		}
+	}
+}

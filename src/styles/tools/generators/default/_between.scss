@@ -1,0 +1,23 @@
+@use "sass:map";
+@use "sass:list";
+@use "@/styles/tools/breakpoints" as breakpoints;
+@use "@/styles/settings/core" as core;
+@use "@/styles/tools/helpers" as helpers;
+
+$_class-between-indicator: core.$class-between-indicator;
+$_class-between-separator: core.$class-between-separator;
+
+@mixin between($data) {
+	@if ($data and list.length($data) > 0) {
+		@each $viewports in $data {
+			$at: list.nth($viewports, 1);
+			$to: list.nth($viewports, 2);
+
+			&#{$_class-between-indicator}#{$at}#{$_class-between-separator}#{$to} {
+				@include breakpoints.between($at, $to) {
+					@content;
+				}
+			}
+		}
+	}
+}

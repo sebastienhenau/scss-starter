@@ -1,0 +1,105 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "./settings" as settings;
+
+[class*="o-grid"] {
+	&[class*="o-auto-rows"] {
+		grid-auto-rows: var(--grid-auto-rows);
+	}
+
+	&.o-auto-rows-auto {
+		@include default.base(map.get(settings.$auto-rows-auto, default)) {
+			--grid-auto-rows: auto;
+		}
+	}
+
+	&.o-auto-rows-min {
+		@include default.base(map.get(settings.$auto-rows-min, default)) {
+			--grid-auto-rows: min-content;
+		}
+	}
+
+	&.o-auto-rows-max {
+		@include default.base(map.get(settings.$auto-rows-max, default)) {
+			--grid-auto-rows: max-content;
+		}
+	}
+
+	&.o-auto-rows-fr {
+		@include default.base(map.get(settings.$auto-rows-fr, default)) {
+			--grid-auto-rows: minmax(0, 1fr);
+		}
+	}
+
+	&.o-auto-rows-auto {
+		@include default.at(map.get(settings.$auto-rows-auto, at)) {
+			--grid-auto-rows: auto;
+		}
+	}
+
+	&.o-auto-rows-min {
+		@include default.at(map.get(settings.$auto-rows-min, at)) {
+			--grid-auto-rows: min-content;
+		}
+	}
+
+	&.o-auto-rows-max {
+		@include default.at(map.get(settings.$auto-rows-max, at)) {
+			--grid-auto-rows: max-content;
+		}
+	}
+
+	&.o-auto-rows-fr {
+		@include default.at(map.get(settings.$auto-rows-fr, at)) {
+			--grid-auto-rows: minmax(0, 1fr);
+		}
+	}
+
+	&.o-auto-rows-auto {
+		@include default.to(map.get(settings.$auto-rows-auto, to)) {
+			--grid-auto-rows: auto;
+		}
+	}
+
+	&.o-auto-rows-min {
+		@include default.to(map.get(settings.$auto-rows-min, to)) {
+			--grid-auto-rows: min-content;
+		}
+	}
+
+	&.o-auto-rows-max {
+		@include default.to(map.get(settings.$auto-rows-max, to)) {
+			--grid-auto-rows: max-content;
+		}
+	}
+
+	&.o-auto-rows-fr {
+		@include default.to(map.get(settings.$auto-rows-fr, to)) {
+			--grid-auto-rows: minmax(0, 1fr);
+		}
+	}
+
+	&.o-auto-rows-auto {
+		@include default.between(map.get(settings.$auto-rows-auto, between)) {
+			--grid-auto-rows: auto;
+		}
+	}
+
+	&.o-auto-rows-min {
+		@include default.between(map.get(settings.$auto-rows-min, between)) {
+			--grid-auto-rows: min-content;
+		}
+	}
+
+	&.o-auto-rows-max {
+		@include default.between(map.get(settings.$auto-rows-max, between)) {
+			--grid-auto-rows: max-content;
+		}
+	}
+
+	&.o-auto-rows-fr {
+		@include default.between(map.get(settings.$auto-rows-fr, between)) {
+			--grid-auto-rows: minmax(0, 1fr);
+		}
+	}
+}

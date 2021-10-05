@@ -1,14 +1,12 @@
-@use "sass:math";
-@use "@/styles/tools/sizes/linear" as linear;
-@use "@/styles/tools/sizes/modular" as modular;
+@use "@/styles/settings/core" as core;
 @use "@/styles/settings/sizes" as sizes;
+@use "@/styles/tools/units" as units;
 
-$_linear: sizes.$linear;
+$_unit: core.$unit;
+$_baseline: sizes.$baseline;
 
 @function scale($value) {
-	@if ($_linear) {
-		@return linear.linear($value);
-	} @else {
-		@return modular.modular($value);
-	}
+	$result: $_baseline * $value;
+
+	@return units.convert($result, $_unit);
 }

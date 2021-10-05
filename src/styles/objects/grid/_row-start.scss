@@ -1,0 +1,58 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "@/styles/tools/generators/value" as value;
+@use "./settings" as settings;
+
+[class*="o-grid"] > {
+	[class*="o-row-start"] {
+		grid-row-start: var(--grid-row-start);
+	}
+
+	.o-row-start {
+		@include value.base(map.get(settings.$row-start, value)) using ($item) {
+			--grid-row-start: #{$item};
+		}
+	}
+
+	.o-row-start-auto {
+		@include default.base(map.get(settings.$row-start-auto, default)) {
+			--grid-row-start: #{$item};
+		}
+	}
+
+	.o-row-start {
+		@include value.at(map.get(settings.$row-start, at)) using ($item) {
+			--grid-row-start: #{$item};
+		}
+	}
+
+	.o-row-start-auto {
+		@include default.at(map.get(settings.$row-start-auto, at)) {
+			--grid-row-start: #{$item};
+		}
+	}
+
+	.o-row-start {
+		@include value.to(map.get(settings.$row-start, to)) using ($item) {
+			--grid-row-start: #{$item};
+		}
+	}
+
+	.o-row-start-auto {
+		@include default.to(map.get(settings.$row-start-auto, to)) {
+			--grid-row-start: #{$item};
+		}
+	}
+
+	.o-row-start {
+		@include value.between(map.get(settings.$row-start, between)) using ($item) {
+			--grid-row-start: #{$item};
+		}
+	}
+
+	.o-row-start-auto {
+		@include default.between(map.get(settings.$row-start-auto, between)) {
+			--grid-row-start: #{$item};
+		}
+	}
+}

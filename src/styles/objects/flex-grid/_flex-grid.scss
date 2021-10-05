@@ -1,0 +1,10 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "./settings" as settings;
+
+.o-flex-grid {
+	@include default.generate(settings.$flex-grid) {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}

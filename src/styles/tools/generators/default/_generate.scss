@@ -1,0 +1,46 @@
+@use "sass:map";
+@use "./base" as *;
+@use "./at" as *;
+@use "./to" as *;
+@use "./between" as *;
+
+@mixin generate($data: (), $breakpoints: null) {
+	$default: map.get($data, "default");
+	$at: map.get($data, "at");
+	$to: map.get($data, "to");
+	$between: map.get($data, "between");
+
+	@if ($breakpoints) {
+		& {
+			@include base-breakpoints($default, $breakpoints) using ($item) {
+				@content ($item);
+			}
+
+			@include at-breakpoints($at, $breakpoints) using ($item) {
+				@content ($item);
+			}
+
+			@include to-breakpoints($to, $breakpoints) using ($item) {
+				@content ($item);
+			}
+		}
+	} @else {
+		& {
+			@include base($default) {
+				@content;
+			}
+
+			@include at($at) {
+				@content;
+			}
+
+			@include to($to) {
+				@content;
+			}
+
+			@include between($between) {
+				@content;
+			}
+		}
+	}
+}

@@ -1,0 +1,8 @@
+@use "@/styles/tools/generators/default" as default;
+@use "@/styles/settings/font-styles" as font-styles;
+
+.u-fs-h1 {
+	@include default.generate() {
+		@include font-styles.h1();
+	}
+}

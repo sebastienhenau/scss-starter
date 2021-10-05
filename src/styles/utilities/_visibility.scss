@@ -1,0 +1,22 @@
+@use "@/styles/tools/generators/default" as default;
+
+.u-hide\! {
+	@include default.generate() {
+		// stylelint-disable-next-line declaration-no-important
+		display: none !important;
+	}
+}
+
+.u-visually-hidden {
+	@include default.generate() {
+		position: absolute;
+
+		width: _system.convert(1px);
+		height: _system.convert(1px);
+		overflow: hidden;
+
+		white-space: nowrap;
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+	}
+}

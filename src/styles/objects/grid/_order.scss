@@ -1,0 +1,82 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "@/styles/tools/generators/value" as value;
+@use "./settings" as settings;
+
+[class*="o-grid"] > {
+	[class*="o-order"] {
+		order: var(--grid-order);
+	}
+
+	.o-order-first {
+		@include default.base(map.get(settings.$order-first, default)) {
+			--grid-order: -1;
+		}
+	}
+
+	.o-order-last {
+		@include default.base(map.get(settings.$order-last, default)) {
+			--grid-order: -999;
+		}
+	}
+
+	.o-order {
+		@include value.base(map.get(settings.$order, value)) using ($item) {
+			--grid-order: #{$item};
+		}
+	}
+
+	.o-order-first {
+		@include default.at(map.get(settings.$order-first, at)) {
+			--grid-order: -1;
+		}
+	}
+
+	.o-order-last {
+		@include default.at(map.get(settings.$order-last, at)) {
+			--grid-order: -999;
+		}
+	}
+
+	.o-order {
+		@include value.at(map.get(settings.$order, at)) using ($item) {
+			--grid-order: #{$item};
+		}
+	}
+
+	.o-order-first {
+		@include default.to(map.get(settings.$order-first, to)) {
+			--grid-order: -1;
+		}
+	}
+
+	.o-order-last {
+		@include default.to(map.get(settings.$order-last, to)) {
+			--grid-order: -999;
+		}
+	}
+
+	.o-order {
+		@include value.to(map.get(settings.$order, to)) using ($item) {
+			--grid-order: #{$item};
+		}
+	}
+
+	.o-order-first {
+		@include default.between(map.get(settings.$order-first, between)) {
+			--grid-order: -1;
+		}
+	}
+
+	.o-order-last {
+		@include default.between(map.get(settings.$order-last, between)) {
+			--grid-order: -999;
+		}
+	}
+
+	.o-order {
+		@include value.between(map.get(settings.$order, between)) using ($item) {
+			--grid-order: #{$item};
+		}
+	}
+}
