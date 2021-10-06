@@ -25,11 +25,15 @@ $_viewports: settings-breakpoints.$viewports;
 			&#{$_class-at-indicator}#{$target-breakpoint} {
 				$target-reached: false;
 				$prev-value: null;
+				$keys: map.keys($breakpoints);
+				$length: list.length($keys);
 
 				@each $breakpoint, $value in $breakpoints {
 					$target-width: map.get($_viewports, $target-breakpoint);
 					$is-default-key: $breakpoint == "default" and not(map.has-key($_viewports, $breakpoint));
 					$width: if(not($is-default-key), map.get($_viewports, $breakpoint), 0);
+					$index: list.index($keys, $breakpoint);
+					$is-last: $index == $length;
 
 					@if ($width > $target-width and $target-reached == false) {
 						@include breakpoints.at($target-breakpoint) {
@@ -40,6 +44,14 @@ $_viewports: settings-breakpoints.$viewports;
 					}
 
 					@if ($width == $target-width and $target-reached == false) {
+						@include breakpoints.at($target-breakpoint) {
+							@content ($value);
+						}
+
+						$target-reached: true;
+					}
+
+					@if ($width < $target-width and $target-reached == false and $is-last) {
 						@include breakpoints.at($target-breakpoint) {
 							@content ($value);
 						}

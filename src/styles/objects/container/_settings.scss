@@ -1,119 +1,90 @@
-$max-width: 600px;
 $spacing: (
 	default: 2,
 );
 
 // prettier-ignore
-$container: (
-	default: false,
-	at: (),
-	to: (),
+$containers: (
+	default: (
+		max-width: 600px,
+		container: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-l: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-r: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-width: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-width-l: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-width-r: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-inset: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-inset-l: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-inset-r: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-inset-width: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-inset-width-l: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-inset-width-r: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-space: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-space-l: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-space-r: (
+			default: false,
+			at: (),
+			to: (),
+		),
+		container-max-width: (
+			default: false,
+			at: (),
+			to: (),
+		),
+	),
 );
-
-// prettier-ignore
-$container-l: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-r: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-width: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-width-l: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-width-r: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-inset: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-inset-l: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-inset-r: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-inset-width: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-inset-width-l: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-inset-width-r: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-space: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-space-l: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-space-r: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$container-max-width: (
-	default: false,
-	at: (),
-	to: (),
-);
-
-// prettier-ignore
-$variants: ();

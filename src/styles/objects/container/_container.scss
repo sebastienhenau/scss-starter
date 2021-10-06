@@ -2,9 +2,10 @@
 @use "@/styles/tools/generators/default" as default;
 @use "@/styles/tools/units" as units;
 @use "@/styles/tools/sizes" as sizes;
+@use "@/styles/settings/core" as core;
 @use "./settings" as settings;
 
-$_max-width: units.convert(settings.$max-width);
+$_class-separator: core.$class-separator;
 
 [class*="o-container"] {
 	--container-width: unset;
@@ -23,154 +24,59 @@ $_max-width: units.convert(settings.$max-width);
 }
 
 [class*="o-container-l"],
-[class*="o-container-r"],
-[class*="o-container-width-l"],
-[class*="o-container-width-r"] {
+[class*="o-container-r"] {
 	--container-max-width-value: unset;
 	--container-max-width: calc(var(--container-max-width-value) + ((100% - var(--container-max-width-value)) * 0.5));
 }
 
-[class*="o-container-inset"] {
-	--container-max-width-value: unset;
-	--container-padding: max(
-		calc((100% - var(--container-max-width-value)) * 0.5 + var(--container-padding-value)),
-		var(--container-padding-value)
-	);
-	--container-padding-right: var(--container-padding);
-	--container-padding-left: var(--container-padding);
-}
+@each $name, $settings in settings.$containers {
+	$suffix: if($name == "default", "", #{$_class-separator}#{$name});
+	$max-width: units.convert(map.get($settings, max-width));
+	$container: map.get($settings, container);
+	$container-l: map.get($settings, container-l);
+	$container-r: map.get($settings, container-r);
 
-[class*="o-container-inset-width"] {
-	--container-padding: calc((100% - var(--container-max-width-value)) * 0.5);
-}
+	@if ($container) {
+		.o-container#{$suffix} {
+			@include default.generate($container) {
+				--container-width: 100%;
+				--container-max-width: #{$max-width};
+				--container-margin-right: auto;
+				--container-margin-left: auto;
+			}
 
-.o-container-max-width {
-	@include default.generate(settings.$container-max-width) {
-		--container-width: 100%;
-		--container-max-width: #{$_max-width};
-		--container-margin-left: auto;
-		--container-margin-right: auto;
-	}
-}
-
-.o-container-space {
-	@include default.generate(settings.$container-space, settings.$spacing) using ($item) {
-		--container-padding-right: #{sizes.scale($item)};
-		--container-padding-left: #{sizes.scale($item)};
-	}
-}
-
-.o-container-space-l {
-	@include default.generate(settings.$container-space-l, settings.$spacing) using ($item) {
-		--container-padding-left: #{sizes.scale($item)};
-	}
-}
-
-.o-container-space-r {
-	@include default.generate(settings.$container-space-r, settings.$spacing) using ($item) {
-		--container-padding-right: #{sizes.scale($item)};
-	}
-}
-
-.o-container {
-	@include default.generate(settings.$container) {
-		--container-width: 100%;
-		--container-max-width: #{$_max-width};
-		--container-margin-right: auto;
-		--container-margin-left: auto;
+			@include default.generate($container, settings.$spacing) using ($item) {
+				--container-padding-right: #{sizes.scale($item)};
+				--container-padding-left: #{sizes.scale($item)};
+			}
+		}
 	}
 
-	@include default.generate(settings.$container, settings.$spacing) using ($item) {
-		--container-padding-right: #{sizes.scale($item)};
-		--container-padding-left: #{sizes.scale($item)};
-	}
-}
+	@if ($container-l) {
+		.o-container-l#{$suffix} {
+			@include default.generate($container-l) {
+				--container-width: 100%;
+				--container-max-width-value: #{$max-width};
+				--container-margin-left: auto;
+			}
 
-.o-container-l {
-	@include default.generate(settings.$container-l) {
-		--container-width: 100%;
-		--container-max-width-value: #{$_max-width};
-		--container-margin-left: auto;
-	}
-
-	@include default.generate(settings.$container-l, settings.$spacing) using ($item) {
-		--container-padding-left: #{sizes.scale($item)};
-	}
-}
-
-.o-container-r {
-	@include default.generate(settings.$container-r) {
-		--container-width: 100%;
-		--container-max-width-value: #{$_max-width};
-		--container-margin-right: auto;
+			@include default.generate($container-l, settings.$spacing) using ($item) {
+				--container-padding-left: #{sizes.scale($item)};
+			}
+		}
 	}
 
-	@include default.generate(settings.$container-r, settings.$spacing) using ($item) {
-		--container-padding-right: #{sizes.scale($item)};
-	}
-}
+	@if ($container-r) {
+		.o-container-r#{$suffix} {
+			@include default.generate($container-r) {
+				--container-width: 100%;
+				--container-max-width-value: #{$max-width};
+				--container-margin-right: auto;
+			}
 
-.o-container-width {
-	@include default.generate(settings.$container-width) {
-		--container-width: 100%;
-		--container-max-width: #{$_max-width};
-		--container-margin-right: auto;
-		--container-margin-left: auto;
-	}
-}
-
-.o-container-width-l {
-	@include default.generate(settings.$container-width-l) {
-		--container-width: 100%;
-		--container-max-width-value: #{$_max-width};
-		--container-margin-left: auto;
-	}
-}
-
-.o-container-width-r {
-	@include default.generate(settings.$container-width-r) {
-		--container-width: 100%;
-		--container-max-width-offset-value: #{$_max-width};
-		--container-margin-right: auto;
-	}
-}
-
-.o-container-inset {
-	@include default.generate(settings.$container-inset, settings.$spacing) using ($item) {
-		--container-padding-value: #{sizes.scale($item)};
-	}
-}
-
-.o-container-inset-l {
-	@include default.generate(settings.$container-inset-l, settings.$spacing) using ($item) {
-		--container-padding-value: #{sizes.scale($item)};
-		--container-padding-right: unset;
-	}
-}
-
-.o-container-inset-r {
-	@include default.generate(settings.$container-inset-l, settings.$spacing) using ($item) {
-		--container-padding-value: #{sizes.scale($item)};
-		--container-padding-left: unset;
-	}
-}
-
-.o-container-inset-width {
-	@include default.generate(settings.$container-inset-width) {
-		--container-max-width-value: #{$_max-width};
-	}
-}
-
-.o-container-inset-width-l {
-	@include default.generate(settings.$container-inset-width) {
-		--container-max-width-value: #{$_max-width};
-		--container-padding-right: unset;
-	}
-}
-
-.o-container-inset-width-r {
-	@include default.generate(settings.$container-inset-width) {
-		--container-max-width-value: #{$_max-width};
-		--container-padding-left: unset;
+			@include default.generate($container-r, settings.$spacing) using ($item) {
+				--container-padding-right: #{sizes.scale($item)};
+			}
+		}
 	}
 }

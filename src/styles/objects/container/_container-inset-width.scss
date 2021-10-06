@@ -1,0 +1,45 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "@/styles/tools/units" as units;
+@use "@/styles/settings/core" as core;
+@use "./settings" as settings;
+
+$_class-separator: core.$class-separator;
+
+[class*="o-container-inset-width"] {
+	--container-padding: calc((100% - var(--container-max-width-value)) * 0.5);
+}
+
+@each $name, $settings in settings.$containers {
+	$suffix: if($name == "default", "", #{$_class-separator}#{$name});
+	$max-width: units.convert(map.get($settings, max-width));
+	$container-inset-width: map.get($settings, container-inset-width);
+	$container-inset-width-l: map.get($settings, container-inset-width-l);
+	$container-inset-width-r: map.get($settings, container-inset-width-r);
+
+	@if ($container-inset-width) {
+		.o-container-inset-width {
+			@include default.generate($container-inset-width) {
+				--container-max-width-value: #{$max-width};
+			}
+		}
+	}
+
+	@if ($container-inset-width-l) {
+		.o-container-inset-width-l {
+			@include default.generate($container-inset-width) {
+				--container-max-width-value: #{$max-width};
+				--container-padding-right: unset;
+			}
+		}
+	}
+
+	@if ($container-inset-width-r) {
+		.o-container-inset-width-r {
+			@include default.generate($container-inset-width) {
+				--container-max-width-value: #{$max-width};
+				--container-padding-left: unset;
+			}
+		}
+	}
+}

@@ -1,0 +1,39 @@
+@use "sass:map";
+@use "@/styles/tools/generators/default" as default;
+@use "@/styles/tools/sizes" as sizes;
+@use "@/styles/settings/core" as core;
+@use "./settings" as settings;
+
+$_class-separator: core.$class-separator;
+
+@each $name, $settings in settings.$containers {
+	$suffix: if($name == "default", "", #{$_class-separator}#{$name});
+	$container-space: map.get($settings, container-space);
+	$container-space-l: map.get($settings, container-space-l);
+	$container-space-r: map.get($settings, container-space-r);
+
+	@if ($container-space) {
+		.o-container-space#{$suffix} {
+			@include default.generate($container-space, settings.$spacing) using ($item) {
+				--container-padding-right: #{sizes.scale($item)};
+				--container-padding-left: #{sizes.scale($item)};
+			}
+		}
+	}
+
+	@if ($container-space-l) {
+		.o-container-space-l#{$suffix} {
+			@include default.generate($container-space-l, settings.$spacing) using ($item) {
+				--container-padding-left: #{sizes.scale($item)};
+			}
+		}
+	}
+
+	@if ($container-space-r) {
+		.o-container-space-r#{$suffix} {
+			@include default.generate($container-space-r, settings.$spacing) using ($item) {
+				--container-padding-right: #{sizes.scale($item)};
+			}
+		}
+	}
+}
