@@ -1,8 +1,0 @@
-@use "@/styles/settings/font-styles" as font-styles;
-
-body {
-	@include font-styles.p();
-
-	color: var(--color-contrast-high);
-	background-color: var(--color-base);
-}

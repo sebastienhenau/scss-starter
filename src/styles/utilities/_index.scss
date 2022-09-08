@@ -1,11 +1,6 @@
-@use "./colors" as *;
-@use "./background-colors" as *;
-@use "./font-styles" as *;
-@use "./margin" as *;
-@use "./padding" as *;
-@use "./dimensions" as *;
-@use "./visibility" as *;
-@use "./stack" as *;
-@use "./inline" as *;
-@use "./interactive" as *;
-@use "./overflow" as *;
+@forward "./typography";
+@forward "./scheme";
+@forward "./container";
+@forward "./section";
+@forward "./flow";
+@forward "./full-bleed";

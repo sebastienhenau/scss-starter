@@ -1,0 +1,21 @@
+@layer utilities {
+	.flow-sm {
+		@apply space-y-2;
+	}
+
+	.flow-md {
+		@apply space-y-4;
+	}
+
+	.flow-lg {
+		@apply space-y-6;
+	}
+
+	.flow-xl {
+		@apply space-y-8;
+	}
+
+	.flow-2xl {
+		@apply space-y-10;
+	}
+}

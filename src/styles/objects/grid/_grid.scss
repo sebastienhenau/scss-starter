@@ -1,8 +1,0 @@
-@use "@/styles/tools/generators/default" as default;
-@use "./settings" as settings;
-
-.o-grid {
-	@include default.generate(settings.$grid) {
-		display: grid;
-	}
-}

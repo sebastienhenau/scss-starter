@@ -1,0 +1,7 @@
+@layer utilities {
+	.full-bleed {
+		@apply w-screen;
+
+		margin-left: calc(50% - 50vw);
+	}
+}

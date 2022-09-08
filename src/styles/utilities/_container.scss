@@ -1,0 +1,56 @@
+@layer utilities {
+	.container-space-x {
+		@apply px-0;
+	}
+
+	.container-space-y {
+		@apply py-0;
+	}
+
+	.container-space {
+		@apply p-0;
+	}
+
+	.container,
+	.container-2xs,
+	.container-xs,
+	.container-sm,
+	.container-md,
+	.container-lg,
+	.container-xl,
+	.container-2xl {
+		@apply container-space-x mx-auto;
+	}
+
+	.container {
+		max-width: 1440px;
+	}
+
+	.container-2xs {
+		max-width: theme("screens.2xs");
+	}
+
+	.container-xs {
+		max-width: theme("screens.xs");
+	}
+
+	.container-sm {
+		max-width: theme("screens.sm");
+	}
+
+	.container-md {
+		max-width: theme("screens.md");
+	}
+
+	.container-lg {
+		max-width: theme("screens.lg");
+	}
+
+	.container-xl {
+		max-width: theme("screens.xl");
+	}
+
+	.container-2xl {
+		max-width: theme("screens.2xl");
+	}
+}

@@ -1,0 +1,24 @@
+/**
+ * Globally accessible colors. Color naming should be: --color-[role]-[step].
+ * Each color should by default be defined by the HSL notation. These variables
+ * are linked in the tailwind.config.js file under theme - colors. Name the
+ * colors by giving them a semantic name or a role: primary, secondary,
+ * tertiary, accent, highlight, neutral, slate, success, warning, danger, ...
+ * Add a base color and add a step of a hundred based on its lightness level.
+ * Add any variant color based on that base color. The lower the number, the
+ * lighter the color. The higher the number, the darker the color.
+ */
+@layer base {
+	:root {
+		--color-primary-50: 0 100% 100%;
+		--color-primary-100: 0 100% 90%;
+		--color-primary-200: 0 100% 80%;
+		--color-primary-300: 0 100% 70%;
+		--color-primary-400: 0 100% 60%;
+		--color-primary-500: 0 100% 50%;
+		--color-primary-600: 0 100% 40%;
+		--color-primary-700: 0 100% 30%;
+		--color-primary-800: 0 100% 20%;
+		--color-primary-900: 0 100% 10%;
+	}
+}

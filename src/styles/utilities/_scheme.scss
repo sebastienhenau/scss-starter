@@ -1,0 +1,14 @@
+@layer utilities {
+	.prop-bg {
+		background-color: var(--scheme-bg);
+	}
+
+	.prop-color {
+		color: var(--scheme-color);
+	}
+
+	.scheme-primary-500 {
+		--scheme-bg: theme("colors.primary.500");
+		--scheme-color: theme("colors.primary.50");
+	}
+}

@@ -1,5 +1,0 @@
-@use "@/styles/tools/units" as units;
-
-*:focus-visible {
-	outline: units.convert(3px) dotted var(--color-focus);
-}

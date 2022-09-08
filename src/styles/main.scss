@@ -1,8 +1,7 @@
-@use "@/styles/generic" as *;
-@use "@/styles/tokens" as *;
-@use "@/styles/elements" as *;
-@use "@/styles/objects" as *;
-@use "@/styles/components" as *;
-@use "@/styles/scopes" as *;
-@use "@/styles/utilities" as *;
-@use "@/styles/themes" as *;
+@use "./base" as *;
+@use "./blocks" as *;
+@use "./utilities" as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

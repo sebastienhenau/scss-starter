@@ -1,0 +1,31 @@
+@layer base {
+	/**
+	 * 1. Ensure the page always fills up the entire height of the viewport.
+	 * 2. Force vertical scrollbars to always be visible to prevent awkward
+	 *    jumps when navigating between pages that do/do not have content to
+	 *    produce scrollbars naturally.
+	 * 3. Fix for 100vh issue on safari mobile browsers
+	 * 4. Makes sure that 1rem = 16px, all rem scale along this percentage. Use
+	 *    units.set(16px) to output rem correctly.
+	*/
+	:root {
+		@apply min-h-full; // 1
+		@apply overflow-y-scroll; // 2
+
+		// stylelint-disable-next-line value-no-vendor-prefix
+		height: -webkit-fill-available; // 3
+
+		font-size: 100%; // 4
+	}
+
+	/**
+	 * 1. Fix for 100vh issue on safari mobile browsers, use min-height 100vh as
+	 *    fallback
+	 */
+	body {
+		@apply min-h-screen; // 1
+
+		// stylelint-disable-next-line value-no-vendor-prefix
+		min-height: -webkit-fill-available;
+	}
+}

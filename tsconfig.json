@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"isolatedModules": true,
+		"useDefineForClassFields": true,
+		"types": ["vite/client"],
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"importHelpers": true,
+		"noEmit": true
+	}
+}

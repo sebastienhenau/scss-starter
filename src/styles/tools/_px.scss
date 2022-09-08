@@ -1,0 +1,18 @@
+@use "sass:math";
+@use "@/styles/abstracts" as *;
+
+@function _rem-px($value) {
+	$integer: math.div($value, ($value * 0 + 1)) * $browser-font-size;
+
+	@return math.round($integer);
+}
+
+@function px($value) {
+	$unit: math.unit($value);
+
+	@if $unit == rem {
+		@return _rem-px($value);
+	} @else {
+		@return $value;
+	}
+}
