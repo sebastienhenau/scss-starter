@@ -1,56 +1,165 @@
+/**
+ * Container: A centralized wrapper element for fixing the content in the middle
+ * of the screen and limiting the width of the content.
+ */
+@use "sass:meta";
+@use "sass:list";
+@use "@/styles/tools" as *;
+
+/**
+ * Spacing to fallback to when no more breakpoint is defined, based on the
+ * viewport width. This value should be the name of the spacing within
+ * tailwind.config.js - spacing and is automatically linked to that theme
+ * spacing.
+ */
+$_default-spacing: 0;
+/**
+ * Responsive spacing to use when resizing the viewport. This is a map where the
+ * key in the name of a breakpoint within tailwind.config.js - screens and the
+ * value is the name of the spacing value within tailwind.config.js - spacing.
+ * For example: (md: 2, lg: 4,)
+ */
+$_spacing: ();
+/**
+ * Maximum width of the default container. Can only be expressed in pixels,
+ * without a unit, and is automatically converted to rem.
+ */
+$_default-container-width: 1440;
+/**
+ * List of containers to generate. There are different types of input:
+ * - string: this will always be linked to a breakpoint defined in
+ *   tailwind.config.js - screens. This will generate
+ *   container-[breakpoint-name]. For example: md => container-md
+ * - number: the max-width of the container, without a unit. This will generate
+ *   container-[number]. For example: 500 => container-500
+ * - list: a list format as ([name], [max-width]) where the name is appended to
+ *   the class and the max-width should be expressed in pixels, without a unit.
+ *   For example: (small, 400) => container-small
+ */
+$_containers: ("2xs", (test, 400), 500, xs, sm, md, lg, xl, default, "2xl");
+
+/**
+ * - container-space-l: spacing on the left
+ * - container-space-r: spacing on the right
+ * - container-space-t: spacing on the top
+ * - container-space-b: spacing on the bottom
+ * - container-space-x: spacing on the left and right
+ * - container-space-y: spacing on the top and bottom
+ * - container-space: spacing on the top, right, bottom and left
+ * - container: centered with a max-width
+ * - container-l: centered, but limited only on the left side. Use
+ *   container-offset on the same element to add padding on the right side to
+ *   limit the content within.
+ * - container-r: centered, but limited only on the right side. Use
+ *   container-offset on the same element to add padding on the left side to
+ *   limit the content within.
+ * - container-inset: centered, instead of max-width, padding is used on the
+ *   left and right side.
+ */
 @layer utilities {
+	.container-space-l {
+		@apply pl-#{$_default-spacing};
+
+		@each $breakpoint, $value in $_spacing {
+			@apply #{$breakpoint}:pl-#{$value};
+		}
+	}
+
+	.container-space-r {
+		@apply pr-#{$_default-spacing};
+
+		@each $breakpoint, $value in $_spacing {
+			@apply #{$breakpoint}:pr-#{$value};
+		}
+	}
+
+	.container-space-t {
+		@apply pt-#{$_default-spacing};
+
+		@each $breakpoint, $value in $_spacing {
+			@apply #{$breakpoint}:pt-#{$value};
+		}
+	}
+
+	.container-space-b {
+		@apply pb-#{$_default-spacing};
+
+		@each $breakpoint, $value in $_spacing {
+			@apply #{$breakpoint}:pb-#{$value};
+		}
+	}
+
 	.container-space-x {
-		@apply px-0;
+		@apply px-#{$_default-spacing};
+
+		@each $breakpoint, $value in $_spacing {
+			@apply #{$breakpoint}:px-#{$value};
+		}
 	}
 
 	.container-space-y {
-		@apply py-0;
+		@apply py-#{$_default-spacing};
+
+		@each $breakpoint, $value in $_spacing {
+			@apply #{$breakpoint}:py-#{$value};
+		}
 	}
 
 	.container-space {
-		@apply p-0;
+		@apply p-#{$_default-spacing};
+
+		@each $breakpoint, $value in $_spacing {
+			@apply #{$breakpoint}:p-#{$value};
+		}
 	}
 
-	.container,
-	.container-2xs,
-	.container-xs,
-	.container-sm,
-	.container-md,
-	.container-lg,
-	.container-xl,
-	.container-2xl {
-		@apply container-space-x mx-auto;
-	}
+	@each $container in $_containers {
+		$name: null;
+		$max-width: null;
 
-	.container {
-		max-width: 1440px;
-	}
+		@if $container == default {
+			$name: "";
+			$max-width: rem($_default-container-width * 1px);
+		} @else if meta.type-of($container) == list {
+			$name: "-#{list.nth($container, 1)}";
+			$max-width: rem(list.nth($container, 2) * 1px);
+		} @else if meta.type-of($container) == number {
+			$name: "-#{$container}";
+			$max-width: rem($container * 1px);
+		} @else if meta.type-of($container) == string {
+			$name: "-#{$container}";
+			$max-width: #{theme("screens.#{$container}")};
+		}
 
-	.container-2xs {
-		max-width: theme("screens.2xs");
-	}
+		.container#{$name} {
+			@apply mx-auto;
 
-	.container-xs {
-		max-width: theme("screens.xs");
-	}
+			max-width: #{$max-width};
+		}
 
-	.container-sm {
-		max-width: theme("screens.sm");
-	}
+		.container#{$name}-l {
+			@apply ml-auto;
 
-	.container-md {
-		max-width: theme("screens.md");
-	}
+			max-width: calc(#{$max-width} + ((100% - #{$max-width}) * 0.5));
 
-	.container-lg {
-		max-width: theme("screens.lg");
-	}
+			&.container#{$name}-offset {
+				padding-right: calc((100% - #{$max-width}) * 0.5);
+			}
+		}
 
-	.container-xl {
-		max-width: theme("screens.xl");
-	}
+		.container#{$name}-r {
+			@apply mr-auto;
 
-	.container-2xl {
-		max-width: theme("screens.2xl");
+			max-width: calc(#{$max-width} + ((100% - #{$max-width}) * 0.5));
+
+			&.containeroffset {
+				padding-left: calc((100% - #{$max-width}) * 0.5);
+			}
+		}
+
+		.container#{$name}-inset {
+			padding-right: calc((100% - #{$max-width}) * 0.5);
+			padding-left: calc((100% - #{$max-width}) * 0.5);
+		}
 	}
 }

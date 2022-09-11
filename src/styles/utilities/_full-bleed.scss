@@ -1,3 +1,8 @@
+/**
+ * Full bleed: a layout element to make sure the content goes out of bounds when
+ * limited by a container. This should only be used on a child when a container
+ * is used to wrap its content.
+ */
 @layer utilities {
 	.full-bleed {
 		@apply w-screen;

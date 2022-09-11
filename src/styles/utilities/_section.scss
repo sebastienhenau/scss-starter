@@ -1,3 +1,8 @@
+/**
+ * Section: a layout element to create spacing on top and on the bottom of a
+ * region on the site. Usually used on top level for separating content within
+ * the <main>.
+ */
 @layer utilities {
 	.section-sm {
 		@apply py-2;

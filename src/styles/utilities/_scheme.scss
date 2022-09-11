@@ -1,14 +1,22 @@
+/**
+ * Scheme: a color palette used to create different versions, in color, of a
+ * group of elements. The name of the scheme should always be prefixed with
+ * "scheme" and should be followed by the name of the base color. The scheme
+ * should only assign css variables that should only be used and applied by prop
+ * classes. Each prop class assigns one css variable to one css property. Give
+ * the css variables schematic names that assign a role to the value.
+ */
 @layer utilities {
 	.prop-bg {
-		background-color: var(--scheme-bg);
+		background-color: var(--scheme-base);
 	}
 
 	.prop-color {
-		color: var(--scheme-color);
+		color: var(--scheme-contrast);
 	}
 
 	.scheme-primary-500 {
-		--scheme-bg: theme("colors.primary.500");
-		--scheme-color: theme("colors.primary.50");
+		--scheme-base: theme("colors.primary.500");
+		--scheme-contrast: theme("colors.primary.50");
 	}
 }
