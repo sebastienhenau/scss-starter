@@ -13,6 +13,7 @@
  * spacing.
  */
 $_default-spacing: 0;
+
 /**
  * Responsive spacing to use when resizing the viewport. This is a map where the
  * key in the name of a breakpoint within tailwind.config.js - screens and the
@@ -20,11 +21,13 @@ $_default-spacing: 0;
  * For example: (md: 2, lg: 4,)
  */
 $_spacing: ();
+
 /**
  * Maximum width of the default container. Can only be expressed in pixels,
  * without a unit, and is automatically converted to rem.
  */
 $_default-container-width: 1440;
+
 /**
  * List of containers to generate. There are different types of input:
  * - string: this will always be linked to a breakpoint defined in
