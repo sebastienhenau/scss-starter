@@ -1,6 +1,7 @@
 @use "./base" as *;
-@use "./blocks" as *;
+@use "./components" as *;
 @use "./utilities" as *;
+@use "./themes" as *;
 
 @tailwind base;
 @tailwind components;

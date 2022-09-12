@@ -16,7 +16,6 @@ https://dev.to/polypane/the-breakpoints-we-tested-in-2021-and-the-ones-to-test-i
 TODO:
 
 - themes
-- z-index
 - SASS -> postcss?
 - container (DONE)
 - comments utilities (DONE)
