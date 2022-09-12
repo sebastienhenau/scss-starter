@@ -6,13 +6,20 @@
     "build": "vite build",
     "preview": "vite preview",
     "prepare": "husky install",
-    "lint:styles": "stylelint './src/styles/**/*.scss'"
+    "lint:styles": "stylelint './src/styles/**/*.scss'",
+    "lint:scripts": "eslint ./src/scripts/**/*.ts",
+    "lint": "npm run lint:styles && npm run lint:scripts"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
     "autoprefixer": "^10.4.8",
     "cssnano": "^5.1.13",
+    "eslint": "^8.23.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.1",
     "postcss-preset-env": "^7.8.0",
     "postcss-scss": "^4.0.3",
@@ -25,6 +32,7 @@
     "stylelint-prettier": "^2.0.0",
     "stylelint-scss": "^4.3.0",
     "tailwindcss": "^3.1.8",
+    "typescript": "^4.8.3",
     "vite": "^3.0.9"
   }
 }
