@@ -1,0 +1,15 @@
+/* Base */
+@import "@/styles/base/fonts.css";
+@import "@/styles/base/root.css";
+@import "@/styles/base/typography.css";
+@import "@/styles/base/accessibility.css";
+
+/* Components */
+@import "@/styles/components/button.css";
+
+/* Utilities */
+/* @import "@/styles/utilities/[utility].css"; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,6 +1,14 @@
+const { rem, em, px } = require("./.postcss/functions");
+
 module.exports = {
-	syntax: "postcss-scss",
 	plugins: [
+		require("postcss-functions")({
+			functions: {
+				rem,
+				px,
+				em,
+			},
+		}),
 		require("tailwindcss"),
 		require("postcss-preset-env")({
 			stage: 2,

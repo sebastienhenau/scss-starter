@@ -1,5 +1,5 @@
 const plugin = require("tailwindcss/plugin");
-const helpers = require("./../helpers");
+const { objEntry, isDefault } = require("./../helpers");
 
 module.exports = plugin(({ matchUtilities, theme }) => {
 	matchUtilities(
@@ -19,13 +19,13 @@ module.exports = plugin(({ matchUtilities, theme }) => {
 
 				const generateObject = () => {
 					const definition = Object.entries(config).reduce((obj, item) => {
-						const { key, value } = helpers.ObjEntry(item);
+						const { key, value } = objEntry(item);
 						const space = theme(`spacing.${value}`);
 						const media = `@media (min-width: ${theme(`screens.${key}`)})`;
 						const props = {
 							"margin-top": space,
 						};
-						const result = helpers.isDefault(key) ? props : { [media]: props };
+						const result = isDefault(key) ? props : { [media]: props };
 
 						return {
 							...obj,

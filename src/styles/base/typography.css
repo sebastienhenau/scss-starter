@@ -1,0 +1,45 @@
+@layer base {
+	h1 {
+		/* @apply typo-h1; */
+
+		max-width: 15ch;
+	}
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		max-width: 25ch;
+	}
+
+	h2 {
+		/* @apply typo-h2; */
+	}
+
+	h3 {
+		/* @apply typo-h3; */
+	}
+
+	h4 {
+		/* @apply typo-h4; */
+	}
+
+	h5 {
+		/* @apply typo-h5; */
+	}
+
+	h6 {
+		/* @apply typo-h6; */
+	}
+
+	p {
+		/* @apply typo-p; */
+
+		max-width: 60ch;
+	}
+
+	a {
+		/* @apply typo-p text-primary-500 hover:text-primary-600 transition-colors; */
+	}
+}

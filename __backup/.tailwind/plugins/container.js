@@ -1,6 +1,5 @@
 const plugin = require("tailwindcss/plugin");
-const { rem } = require("./../../.postcss/functions");
-const { objEntry, isDefault } = require("./../helpers");
+const helpers = require("./../helpers");
 
 module.exports = plugin.withOptions(
 	(options = {}) => {
@@ -12,11 +11,11 @@ module.exports = plugin.withOptions(
 		return ({ matchUtilities, addUtilities, theme }) => {
 			const generateSpacing = (propsCb) => {
 				return Object.entries(spacing).reduce((obj, item) => {
-					const { key, value } = objEntry(item);
+					const { key, value } = helpers.ObjEntry(item);
 					const space = theme(`spacing.${value}`);
 					const media = `@media (min-width: ${theme(`screens.${key}`)})`;
 					const props = propsCb(space);
-					const result = isDefault(key) ? props : { [media]: props };
+					const result = helpers.isDefault(key) ? props : { [media]: props };
 
 					return {
 						...obj,
@@ -133,11 +132,11 @@ module.exports = plugin.withOptions(
 				container: ({ theme }) => {
 					return {
 						...Object.entries(theme("screens")).reduce((obj, item) => {
-							const { key, value } = objEntry(item);
+							const { key, value } = helpers.ObjEntry(item);
 
 							return {
 								...obj,
-								[key]: rem(value),
+								[key]: `${helpers.removeUnit(value)}rem`,
 							};
 						}, {}),
 					};

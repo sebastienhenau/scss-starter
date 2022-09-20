@@ -1,5 +1,5 @@
 const plugin = require("tailwindcss/plugin");
-const { objEntry } = require("./../helpers");
+const helpers = require("./../helpers");
 
 const assignCssVariables = (data, name, valueCb) => {
 	return Object.keys(data).reduce((obj, key) => {
@@ -12,7 +12,7 @@ const assignCssVariables = (data, name, valueCb) => {
 
 const generateCssVariables = (data, name) => {
 	return Object.entries(data).reduce((obj, item) => {
-		const { key, value } = objEntry(item);
+		const { key, value } = helpers.ObjEntry(item);
 
 		return {
 			...obj,

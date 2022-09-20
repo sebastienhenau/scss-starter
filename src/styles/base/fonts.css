@@ -1,0 +1,27 @@
+/**
+ * Add `unicode-range: U+000-5FF;` to decrease font-loading by indicating that
+ * no stylistic characters are needed. https://web.dev/optimize-webfont-loading
+ */
+@layer base {
+	/* @font-face {
+		font-family: Roboto;
+		font-weight: theme("fontWeight.normal");
+		font-style: normal;
+		font-display: swap;
+
+		unicode-range: U+000-5FF;
+
+		src: url("@/assets/Roboto-Regular.woff2") format("woff2"), url("@/assets/Roboto-Regular.woff") format("woff");
+	} */
+
+	/* @font-face {
+		font-family: Roboto;
+		font-weight: theme("fontWeight.bold");
+		font-style: normal;
+		font-display: swap;
+
+		unicode-range: U+000-5FF;
+
+		src: url("@/assets/Roboto-Regular.woff2") format("woff2-variations"), url"@/assets/Roboto-Regular.ttf") format("truetype-variations");
+	} */
+}

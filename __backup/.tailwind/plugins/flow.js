@@ -1,35 +1,41 @@
 const plugin = require("tailwindcss/plugin");
-const { objEntry, isDefault } = require("./../helpers");
+const helpers = require("./../helpers");
 
 module.exports = plugin(({ matchUtilities, theme }) => {
 	matchUtilities(
 		{
-			section: (config) => {
+			flow: (config) => {
 				const generateNumber = () => {
 					const space = theme(`spacing.${config}`);
 
 					return {
-						"padding-top": space,
-						"padding-bottom": space,
+						["> * + *"]: {
+							"--tw-space-y-reverse": 0,
+							"margin-top": `calc(${space} * calc(1 - var(--tw-space-y-reverse)))`,
+							"margin-bottom": `calc(${space} * var(--tw-space-y-reverse))`,
+						},
 					};
 				};
 
 				const generateObject = () => {
-					return Object.entries(config).reduce((obj, item) => {
-						const { key, value } = objEntry(item);
+					const definition = Object.entries(config).reduce((obj, item) => {
+						const { key, value } = helpers.ObjEntry(item);
 						const space = theme(`spacing.${value}`);
 						const media = `@media (min-width: ${theme(`screens.${key}`)})`;
 						const props = {
-							"padding-top": space,
-							"padding-bottom": space,
+							"margin-top": space,
 						};
-						const result = isDefault(key) ? props : { [media]: props };
+						const result = helpers.isDefault(key) ? props : { [media]: props };
 
 						return {
 							...obj,
 							...result,
 						};
 					}, {});
+
+					return {
+						["> * + *"]: definition,
+					};
 				};
 
 				if (typeof config === "number") {
@@ -40,7 +46,7 @@ module.exports = plugin(({ matchUtilities, theme }) => {
 			},
 		},
 		{
-			values: theme("section"),
+			values: theme("flow"),
 		}
 	);
 });

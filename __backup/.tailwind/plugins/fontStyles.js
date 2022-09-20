@@ -1,5 +1,5 @@
 const plugin = require("tailwindcss/plugin");
-const { objEntry } = require("./../helpers");
+const helpers = require("./../helpers");
 
 module.exports = plugin(({ matchUtilities, theme }) => {
 	matchUtilities(
@@ -7,7 +7,7 @@ module.exports = plugin(({ matchUtilities, theme }) => {
 			typo: (config) => {
 				const generateStyles = (targetConfig = config) => {
 					return Object.entries(targetConfig).reduce((obj, item) => {
-						const { key, value } = objEntry(item);
+						const { key, value } = helpers.ObjEntry(item);
 						const result = {};
 
 						const generateProperty = (targetKey = key, targetValue = value) => {
