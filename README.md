@@ -18,6 +18,7 @@ TODO:
 - clear tsconfig linter in tailwind & postcss
 - fix stylelint to normal css (no scss)
 - README.md
+- Add nesting and variables plugins postcss
 
 ```
 const { em } = require("./.postcss/functions");
