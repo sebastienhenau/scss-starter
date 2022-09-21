@@ -1,12 +1,11 @@
-const { rem, em, px } = require("./.postcss/functions");
-
+/* eslint @typescript-eslint/no-var-requires: 0 */
 module.exports = {
 	plugins: [
 		require("postcss-functions")({
 			functions: {
-				rem,
-				px,
-				em,
+				rem: require("./.postcss/functions/rem"),
+				em: require("./.postcss/functions/em"),
+				px: require("./.postcss/functions/px"),
 			},
 		}),
 		require("tailwindcss"),
@@ -14,6 +13,8 @@ module.exports = {
 			stage: 2,
 			browsers: "last 2 versions",
 		}),
+		require("postcss-simple-vars"),
+		require("postcss-nested"),
 		require("autoprefixer"),
 		process.env.NODE_ENV === "production" &&
 			require("cssnano")({

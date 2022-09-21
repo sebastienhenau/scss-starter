@@ -1,9 +1,0 @@
-@layer base {
-	/**
-	 * Dark mode detected based on the color scheme the system runs on. Try to only
-	 * change the base css variables here to avoid complex selectors.
-	 */
-	@media (prefers-color-scheme: dark) {
-		// :root {}
-	}
-}

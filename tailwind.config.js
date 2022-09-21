@@ -1,5 +1,5 @@
-const { em } = require("./.postcss/functions");
-const { fullBleed, container, cssVariables, flow, fontStyles, schemes, section } = require("./.tailwind/plugins");
+/* eslint @typescript-eslint/no-var-requires: 0 */
+const { em, rem } = require("./.postcss/functions");
 
 module.exports = {
 	content: ["./src/scripts/**/*.js", "./src/index.html"],
@@ -7,14 +7,15 @@ module.exports = {
 		container: false,
 	},
 	plugins: [
-		fullBleed,
-		cssVariables,
-		flow,
-		fontStyles,
-		schemes,
-		section,
-		container({
-			maxWidth: "1440px",
+		require("@tailwindcss/line-clamp"),
+		require("./.tailwind/plugins/fullBleed"),
+		require("./.tailwind/plugins/cssVariables"),
+		require("./.tailwind/plugins/flow"),
+		require("./.tailwind/plugins/fontStyles"),
+		require("./.tailwind/plugins/schemes"),
+		require("./.tailwind/plugins/section"),
+		require("./.tailwind/plugins/container")({
+			maxWidth: rem("1440px"),
 			spacing: {
 				DEFAULT: 1,
 				md: 2,
