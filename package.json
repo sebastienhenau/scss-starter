@@ -22,6 +22,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.1",
+    "lodash": "^4.17.21",
     "postcss": "^8.4.16",
     "postcss-functions": "^4.0.2",
     "postcss-nested": "^5.0.6",

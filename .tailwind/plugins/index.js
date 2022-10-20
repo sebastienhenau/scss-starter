@@ -6,4 +6,5 @@ module.exports = {
 	fontStyles: require("./fontStyles"),
 	schemes: require("./schemes"),
 	section: require("./section"),
+	layout: require("./layout"),
 };

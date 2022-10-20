@@ -107,7 +107,7 @@ module.exports = {
   plugins: [require("./.tailwind/plugins/section")],
   theme: {
     section: {
-      sm: 1
+      sm: 1,
       md: {
         DEFAULT: 2,
         md: 4,
@@ -117,7 +117,7 @@ module.exports = {
         DEFAULT: 3,
         md: 6,
         lg: 9,
-      }
+      },
     },
     spacing: {
       1: "10px",
@@ -128,11 +128,11 @@ module.exports = {
       9: "90px",
     },
     screens: {
-			sm: "640px",
-			md: "768px",
-			lg: "1024px",
-		},
-  }
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+    },
+  },
 };
 ```
 
@@ -170,7 +170,7 @@ module.exports = {
   plugins: [require("./.tailwind/plugins/flow")],
   theme: {
     flow: {
-      sm: 1
+      sm: 1,
       md: {
         DEFAULT: 2,
         md: 4,
@@ -180,7 +180,7 @@ module.exports = {
         DEFAULT: 3,
         md: 6,
         lg: 9,
-      }
+      },
     },
     spacing: {
       1: "10px",
@@ -191,11 +191,11 @@ module.exports = {
       9: "90px",
     },
     screens: {
-			sm: "640px",
-			md: "768px",
-			lg: "1024px",
-		},
-  }
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+    },
+  },
 };
 ```
 
@@ -323,7 +323,7 @@ add a breakpoint when the style should change.
 module.exports = {
   plugins: [require("./.tailwind/plugins/fontStyles")],
   theme: {
-    fontStyles: {
+    fontStyles: ({ theme }) => {
       h1: {
         fontFamily: "Roboto",
         fontWeight: "bold",

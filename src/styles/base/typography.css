@@ -1,16 +1,6 @@
 @layer base {
 	h1 {
 		/* @apply typo-h1; */
-
-		max-width: 15ch;
-	}
-
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		max-width: 25ch;
 	}
 
 	h2 {
@@ -35,8 +25,6 @@
 
 	p {
 		/* @apply typo-p; */
-
-		max-width: 60ch;
 	}
 
 	a {

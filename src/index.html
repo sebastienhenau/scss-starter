@@ -6,6 +6,58 @@
 		<title>(S)CSS Starter</title>
 	</head>
 	<body>
+		<!-- <main class="layout">
+			<section class="fill-full grid-2 gap-1 grid-rows-3">
+				<div class="start-full end-col-1" style="background-color: yellow">shape</div>
+
+				<div class="fill-col-2" style="background-color: green">content</div>
+
+				<div class="fill-col-1" style="background-color: red">image</div>
+			</section>
+
+			<section class="fill-full grid-12 gap">
+				<div class="start-full end-col-3" style="background-color: yellow">shape</div>
+
+				<div class="start-col-4 end-col-12" style="background-color: green">content</div>
+
+				<div class="start-col-1 end-col-3" style="background-color: red">image</div>
+			</section>
+		</main> -->
+
+		<main class="layout bound container-3">
+			<div class="" style="background-color: lightgrey; min-height: 50px"></div>
+		</main>
+
+		<main class="layout bound bound-x bound-y bound-t bound-b bound-l bound-r">
+			<div class="stretch-full"></div>
+			<div class="stretch-burst"></div>
+			<div class="stretch-pop"></div>
+			<div class="stretch-container"></div>
+			<div class="start-full"></div>
+			<div class="start-burst"></div>
+			<div class="start-pop"></div>
+			<div class="start-container"></div>
+			<div class="end-full"></div>
+			<div class="end-burst"></div>
+			<div class="end-pop"></div>
+			<div class="end-container"></div>
+
+			<div class="stretch-full layout grid-12 col-gutter row-gutter">
+				<div class="stretch-col-1"></div>
+				<div class="start-col-1 end-col-6"></div>
+				<div class="stretch-span-1"></div>
+				<div class="stretch-span-2"></div>
+			</div>
+
+			<!-- THIS -->
+			<div class="stretch-full layout grid-8 col-gutter-3 [gap-y-3] [grid-rows-3]"></div>
+			<div class="stretch-full layout grid-6 gutter"></div>
+
+			<div class="stretch-full layout container-1"></div>
+			<div class="stretch-full layout container-2"></div>
+			<div class="stretch-full layout container-3"></div>
+		</main>
+
 		<script type="module" src="/scripts/main.ts"></script>
 	</body>
 </html>
