@@ -9,6 +9,7 @@
 - Add prose tailwind typography
 - Test a bit more
 - preset?
+- https://tailwindcss.com/blog/automatic-class-sorting-with-prettier
 
 ## Rules
 

@@ -1,5 +1,5 @@
 const plugin = require("tailwindcss/plugin");
-const { objEntry, isDefault } = require("./../helpers");
+const { parseBreakpoints } = require("./../helpers");
 
 module.exports = plugin(({ matchUtilities, theme }) => {
 	matchUtilities(
@@ -15,21 +15,14 @@ module.exports = plugin(({ matchUtilities, theme }) => {
 				};
 
 				const generateObject = () => {
-					return Object.entries(config).reduce((obj, item) => {
-						const { key, value } = objEntry(item);
+					return parseBreakpoints(theme, config, (value) => {
 						const space = theme(`spacing.${value}`);
-						const media = `@media (min-width: ${theme(`screens.${key}`)})`;
-						const props = {
+
+						return {
 							"padding-top": space,
 							"padding-bottom": space,
 						};
-						const result = isDefault(key) ? props : { [media]: props };
-
-						return {
-							...obj,
-							...result,
-						};
-					}, {});
+					});
 				};
 
 				if (typeof config === "number") {

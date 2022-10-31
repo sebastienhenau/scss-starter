@@ -1,21 +1,24 @@
-const { merge } = require("lodash");
 const plugin = require("tailwindcss/plugin");
-const { objEntry, isDefault, atBreakpoint, isEven, createArray, parseBreakpoints } = require("./../helpers");
+const { objEntry, isEven, createArray, parseBreakpoints } = require("./../helpers");
 
 module.exports = plugin.withOptions((options = {}) => {
+	const maxCols = options.maxCols ?? 12;
 	const containerWidth = options.containerWidth ?? "1440px";
 	const burstWidth = options.burstWidth ?? null;
 	const popWidth = options.popWidth ?? null;
-	const bound = options.bound ?? {
+	const bounds = options.bound ?? {
 		DEFAULT: 2,
 	};
 	const gutter = options.gutter ?? {
 		DEFAULT: 2,
 	};
+	const grid = options.grid ?? {
+		DEFAULT: 12,
+	};
 
 	return ({ addUtilities, theme }) => {
 		const generateBound = (names) =>
-			parseBreakpoints(theme, bound, (value) => {
+			parseBreakpoints(theme, bounds, (value) => {
 				return names.reduce((obj, name) => {
 					return {
 						...obj,
@@ -24,142 +27,161 @@ module.exports = plugin.withOptions((options = {}) => {
 				}, {});
 			});
 
-		const generateGutter = (names) =>
+		const generateGutter = (items) =>
 			parseBreakpoints(theme, gutter, (value) => {
-				return names.reduce((obj, name) => {
-					return {
-						...obj,
-						[name]: theme(`spacing.${value}`),
-					};
+				return items.reduce((obj, item) => {
+					return typeof item === "function"
+						? {
+								...obj,
+								...item(value),
+						  }
+						: {
+								[item]: theme(`spacing.${value}`),
+						  };
 				}, {});
 			});
 
 		const generateContainers = () => {
-			return [2, 4, 6].reduce((obj, cols, index) => {
-				const remainingCols = 12 - cols;
-				const className = `.container-${index}`;
+			return createArray(1, Math.floor(maxCols * 0.5) - 1).reduce((obj, item) => {
+				const className = `.container-${item}`;
+				const sides = item * 2;
+				const remainingCols = maxCols - sides;
 
 				return {
 					...obj,
-					[`.layout${className}`]: {
-						"--layout-container-width": `calc((${containerWidth} / 12) * ${remainingCols})`,
+					[className]: {
+						"--layout-container-width": `calc((${containerWidth} / ${maxCols}) * (${remainingCols}))`,
 					},
 				};
 			}, {});
 		};
 
-		const generateGrids = () => {
-			return createArray(2, 12)
-				.reverse()
-				.reduce((obj, cols) => {
-					const gutter = `var(--layout-gutter-x, 0rem) + (var(--layout-gutter-x, 0rem) / ${cols})`;
-					const gridCol = `
-					[col-start]
-					min(
-						(var(--layout-container-width) / ${cols}) - ${gutter},
-						(100% / ${cols}) - ((var(--layout-bound-l, 0rem) + var(--layout-bound-r, 0rem)) * (1 / ${cols})) - ${gutter}
-					)
-					[col-end]
-				`;
-
-					return {
-						...obj,
-						[`.layout.grid-${cols}`]: {
-							"--layout-grid": `repeat(${cols - 1}, ${gridCol} var(--layout-gutter-x, 0rem)) ${gridCol}`,
-						},
-					};
-				}, {});
-		};
-
-		const generateStretch = (items) => {
+		const generateNamedColStretch = (items) => {
 			return items.reduce((obj, item) => {
 				const className = `.stretch-${item}`;
 
 				return {
 					...obj,
-					[`.layout > ${className}`]: {
+					[className]: {
 						"grid-column": item,
 					},
 				};
 			}, {});
 		};
 
-		const generateStart = (items) => {
+		const generateColStretch = (items) => {
 			return items.reduce((obj, item) => {
-				const className = `.start-${item}`;
-
-				return {
-					...obj,
-					[`.layout > ${className}`]: {
-						"grid-column-start": item,
-					},
-				};
-			}, {});
-		};
-
-		const generateEnd = (items) => {
-			return items.reduce((obj, item) => {
-				const className = `.end-${item}`;
-
-				return {
-					...obj,
-					[`.layout > ${className}`]: {
-						"grid-column-end": item,
-					},
-				};
-			}, {});
-		};
-
-		const generateStretchSpanCols = () => {
-			return createArray(2, 6).reduce((obj, item) => {
-				const className = `.stretch-span-${item}`;
-
-				return {
-					...obj,
-					[`.layout > ${className}`]: {
-						"grid-column": `col-start ${item} / col-end -${item}`,
-					},
-				};
-			}, {});
-		};
-
-		const generateStretchCols = () => {
-			return createArray(1, 12).reduce((obj, item) => {
 				const className = `.stretch-col-${item}`;
 
 				return {
 					...obj,
-					[`.layout > ${className}`]: {
+					[className]: {
 						"grid-column": `col-start ${item} / col-end ${item}`,
 					},
 				};
 			}, {});
 		};
 
-		const generateStartCols = () => {
-			return createArray(1, 12).reduce((obj, item) => {
+		const generateNamedColStart = (items) => {
+			return items.reduce((obj, item) => {
+				const className = `.start-${item}`;
+
+				return {
+					...obj,
+					[className]: {
+						"grid-column-start": item,
+					},
+				};
+			}, {});
+		};
+
+		const generateColStart = (items) => {
+			return items.reduce((obj, item) => {
 				const className = `.start-col-${item}`;
 
 				return {
 					...obj,
-					[`.layout > ${className}`]: {
+					[className]: {
 						"grid-column-start": `col-start ${item}`,
 					},
 				};
 			}, {});
 		};
 
-		const generateEndCols = () => {
-			return createArray(1, 12).reduce((obj, item) => {
+		const generateNamedColEnd = (items) => {
+			return items.reduce((obj, item) => {
+				const className = `.end-${item}`;
+
+				return {
+					...obj,
+					[className]: {
+						"grid-column-end": item,
+					},
+				};
+			}, {});
+		};
+
+		const generateColEnd = (items) => {
+			return items.reduce((obj, item) => {
 				const className = `.end-col-${item}`;
 
 				return {
 					...obj,
-					[`.layout > ${className}`]: {
+					[className]: {
 						"grid-column-end": `col-end ${item}`,
 					},
 				};
 			}, {});
+		};
+
+		const generateGrid = (cols) => {
+			const length = cols - 1;
+			const middle = length * 0.5;
+
+			return {
+				"--layout-grid-cols": `${cols}`,
+				"--layout-container": createArray(0, length).reduce((string, item) => {
+					if (item === 0) {
+						return "[container-start col-start] var(--layout-col) [col-end] var(--layout-gutter-x, 0rem)";
+					} else if (item === length) {
+						return `${string} [col-start] var(--layout-col) [container-end col-end]`;
+					}
+
+					let startName = "";
+					let endName = "";
+
+					if (item === middle) {
+						startName = "center-start";
+						endName = "center-end";
+					} else if (item < middle) {
+						startName = `span-${item}-start`;
+					} else if (item > middle) {
+						endName = `span-${length - item}-end`;
+					}
+
+					return `${string} [col-start ${startName}] var(--layout-col) [col-end ${endName}] var(--layout-gutter-x, 0rem)`;
+				}, ""),
+			};
+		};
+
+		const generateGrids = () => {
+			return createArray(2, maxCols)
+				.reverse()
+				.reduce((obj, cols) => {
+					const grid = generateGrid(cols);
+					const className = `.grid-${cols}`;
+
+					return {
+						...obj,
+						[className]: grid,
+					};
+				}, {});
+		};
+
+		const generateDefaultGrid = () => {
+			return parseBreakpoints(theme, grid, (value) => {
+				return generateGrid(value);
+			});
 		};
 
 		const generateGutterValues = () => {
@@ -169,87 +191,148 @@ module.exports = plugin.withOptions((options = {}) => {
 
 				return {
 					...obj,
-					[`[class*="grid-"]${className}`]: {
+					[className]: {
 						"--layout-gutter-x": value,
 					},
 				};
 			}, {});
 		};
 
-		const colNames = ["bound-x", "fill", "burst", "pop", "container"];
+		const generateDivides = () => {
+			return createArray(2, maxCols)
+				.reverse()
+				.reduce((obj, item) => {
+					return {
+						...obj,
+						...createArray(0, item - 1).reduce((obj2, item2) => {
+							const start = item - item2;
+							const child = item2 === 0 ? `${item}n` : `${item}n-${item2}`;
+
+							return {
+								...obj2,
+								[`.grid-${item}.divide > *:nth-child(${child})`]: {
+									"--layout-grid-col-start": `${start}`,
+								},
+							};
+						}, {}),
+					};
+				}, {});
+		};
+
+		const generateDefaultDivides = () => {
+			return parseBreakpoints(theme, grid, (value) => {
+				return {
+					...createArray(0, value - 1).reduce((obj, item) => {
+						return {
+							...obj,
+							[`.grid-default.divide > *:nth-child(${value}n-${item})`]: {
+								"--layout-grid-col-start": `${value - item}`,
+							},
+						};
+					}, {}),
+				};
+			});
+		};
+
+		const spanColNames = createArray(1, Math.floor(maxCols * 0.5) - 1).map((item) => `span-${item}`);
+		const colNumbers = createArray(1, maxCols);
+		const allColNames = ["bound", "fill", "burst", "pop", "container", "center", ...spanColNames];
 
 		addUtilities({
 			".layout": {
+				"--layout-bound-l": "0rem",
+				"--layout-bound-r": "0rem",
+				"--layout-bound-x": "var(--layout-bound-l, 0rem) - var(--layout-bound-r, 0rem)",
 				"--layout-container-width": containerWidth,
 				"--layout-burst": `minmax(0, ${burstWidth})`,
 				"--layout-pop": `minmax(0, ${popWidth})`,
-				"--layout-container": `min(var(--layout-container-width), 100% - var(--layout-bound-l, 0rem) - var(--layout-bound-r, 0rem))`,
+				"--layout-container": `[container-start] min(var(--layout-container-width), 100% - var(--layout-bound-x)) [container-end]`,
 				display: "grid",
-				"row-gap": "var(--layout-gutter-y, 0rem)",
 				"grid-template-columns": `
-					[bound-x-start] var(--layout-bound-l, 0rem)
+					[bound-start] var(--layout-bound-l, 0rem)
 					[fill-start] minmax(0rem, 1fr)
 					[burst-start] var(--layout-burst)
 					[pop-start] var(--layout-pop)
-					[container-start] var(--layout-container) [container-end]
+					var(--layout-container)
 					var(--layout-pop) [pop-end]
 					var(--layout-burst) [burst-end]
 					minmax(0rem, 1fr) [fill-end]
-					var(--layout-bound-r, 0rem) [bound-x-end]
-				`,
-				"grid-template-rows": `
-					[bound-y-start] var(--layout-bound-t, 0rem)
-					[fill-start] minmax(0rem, 1fr) [fill-end]
-					var(--layout-bound-b, 0rem) [bound-y-end]
+					var(--layout-bound-r, 0rem) [bound-end]
 				`,
 			},
 			".layout > *": {
-				"grid-row": "fill",
 				"grid-column": "container",
 			},
-			".layout.bound": {
+			".bound": {
 				...generateBound(["--layout-bound-t", "--layout-bound-b", "--layout-bound-l", "--layout-bound-r"]),
+				"padding-top": "var(--layout-bound-t)",
+				"padding-bottom": "var(--layout-bound-b)",
 			},
-			".layout.bound-y": {
+			".bound:not(.layout)": {
+				"padding-left": "var(--layout-bound-l)",
+				"padding-right": "var(--layout-bound-r)",
+			},
+			".bound-y": {
 				...generateBound(["--layout-bound-t", "--layout-bound-b"]),
+				"padding-top": "var(--layout-bound-t)",
+				"padding-bottom": "var(--layout-bound-b)",
 			},
-			".layout.bound-x": {
+			".bound-x": {
 				...generateBound(["--layout-bound-l", "--layout-bound-r"]),
 			},
-			".layout.bound-t": {
+			".bound-x:not(.layout)": {
+				"padding-left": "var(--layout-bound-l)",
+				"padding-right": "var(--layout-bound-r)",
+			},
+			".bound-t": {
 				...generateBound(["--layout-bound-t"]),
+				"padding-top": "var(--layout-bound-t)",
 			},
-			".layout.bound-b": {
+			".bound-b": {
 				...generateBound(["--layout-bound-b"]),
+				"padding-bottom": "var(--layout-bound-b)",
 			},
-			".layout.bound-l": {
+			".bound-l": {
 				...generateBound(["--layout-bound-l"]),
 			},
-			".layout.bound-r": {
-				...generateBound(["--layout-bound-r"]),
+			".bound-l:not(.layout)": {
+				"padding-left": "var(--layout-bound-l)",
+			},
+			".bound-r": {
+				...generateBound(["--layout-bound-l"]),
+			},
+			".bound-r:not(.layout)": {
+				"padding-right": "var(--layout-bound-r)",
 			},
 			...generateContainers(),
+			"[class*='grid-']": {
+				"--layout-grid-offset": "calc((var(--layout-grid-cols) - 1) * var(--layout-gutter-x, 0rem))",
+				"--layout-grid-width-max": "calc(var(--layout-container-width) - var(--layout-grid-offset))",
+				"--layout-grid-width-min": "calc(100% - var(--layout-grid-offset) - var(--layout-bound-x))",
+				"--layout-col":
+					"min(var(--layout-grid-width-max) / var(--layout-grid-cols), var(--layout-grid-width-min) / var(--layout-grid-cols))",
+			},
 			...generateGrids(),
-			'.layout[class*="grid-"]': {
-				"--layout-container": `0 var(--layout-grid) 0`,
-			},
-			'[class*="grid-"].gutter': {
-				...generateGutter(["--layout-gutter-x", "--layout-gutter-y"]),
-			},
-			'[class*="grid-"].gutter-x': {
+			".grid-default": generateDefaultGrid(),
+			".gutter-x": {
 				...generateGutter(["--layout-gutter-x"]),
 			},
 			...generateGutterValues(),
-			'[class*="grid-"].gutter-y': {
-				...generateGutter(["--layout-gutter-y"]),
+			".join > *": {
+				"grid-row": "1 / 2",
 			},
-			...generateStretch(colNames),
-			...generateStretchSpanCols(),
-			...generateStretchCols(),
-			...generateStart(colNames),
-			...generateStartCols(),
-			...generateEnd(colNames),
-			...generateEndCols(),
+			".divide > *": {
+				"grid-column-start": "col-start var(--layout-grid-col-start, 1)",
+				"grid-column-end": "span 1",
+			},
+			...generateDefaultDivides(),
+			...generateDivides(),
+			...generateNamedColStretch(allColNames),
+			...generateColStretch(colNumbers),
+			...generateNamedColStart(allColNames),
+			...generateColStart(colNumbers),
+			...generateNamedColEnd(allColNames),
+			...generateColEnd(colNumbers),
 		});
 	};
 });

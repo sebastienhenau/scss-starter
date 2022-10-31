@@ -6,57 +6,116 @@
 		<title>(S)CSS Starter</title>
 	</head>
 	<body>
-		<!-- <main class="layout">
-			<section class="fill-full grid-2 gap-1 grid-rows-3">
-				<div class="start-full end-col-1" style="background-color: yellow">shape</div>
-
-				<div class="fill-col-2" style="background-color: green">content</div>
-
-				<div class="fill-col-1" style="background-color: red">image</div>
-			</section>
-
-			<section class="fill-full grid-12 gap">
-				<div class="start-full end-col-3" style="background-color: yellow">shape</div>
-
-				<div class="start-col-4 end-col-12" style="background-color: green">content</div>
-
-				<div class="start-col-1 end-col-3" style="background-color: red">image</div>
-			</section>
-		</main> -->
-
-		<main class="layout bound container-3">
-			<div class="" style="background-color: lightgrey; min-height: 50px"></div>
-		</main>
-
-		<main class="layout bound bound-x bound-y bound-t bound-b bound-l bound-r">
-			<div class="stretch-full"></div>
-			<div class="stretch-burst"></div>
-			<div class="stretch-pop"></div>
-			<div class="stretch-container"></div>
-			<div class="start-full"></div>
-			<div class="start-burst"></div>
-			<div class="start-pop"></div>
-			<div class="start-container"></div>
-			<div class="end-full"></div>
-			<div class="end-burst"></div>
-			<div class="end-pop"></div>
-			<div class="end-container"></div>
-
-			<div class="stretch-full layout grid-12 col-gutter row-gutter">
-				<div class="stretch-col-1"></div>
-				<div class="start-col-1 end-col-6"></div>
-				<div class="stretch-span-1"></div>
-				<div class="stretch-span-2"></div>
-			</div>
-
-			<!-- THIS -->
-			<div class="stretch-full layout grid-8 col-gutter-3 [gap-y-3] [grid-rows-3]"></div>
-			<div class="stretch-full layout grid-6 gutter"></div>
-
-			<div class="stretch-full layout container-1"></div>
-			<div class="stretch-full layout container-2"></div>
-			<div class="stretch-full layout container-3"></div>
-		</main>
+		<!--
+		<div class="layout"></div>
+		<div class="bound"></div>
+		<div class="bound-x"></div>
+		<div class="bound-y"></div>
+		<div class="bound-t"></div>
+		<div class="bound-b"></div>
+		<div class="bound-l"></div>
+		<div class="bound-r"></div>
+		<div class="bound-r"></div>
+		<div class="stretch-fill"></div>
+		<div class="stretch-burst"></div>
+		<div class="stretch-pop"></div>
+		<div class="stretch-container"></div>
+		<div class="stretch-center"></div>
+		<div class="stretch-span-1"></div>
+		<div class="stretch-span-2"></div>
+		<div class="stretch-span-3"></div>
+		<div class="stretch-span-4"></div>
+		<div class="stretch-span-5"></div>
+		<div class="stretch-col-1"></div>
+		<div class="stretch-col-2"></div>
+		<div class="stretch-col-3"></div>
+		<div class="stretch-col-4"></div>
+		<div class="stretch-col-5"></div>
+		<div class="stretch-col-6"></div>
+		<div class="stretch-col-7"></div>
+		<div class="stretch-col-8"></div>
+		<div class="stretch-col-9"></div>
+		<div class="stretch-col-10"></div>
+		<div class="stretch-col-11"></div>
+		<div class="stretch-col-12"></div>
+		<div class="start-fill"></div>
+		<div class="start-burst"></div>
+		<div class="start-pop"></div>
+		<div class="start-container"></div>
+		<div class="start-center"></div>
+		<div class="start-span-1"></div>
+		<div class="start-span-2"></div>
+		<div class="start-span-3"></div>
+		<div class="start-span-4"></div>
+		<div class="start-span-5"></div>
+		<div class="start-col-1"></div>
+		<div class="start-col-2"></div>
+		<div class="start-col-3"></div>
+		<div class="start-col-4"></div>
+		<div class="start-col-5"></div>
+		<div class="start-col-6"></div>
+		<div class="start-col-7"></div>
+		<div class="start-col-8"></div>
+		<div class="start-col-9"></div>
+		<div class="start-col-10"></div>
+		<div class="start-col-11"></div>
+		<div class="start-col-12"></div>
+		<div class="end-fill"></div>
+		<div class="end-burst"></div>
+		<div class="end-pop"></div>
+		<div class="end-container"></div>
+		<div class="end-center"></div>
+		<div class="end-span-1"></div>
+		<div class="end-span-2"></div>
+		<div class="end-span-3"></div>
+		<div class="end-span-4"></div>
+		<div class="end-span-5"></div>
+		<div class="end-col-1"></div>
+		<div class="end-col-2"></div>
+		<div class="end-col-3"></div>
+		<div class="end-col-4"></div>
+		<div class="end-col-5"></div>
+		<div class="end-col-6"></div>
+		<div class="end-col-7"></div>
+		<div class="end-col-8"></div>
+		<div class="end-col-9"></div>
+		<div class="end-col-10"></div>
+		<div class="end-col-11"></div>
+		<div class="end-col-12"></div>
+		<div class="grid-12"></div>
+		<div class="grid-11"></div>
+		<div class="grid-10"></div>
+		<div class="grid-9"></div>
+		<div class="grid-8"></div>
+		<div class="grid-7"></div>
+		<div class="grid-6"></div>
+		<div class="grid-5"></div>
+		<div class="grid-4"></div>
+		<div class="grid-3"></div>
+		<div class="grid-2"></div>
+		<div class="gutter-x"></div>
+		<div class="gutter-x-1"></div>
+		<div class="gutter-x-2"></div>
+		<div class="join"></div>
+		<div class="grid-default"></div>
+		<div class="container-1"></div>
+		<div class="container-2"></div>
+		<div class="container-3"></div>
+		<div class="container-4"></div>
+		<div class="container-5"></div>
+		<div class="grid-12 divide"></div>
+		<div class="grid-11 divide"></div>
+		<div class="grid-10 divide"></div>
+		<div class="grid-9 divide"></div>
+		<div class="grid-8 divide"></div>
+		<div class="grid-7 divide"></div>
+		<div class="grid-6 divide"></div>
+		<div class="grid-5 divide"></div>
+		<div class="grid-4 divide"></div>
+		<div class="grid-3 divide"></div>
+		<div class="grid-2 divide"></div>
+		<div class="grid-default divide"></div>
+		-->
 
 		<script type="module" src="/scripts/main.ts"></script>
 	</body>

@@ -1,6 +1,5 @@
 module.exports = {
 	fullBleed: require("./fullBleed"),
-	container: require("./container"),
 	cssVariables: require("./cssVariables"),
 	flow: require("./flow"),
 	fontStyles: require("./fontStyles"),

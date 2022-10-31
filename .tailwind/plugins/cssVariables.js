@@ -25,35 +25,47 @@ module.exports = plugin(
 	({ addBase, theme }) => {
 		addBase({
 			":root": {
-				...generateCssVariables(theme("cssVariables.spacing"), "space"),
-				...generateCssVariables(theme("cssVariables.fontFamily"), "font-family"),
-				...generateCssVariables(theme("cssVariables.fontSize"), "font-size"),
-				...generateCssVariables(theme("cssVariables.colors"), "color"),
+				...(theme("cssVariables.spacing") ? generateCssVariables(theme("cssVariables.spacing"), "space") : {}),
+				...(theme("cssVariables.fontFamily")
+					? generateCssVariables(theme("cssVariables.fontFamily"), "font-family")
+					: {}),
+				...(theme("cssVariables.fontSize")
+					? generateCssVariables(theme("cssVariables.fontSize"), "font-size")
+					: {}),
+				...(theme("cssVariables.colors") ? generateCssVariables(theme("cssVariables.colors"), "color") : {}),
 			},
 		});
 	},
 	{
 		theme: {
 			spacing: ({ theme }) => {
-				return assignCssVariables(theme("cssVariables.spacing"), "space", ({ key, name }) => {
-					return `var(--${name}-${key})`;
-				});
+				return theme("cssVariables.spacing")
+					? assignCssVariables(theme("cssVariables.spacing"), "space", ({ key, name }) => {
+							return `var(--${name}-${key})`;
+					  })
+					: {};
 			},
 			fontFamily: ({ theme }) => {
-				return assignCssVariables(theme("cssVariables.fontFamily"), "font-family", ({ key, name }) => {
-					return `var(--${name}-${key})`;
-				});
+				return theme("cssVariables.fontFamily")
+					? assignCssVariables(theme("cssVariables.fontFamily"), "font-family", ({ key, name }) => {
+							return `var(--${name}-${key})`;
+					  })
+					: {};
 			},
 			fontSize: ({ theme }) => {
-				return assignCssVariables(theme("cssVariables.fontSize"), "font-size", ({ key, name }) => {
-					return `var(--${name}-${key})`;
-				});
+				return theme("cssVariables.fontSize")
+					? assignCssVariables(theme("cssVariables.fontSize"), "font-size", ({ key, name }) => {
+							return `var(--${name}-${key})`;
+					  })
+					: {};
 			},
 			colors: ({ theme }) => {
 				// TODO: <alpha-value>
-				return assignCssVariables(theme("cssVariables.colors"), "color", ({ key, name }) => {
-					return `hsl(var(--${name}-${key}))`;
-				});
+				return theme("cssVariables.colors")
+					? assignCssVariables(theme("cssVariables.colors"), "color", ({ key, name }) => {
+							return `hsl(var(--${name}-${key}))`;
+					  })
+					: {};
 			},
 		},
 	}
